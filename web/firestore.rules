@@ -1,0 +1,25 @@
+rules_version = '2';
+// Seules les adresses e-mail listées dans la collection « autorises »
+// (un document par adresse, ID du document = l'adresse e-mail) ont accès.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function autorise() {
+      return request.auth != null
+        && request.auth.token.email != null
+        && exists(/databases/$(database)/documents/autorises/$(request.auth.token.email));
+    }
+
+    match /programmes/{id} {
+      allow read, write: if autorise();
+      match /historique/{h} {
+        allow read, create: if autorise();
+        allow update, delete: if false;    // l'historique ne peut pas être modifié
+      }
+    }
+
+    // la liste des autorisés se gère uniquement depuis la console Firebase
+    match /autorises/{email} {
+      allow read, write: if false;
+    }
+  }
+}

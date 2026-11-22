@@ -1,0 +1,111 @@
+ROTATIONS – APPLICATION TABLETTE ANDROID v2.1.0
+=============================================
+
+INSTALLATION SUR LA TABLETTE
+  1. Copiez  Rotations-2.1.0.apk  sur la tablette (câble USB, e-mail,
+     Google Drive, WhatsApp…) et touchez le fichier.
+  2. Android demande d'autoriser l'installation depuis cette source
+     (« Sources inconnues ») : touchez « Paramètres » → activez → retour.
+  3. Si Play Protect affiche « Application non vérifiée » :
+     « Plus de détails » → « Installer quand même ».
+     (Normal : l'application n'est pas publiée sur le Play Store.)
+  Android 5.0 ou plus récent. Fonctionne aussi sur téléphone.
+
+RELIER LA TABLETTE AU PC (une seule fois)
+  1. PC et tablette sur le MÊME Wi-Fi, logiciel ouvert sur le PC.
+  2. Sur le PC : menu Synchronisation → Tablette / Wi-Fi
+     → notez l'adresse (ex. 192.168.1.20:8765) et le code à 6 chiffres.
+  3. Sur la tablette : la fenêtre « Synchronisation avec le PC » s'ouvre
+     au premier lancement (sinon : bouton Wi-Fi en haut à droite).
+     → « Rechercher le PC sur le Wi-Fi » puis touchez le PC trouvé
+       (ou tapez l'adresse)
+     → tapez le code → « Tester et enregistrer ».
+  4. L'indicateur en haut à droite affiche « Synchronisé avec le PC ».
+
+FONCTIONNEMENT
+  • Même interface que le logiciel PC : propositions de villes et d'heures,
+    remplissage instantané, escales modifiables, contrôles, impression.
+  • Les modifications passent du PC à la tablette et inversement
+    automatiquement (toutes les 2-3 secondes).
+  • Sans Wi-Fi (ou PC éteint) : la tablette continue de fonctionner, ses
+    modifications sont gardées et envoyées au retour sur le Wi-Fi.
+  • Si le programme a été modifié des deux côtés entre-temps, la tablette
+    demande quelle version garder ; l'autre est conservée dans
+    « Fichier & avions » → « Restaurer une sauvegarde ».
+  • Impression : bouton Imprimer → choisissez l'imprimante ou
+    « Enregistrer au format PDF ».
+  • Plusieurs tablettes peuvent être reliées au même PC.
+
+COMPTEUR DE FRÉQUENCES (bouton « Fréquences »)
+  • Tableau : une ligne par destination, les 7 jours et le total de la semaine.
+  • Pour tous les avions, un type d'avion (ERJ / Beechcraft) ou un seul avion,
+    sur le programme affiché (programme type ou semaine datée).
+  • Une fréquence = une rotation qui dessert la destination (la base n'est pas
+    comptée). Survol (PC) ou toucher (tablette) d'un chiffre : avions et heures.
+  • PC : « Copier (Excel) » pour coller le tableau dans Excel.
+
+RÈGLE : MÊME TYPE D'AVION, PAS LA MÊME DESTINATION À LA MÊME HEURE
+  • Deux avions du même type (ex. les deux ERJ.145, ou les deux BEECHCRAFT 1900)
+    ne doivent pas aller à la même destination au même moment le même jour.
+  • Tout conflit est signalé : case « Escale » en rouge + message dans
+    « Contrôles » (avec l'autre avion et ses heures).
+  • Les propositions de destination placent en dernier celles déjà prises par
+    un avion du même type à cette heure-là.
+
+PROGRAMME PAR DÉFAUT
+  • Une nouvelle installation démarre avec le programme par défaut des 4 avions
+    (ERJ.145, ERJ.145 - AVION 2, BEECHCRAFT 1900 CARGO et PASSAGERS).
+  • Tout est modifiable : les modifications sont enregistrées automatiquement.
+  • Pour y revenir : Fichier & avions → Revenir au programme par
+    défaut (les semaines datées sont conservées).
+
+AVIONS : AJOUTER ET CLONER
+  • « Ajouter un avion » : nom, base, type (reprend les durées de vol d'un avion
+    existant) et programme de départ (vide ou copie d'un autre avion).
+  • « Cloner » : copie le programme affiché (programme type ou semaine datée) sur
+    les avions cochés ; option « recalculer les heures » avec les durées de vol
+    de chaque avion (utile entre ERJ et Beechcraft).
+  • Contrôles : une durée de vol anormale (ex. 5 mn au lieu de 55 mn) est signalée.
+
+SEMAINES DATÉES ET HISTORIQUE
+  • Barre « Programme » (en haut) :
+      Programme type (sans date)  ou  Semaine du 16/11/2026 au 22/11/2026 …
+  • ◀ ▶ : semaine précédente / suivante (création proposée si elle n'existe pas).
+  • Nouvelle semaine : choisir la date, puis remplir à partir du
+    programme type, d'une autre semaine (copie) ou vide.
+  • Historique : toutes les semaines enregistrées → Ouvrir, Envoyer
+    (PDF), Dupliquer vers une autre semaine, Supprimer.
+  • Le programme type (sans date) reste disponible comme avant.
+  • Impression, PDF et Envoyer : la semaine affichée, ou celle choisie dans la
+    fenêtre « Envoyer » ; les dates apparaissent dans le titre et les jours.
+
+ENVOYER LE PDF PAR WHATSAPP OU E-MAIL (bouton « Envoyer »)
+  • Choisissez le tableau affiché ou tous les avions, puis WhatsApp ou E-mail.
+  • C'est le PDF du tableau (en couleurs) qui est envoyé, rien d'autre.
+  • WhatsApp : choisissez la conversation → Envoyer.
+  • E-mail : la messagerie s'ouvre avec le PDF joint → destinataire → Envoyer.
+  • « Autre application… » : Drive, Bluetooth, Fichiers…
+
+SEMAINE TYPE DAKHLA AIR CONNECT (heures UTC)
+  • Intégrée automatiquement dans les jours vides (cargo, 2e ERJ, mardi et
+    jeudi des autres avions). Les jours déjà remplis ne sont pas modifiés.
+  • Pour tout remplacer par la semaine type : Fichier & avions → Semaine type.
+
+SI « PC INJOIGNABLE »
+  • Vérifiez que la tablette est sur le même Wi-Fi que le PC (pas en 4G,
+    pas sur un Wi-Fi « invité » qui isole les appareils).
+  • Le logiciel doit être ouvert sur le PC.
+  • Pare-feu Windows : autorisez « ProgrammeRotations » sur les réseaux
+    privés (Panneau de configuration → Pare-feu Windows Defender →
+    Autoriser une application). Le réseau Wi-Fi du PC doit être de type
+    « Privé » (Paramètres → Réseau → propriétés du Wi-Fi).
+  • L'adresse du PC peut changer après un redémarrage de la box :
+    refaites « Rechercher le PC ».
+
+POUR LE DÉVELOPPEUR / MISES À JOUR
+  Dossier source : Rotations_Android_source.zip
+  • build.sh construit l'APK sous Linux (Ubuntu) sans Android Studio.
+  • rotations.keystore + keystore.properties = CLÉ DE SIGNATURE.
+    À CONSERVER PRÉCIEUSEMENT ET NE PAS DIFFUSER : une mise à jour doit être
+    signée avec la même clé pour s'installer par-dessus l'ancienne version
+    sans perdre les données de la tablette.

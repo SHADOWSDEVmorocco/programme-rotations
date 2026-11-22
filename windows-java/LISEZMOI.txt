@@ -1,0 +1,99 @@
+PROGRAMME DES ROTATIONS – VERSION JAVA 2.7.0
+============================================
+
+INSTALLATION (Windows 10 / 11, 64 bits)
+  1. Décompressez  ProgrammeRotations-Windows.zip  (clic droit → Extraire tout),
+     par exemple dans  C:\ProgrammeRotations  ou sur le Bureau.
+  2. Double-cliquez sur  ProgrammeRotations.exe.
+     Rien d'autre à installer : Java est fourni dans le dossier « runtime ».
+  3. Facultatif : clic droit sur ProgrammeRotations.exe → Envoyer vers →
+     Bureau (créer un raccourci).
+  Ne déplacez pas le .exe seul : il doit rester à côté des dossiers « app » et
+  « runtime » (déplacez le dossier entier).
+
+  Au premier lancement, Windows peut afficher « Windows a protégé votre
+  ordinateur » (programme non signé) : « Informations complémentaires » →
+  « Exécuter quand même ». Le pare-feu peut demander l'accès réseau (pour la
+  tablette) : cochez « Réseaux privés » → « Autoriser l'accès ».
+
+VOS DONNÉES
+  Les données de la version précédente sont reprises automatiquement
+  (même fichier : %APPDATA%\ProgrammeRotations\programme.json).
+  Enregistrement automatique + 20 copies de sécurité (sous-dossier
+  « sauvegardes »). Fichier → Ouvrir le dossier des sauvegardes.
+
+FONCTIONS
+  • Onglets : ERJ.145, ERJ.145 - AVION 2, BEECHCRAFT 1900 CARGO,
+    BEECHCRAFT 1900 PASSAGERS (Programme → Ajouter un avion pour d'autres).
+  • Propositions : cliquez dans une case → liste des choix les plus probables
+    (tapez quelques lettres pour filtrer, Entrée pour valider).
+  • Remplissage instantané : choisissez la destination (colonne « Escale ») →
+    départ, arrivée, heures et escale se remplissent tout seuls.
+  • Heures au format HH:MM (0700, 7h00 → 07:00). Modifier une heure décale
+    les suivantes. Escale (jaune) et Esc. base (bleu) modifiables (ex. 75).
+  • Escale mini / Esc. base mini (alertes) : en haut de l'onglet de chaque avion.
+  • Contrôles : escales trop courtes, chevauchements, heures invalides…
+  • Semaine type Dakhla Air Connect : Programme → Semaine type.
+  • F5 compléter · Ctrl+P imprimer · Ctrl+E PDF · Ctrl+M envoyer ·
+    Ctrl+Z / Ctrl+Y annuler / rétablir · F1 aide.
+
+COMPTEUR DE FRÉQUENCES (bouton « Fréquences »)
+  • Tableau : une ligne par destination, les 7 jours et le total de la semaine.
+  • Pour tous les avions, un type d'avion (ERJ / Beechcraft) ou un seul avion,
+    sur le programme affiché (programme type ou semaine datée).
+  • Une fréquence = une rotation qui dessert la destination (la base n'est pas
+    comptée). Survol (PC) ou toucher (tablette) d'un chiffre : avions et heures.
+  • PC : « Copier (Excel) » pour coller le tableau dans Excel.
+
+RÈGLE : MÊME TYPE D'AVION, PAS LA MÊME DESTINATION À LA MÊME HEURE
+  • Deux avions du même type (ex. les deux ERJ.145, ou les deux BEECHCRAFT 1900)
+    ne doivent pas aller à la même destination au même moment le même jour.
+  • Tout conflit est signalé : case « Escale » en rouge + message dans
+    « Contrôles » (avec l'autre avion et ses heures).
+  • Les propositions de destination placent en dernier celles déjà prises par
+    un avion du même type à cette heure-là.
+
+PROGRAMME PAR DÉFAUT
+  • Une nouvelle installation démarre avec le programme par défaut des 4 avions
+    (ERJ.145, ERJ.145 - AVION 2, BEECHCRAFT 1900 CARGO et PASSAGERS).
+  • Tout est modifiable : les modifications sont enregistrées automatiquement.
+  • Pour y revenir : Fichier → Revenir au programme par défaut
+    (les semaines datées sont conservées ; Ctrl+Z pour annuler).
+
+AVIONS : AJOUTER ET CLONER
+  • « Ajouter un avion » : nom, base, type (reprend les durées de vol d'un avion
+    existant) et programme de départ (vide ou copie d'un autre avion).
+  • « Cloner » : copie le programme affiché (programme type ou semaine datée) sur
+    les avions cochés ; option « recalculer les heures » avec les durées de vol
+    de chaque avion (utile entre ERJ et Beechcraft).
+  • Contrôles : une durée de vol anormale (ex. 5 mn au lieu de 55 mn) est signalée.
+
+SEMAINES DATÉES ET HISTORIQUE
+  • Barre « Programme » (sous la barre d'outils) :
+      Programme type (sans date)  ou  Semaine du 16/11/2026 au 22/11/2026 …
+  • ◀ ▶ : semaine précédente / suivante (création proposée si elle n'existe pas).
+  • Nouvelle semaine (Ctrl+N) : choisir la date, puis remplir à partir du
+    programme type, d'une autre semaine (copie) ou vide.
+  • Historique (Ctrl+H) : toutes les semaines enregistrées → Ouvrir, Exporter
+    en PDF, Dupliquer vers une autre semaine, Supprimer.
+  • Le programme type (sans date) reste disponible comme avant.
+  • Impression, PDF et Envoyer : la semaine affichée, ou celle choisie dans la
+    fenêtre « Envoyer » ; les dates apparaissent dans le titre et les jours.
+
+ENVOYER LE PDF PAR WHATSAPP OU E-MAIL (bouton « Envoyer » ou Ctrl+M)
+  Choisissez le tableau affiché ou tous les avions, puis un des 2 gros boutons.
+  C'est le PDF du tableau (en couleurs, comme l'impression) qui est envoyé.
+  • E-mail : votre messagerie (Outlook, Thunderbird…) s'ouvre avec le PDF DÉJÀ
+    JOINT → ajoutez le destinataire → Envoyer.
+    (Messagerie web : le PDF est copié → Ctrl+V dans le message.)
+  • WhatsApp : WhatsApp s'ouvre et le PDF est copié → ouvrez la conversation →
+    Ctrl+V → Envoyer.
+  • PDF enregistrés dans Documents\Programme des rotations.
+
+TABLETTE ANDROID (même Wi-Fi)
+  L'application tablette (Rotations-2.1.0.apk) fonctionne avec cette version
+  sans changement : Synchronisation → Tablette / Wi-Fi affiche l'adresse et le
+  code à saisir sur la tablette.
+
+SANS LE DOSSIER « runtime » (Java déjà installé, version 17 ou plus)
+  Double-cliquez sur  app\ProgrammeRotations.jar  (Windows, Mac ou Linux).

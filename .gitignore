@@ -1,0 +1,15 @@
+# fichiers produits par la construction
+windows-java/build/
+windows-java/runtime-win/
+android/build/
+android/assets/
+*.apk
+*.class
+# CLÉ DE SIGNATURE ANDROID : ne jamais publier
+*.keystore
+*.jks
+keystore.properties
+# divers
+node_modules/
+__pycache__/
+.DS_Store

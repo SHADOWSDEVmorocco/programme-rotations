@@ -1,0 +1,11 @@
+{
+  "name": "programme-rotations-web",
+  "version": "1.3.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/core.test.mjs",
+    "serve": "firebase emulators:start --only hosting",
+    "deploy": "npm test && firebase deploy"
+  }
+}
