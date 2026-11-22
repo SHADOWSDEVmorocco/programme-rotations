@@ -13,7 +13,7 @@ synchronisation Wi-Fi entre le PC et la tablette.
 | `web/` | Interface commune (tablette, navigateur) et version en ligne **Firebase** – voir `LISEZMOI-DEPLOIEMENT.txt` |
 
 ## Télécharger
-Les fichiers prêts à installer sont dans **Releases** : `ProgrammeRotations-Windows.zip` (PC, Java inclus) et
+Les fichiers prêts à installer sont dans le dossier **`telechargements/`** : `ProgrammeRotations-Windows.zip` (PC, Java inclus) et
 `Rotations-x.y.z.apk` (tablette).
 
 ## Construire
