@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adoris Store – maquette UX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE work: a UX review for the shop owner, with a clickable-looking model of the new shop
+   IDEA a design agency's before/after board: the real screen today beside the proposed screen
+   PICTURE pairs of phone frames, current screenshot vs redesigned mock-up, step by step
+   COLOUR white ground, near-black ink, Adoris gold #a87a1f; inside phones: shop black, sale red, WhatsApp green
+   TYPE Jost (logo-like) + Inter
+   LAYOUT finding + journey chart on top; each step = avant | après | notes; then patterns table and dev notes */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#121110);--ink:light-dark(#141312,#f1eee7);--mut:light-dark(#5d5a55,#b4afa6);--line:light-dark(#e3e0da,#34312d);--card:light-dark(#f6f4ef,#1c1a18);--gold:light-dark(#a87a1f,#d9a947);--bad:light-dark(#c3291c,#ff6b5c);--good:light-dark(#1f7a4d,#5fd19a)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:Jost,Futura,system-ui,sans-serif;font-weight:600;letter-spacing:-.02em;line-height:1.08;margin:0}
+h1{font-size:clamp(30px,4.6vw,48px);text-wrap:balance;max-width:21ch}
+h2{font-size:clamp(24px,3vw,32px);margin-bottom:12px;text-wrap:balance}
+h3{font-size:20px;margin-bottom:8px}
+.band{padding:clamp(28px,4vw,60px) max(5vw,16px)}
+.wrap{max-width:1200px;margin:0 auto}
+.top{background:#111;color:#f4f1ea}
+.top .who{color:#cdbb8f;margin:0 0 14px;font-size:15px}
+.top .lead{font-size:18px;max-width:64ch;color:#dcd7cc;margin:16px 0 0}
+.journey{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:20px 48px;margin-top:30px}
+.jr h3{color:#fff;font-size:18px;margin-bottom:10px}
+.steps{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.steps span{background:#2a2724;color:#e9e4da;border-radius:6px;padding:6px 10px;font-size:14px;white-space:nowrap}
+.steps.new span{background:#d9a947;color:#111;font-weight:600}
+.steps i{color:#8a8378;font-style:normal}
+.jr p{color:#cfc9bd;font-size:14px;margin:10px 0 0}
+.alt{background:var(--card)}
+.step{display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:clamp(18px,3vw,40px);align-items:start}
+.col{display:grid;gap:10px;justify-items:center}
+.lab{font-size:14px;font-weight:600;padding:3px 12px;border-radius:999px;color:#fff}
+.lab.av{background:var(--bad)}.lab.ap{background:var(--good)}
+.phone{width:280px;height:580px;border:9px solid #111;border-radius:34px;overflow:hidden;position:relative;background:#fff;color:#141312;font:12.5px/1.4 Inter,system-ui,sans-serif;box-shadow:0 1px 0 #0001}
+.phone>img.shot{width:100%;display:block}
+.notes ul{margin:0;padding-left:1.1em;display:grid;gap:8px}
+.notes .why{color:var(--mut);font-size:15px;margin-top:12px}
+/* mock-up internals: fixed light shop colours */
+.m-pro{background:#111;color:#f3e7c9;font-size:10.5px;text-align:center;padding:5px 6px;white-space:nowrap;overflow:hidden}
+.m-hd{display:flex;align-items:center;justify-content:space-between;padding:8px 12px}
+.m-logo{font:600 19px/1 Jost,sans-serif;letter-spacing:.04em}.m-logo small{display:block;font-size:7.5px;letter-spacing:.35em;text-align:center;font-weight:500}
+.m-ic{display:flex;gap:12px;font-size:16px}
+.m-search{margin:0 12px 8px;border:1.5px solid #111;border-radius:8px;padding:7px 10px;color:#777;font-size:12px}
+.m-chips{display:flex;gap:6px;padding:0 12px 8px;overflow:hidden}
+.m-chips b{flex:none;border:1px solid #d6d3cd;border-radius:999px;padding:4px 10px;font-weight:500;font-size:11.5px}
+.m-chips b.on{background:#111;color:#fff;border-color:#111}
+.m-hero{margin:0 12px;border-radius:12px;background:linear-gradient(120deg,#1a1715,#3b3026);color:#fff;display:grid;grid-template-columns:1fr 92px;align-items:center;padding:12px;gap:6px}
+.m-hero h4{font:600 17px/1.1 Jost,sans-serif;margin:0}.m-hero p{margin:4px 0 8px;color:#e3d6b8;font-size:11px}
+.m-hero em{font-style:normal;white-space:nowrap;background:#d9a947;color:#111;font-weight:600;border-radius:6px;padding:5px 9px;font-size:11px}
+.m-hero img{width:92px;height:92px;object-fit:cover;border-radius:8px}
+.m-sec{display:flex;justify-content:space-between;align-items:baseline;padding:10px 12px 6px;font:600 14px Jost,sans-serif}.m-sec a{font:500 11px Inter;color:#a87a1f}
+.m-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px}
+.m-card{position:relative}
+.m-card img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px;background:#f2f0ec;display:block}
+.m-card .t{font-size:11.5px;margin-top:4px;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.m-card .st{color:#b8860b;font-size:10.5px}.m-card .st span{color:#777}
+.m-card .pr{font-weight:600;font-size:13px}.m-card .pr s{color:#999;font-weight:400;font-size:11px;margin-left:4px}
+.m-card .dl{color:#1f7a4d;font-size:10.5px}
+.m-badge{position:absolute;top:6px;left:6px;background:#c3291c;color:#fff;font-size:10px;font-weight:600;border-radius:4px;padding:2px 5px}
+.m-tab{position:absolute;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #e6e3de;display:flex;justify-content:space-around;padding:8px 0 10px;font-size:10px;color:#444;text-align:center}
+.m-tab b{display:block;font-size:15px;font-weight:400}
+.m-fbar{display:flex;gap:6px;padding:8px 12px;border-bottom:1px solid #eee;position:sticky;top:0;background:#fff}
+.m-fbar b{border:1px solid #d6d3cd;border-radius:6px;padding:4px 8px;font-weight:500;font-size:11px;white-space:nowrap}
+.m-crumb{padding:8px 12px 2px;font-size:11px;color:#777}.m-h{padding:0 12px 6px;font:600 18px Jost,sans-serif}.m-h span{font:400 11px Inter;color:#777;margin-left:6px}
+.m-gal{position:relative}.m-gal img{width:100%;height:190px;object-fit:cover;display:block;background:#f2f0ec}
+.m-dots{position:absolute;bottom:8px;left:0;right:0;text-align:center;color:#111;letter-spacing:3px;font-size:10px}
+.m-pad{padding:10px 12px}
+.m-pad h5{font:500 15px/1.2 Jost,sans-serif;margin:0}
+.m-price{display:flex;gap:8px;align-items:baseline;margin-top:4px}.m-price b{font-size:20px}.m-price s{color:#999}.m-price em{font-style:normal;background:#c3291c;color:#fff;border-radius:4px;padding:1px 5px;font-size:11px;font-weight:600}
+.m-prom{background:#f4f8f5;border:1px solid #cfe3d6;border-radius:8px;padding:7px 9px;margin-top:8px;display:grid;gap:3px;font-size:11.5px}
+.m-prom div::before{content:"✓ ";color:#1f7a4d;font-weight:700}
+.m-sw{display:flex;gap:6px;margin-top:8px;align-items:center;font-size:11.5px}.m-sw i{width:22px;height:22px;border-radius:50%;display:inline-block;border:2px solid #fff;outline:1.5px solid #ccc}.m-sw i.on{outline:2px solid #111}
+.m-up{border:1.5px dashed #a87a1f;border-radius:8px;padding:7px 9px;margin-top:8px;display:flex;gap:8px;align-items:center;font-size:11.5px}.m-up b{margin-left:auto;white-space:nowrap}
+.m-box{width:14px;height:14px;border:1.5px solid #111;border-radius:3px;flex:none}
+.m-sticky{position:absolute;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #e6e3de;padding:8px 10px 10px;display:grid;grid-template-columns:1fr 44px;gap:8px}
+.m-btn{background:#111;color:#fff;border-radius:8px;text-align:center;padding:11px 6px;font-weight:600;font-size:13px}
+.m-wa{background:#25d366;border-radius:8px;display:grid;place-items:center;color:#fff;font-weight:700;font-size:11px}
+.m-sheet{position:absolute;inset:0;background:#0007;display:flex;align-items:flex-end}
+.m-sheet .in{background:#fff;width:100%;border-radius:16px 16px 0 0;padding:12px}
+.m-sheet h6{font:600 15px Jost,sans-serif;margin:0 0 8px;display:flex;justify-content:space-between}
+.m-mini{display:flex;gap:8px;align-items:center;background:#f6f4ef;border-radius:8px;padding:6px;margin-bottom:8px;font-size:11.5px}.m-mini img{width:40px;height:40px;border-radius:6px;object-fit:cover}.m-mini b{margin-left:auto;white-space:nowrap}
+.m-f{border:1px solid #cfcac2;border-radius:7px;padding:8px 9px;margin-bottom:6px;color:#888;font-size:12px}.m-f.v{color:#111}
+.m-f small{display:block;color:#777;font-size:10px}
+.m-pay{border:2px solid #111;border-radius:8px;padding:7px 9px;margin:8px 0;display:flex;gap:8px;align-items:center;font-size:12px}.m-pay i{width:14px;height:14px;border-radius:50%;border:4px solid #111;flex:none}
+.m-tot{display:grid;grid-template-columns:1fr auto;font-size:11.5px;gap:2px;margin-bottom:8px}.m-tot .g{font-weight:600;font-size:13px}
+.m-note{font-size:10.5px;color:#666;text-align:center;margin-top:6px}
+.m-ok{padding:40px 18px;text-align:center}.m-ok .c{width:64px;height:64px;border-radius:50%;background:#1f7a4d;color:#fff;font-size:32px;display:grid;place-items:center;margin:0 auto 14px}
+.m-ok h5{font:600 19px Jost,sans-serif;margin:0 0 6px}
+.m-ok .bx{background:#f6f4ef;border-radius:10px;padding:10px;text-align:left;margin-top:14px;font-size:12px;display:grid;gap:4px}
+table.pt{width:100%;border-collapse:collapse;font-size:15px}
+table.pt th{text-align:left;border-bottom:2px solid var(--ink);padding:8px;color:var(--mut);font-weight:600}
+table.pt td{border-bottom:1px solid var(--line);padding:10px 8px;vertical-align:top}
+.prio{white-space:nowrap;font-weight:600}
+.scroll{overflow-x:auto}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(24px,4vw,48px)}
+.small{font-size:14px;color:var(--mut)}
+code{font-size:14px;overflow-wrap:anywhere}
+@media(max-width:980px){.step{grid-template-columns:auto auto}.notes{grid-column:1/-1}}
+@media(max-width:640px){.step{grid-template-columns:minmax(0,1fr);justify-items:center}.notes{justify-self:stretch}
+table.pt thead{display:none}table.pt tr{display:grid;padding:8px 0;border-bottom:1px solid var(--line)}table.pt td{border:0;padding:3px 0}}
+@media print{.band{break-inside:auto}.step{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header class="band top"><div class="wrap">
+<p class="who">Revue UI/UX · adoristore.ma sur mobile · 23 novembre 2026</p>
+<h1>Moins de décor, plus de raisons d'acheter : la boutique repensée pour la commande à la livraison</h1>
+<p class="lead">Le site actuel ressemble à un magazine de mode : beau, mais il cache le prix, la livraison et la confiance. Pas besoin de copier Amazon : on garde votre identité noir et blanc, et on reprend les réflexes d'Amazon et de Jumia qui font commander. Voici la maquette écran par écran.</p>
+<div class="journey">
+<div class="jr"><h3>Aujourd'hui : 4 écrans et 5 champs obligatoires pour commander</h3>
+<div class="steps"><span>Fiche produit</span><i>›</i><span>Ajouter au panier</span><i>›</i><span>Mini-panier « Commander »</span><i>›</i><span>Page « Checkout »</span><i>›</i><span>Nom, adresse, province, téléphone, e-mail</span><i>›</i><span>Décocher la carte, choisir « à la livraison »</span><i>›</i><span>Valider</span></div>
+<p>Les frais de livraison n'apparaissent qu'à la fin, et le bouton dit « Continuer sur PayPal ».</p></div>
+<div class="jr"><h3>Proposé : 1 écran et 4 champs</h3>
+<div class="steps new"><span>Fiche produit</span><i>›</i><span>Commander</span><i>›</i><span>Nom, téléphone, ville, adresse</span><i>›</i><span>Confirmer</span></div>
+<p>Paiement à la livraison déjà choisi, total livraison comprise affiché avant de confirmer, confirmation par WhatsApp.</p></div>
+</div>
+</div></header>
+
+<section class="band"><div class="wrap">
+<h2>1. Accueil : montrer des produits et la promesse dès le premier écran</h2>
+<div class="step">
+<div class="col"><span class="lab av">Avant</span><div class="phone"><img class="shot" src="img/avant-accueil.jpg" alt="Accueil actuel : vidéo plein écran avec le mot Montres"></div></div>
+<div class="col"><span class="lab ap">Après</span><div class="phone">
+<div class="m-pro">Paiement à la livraison · Livré en 24–48 h · Gratuit dès 500 Dhs</div>
+<div class="m-hd"><span class="m-ic">☰</span><div class="m-logo">ADORIS<small>STORE</small></div><span class="m-ic">♡ 🛍</span></div>
+<div class="m-search">🔍 Chercher une montre, une marque…</div>
+<div class="m-chips"><b class="on">Hommes</b><b>Femmes</b><b>Smartwatch</b><b>Lunettes</b><b>Coffrets</b></div>
+<div class="m-hero"><div><h4>Montres dès 150 Dhs</h4><p>Gravure offerte dès 500 Dhs</p><em>Découvrir</em></div><img src="img/p2.jpg" alt=""></div>
+<div class="m-sec">Meilleures ventes <a>Tout voir</a></div>
+<div class="m-grid">
+<div class="m-card"><span class="m-badge">-25%</span><img src="img/p1.jpg" alt=""><div class="t">NIBOSI étanche chrono</div><div class="st">★★★★★ <span>(38)</span></div><div class="pr">299 Dhs<s>399</s></div></div>
+<div class="m-card"><img src="img/p3.jpg" alt=""><div class="t">REWARD femme acier</div><div class="st">★★★★☆ <span>(21)</span></div><div class="pr">230 Dhs</div></div>
+</div>
+<div class="m-tab"><span><b>⌂</b>Accueil</span><span><b>▦</b>Catégories</span><span><b>🛍</b>Panier</span><span><b>💬</b>WhatsApp</span></div>
+</div></div>
+<div class="notes"><h3>Ce qui change</h3><ul>
+<li>Un bandeau noir avec les 3 promesses qui font acheter au Maroc : paiement à la livraison, délai, livraison gratuite.</li>
+<li>Barre de recherche visible et catégories en boutons, comme Jumia : on choisit en un geste.</li>
+<li>La vidéo plein écran est remplacée par un bandeau compact avec un prix d'appel ; les produits apparaissent dès le premier écran.</li>
+<li>Grille 2 colonnes avec prix, remise et avis.</li>
+<li>WhatsApp passe dans la barre du bas au lieu d'une bulle qui cache les boutons.</li>
+</ul><p class="why">Pourquoi : sur téléphone, le visiteur décide en quelques secondes s'il reste. Aujourd'hui, il ne voit ni produit ni prix avant de faire défiler.</p></div>
+</div>
+</div></section>
+
+<section class="band alt"><div class="wrap">
+<h2>2. Catégorie : 2 colonnes, filtres visibles, prix justes</h2>
+<div class="step">
+<div class="col"><span class="lab av">Avant</span><div class="phone"><img class="shot" src="img/avant-categorie.jpg" alt="Catégorie actuelle : grand bandeau puis un produit par écran"></div></div>
+<div class="col"><span class="lab ap">Après</span><div class="phone">
+<div class="m-hd"><span class="m-ic">‹</span><div class="m-logo">ADORIS<small>STORE</small></div><span class="m-ic">🔍 🛍</span></div>
+<div class="m-crumb">Montres › Hommes</div>
+<div class="m-h">Montres hommes<span>86 modèles</span></div>
+<div class="m-fbar"><b>Trier ▾</b><b>Prix ▾</b><b>Marque ▾</b><b>Chrono</b><b>Acier</b></div>
+<div class="m-grid" style="margin-top:8px">
+<div class="m-card"><span class="m-badge">-25%</span><img src="img/p1.jpg" alt=""><div class="t">NIBOSI étanche chrono</div><div class="st">★★★★★ <span>(38)</span></div><div class="pr">299 Dhs<s>399</s></div><div class="dl">Livré demain à Casa</div></div>
+<div class="m-card"><img src="img/p4.jpg" alt=""><div class="t">NAVIFORCE sport</div><div class="st">★★★★☆ <span>(17)</span></div><div class="pr">240 Dhs</div><div class="dl">Livré demain à Casa</div></div>
+<div class="m-card"><img src="img/p6.jpg" alt=""><div class="t">SKMEI solaire digitale</div><div class="st">★★★★☆ <span>(12)</span></div><div class="pr">150 Dhs</div><div class="dl">Livré demain à Casa</div></div>
+<div class="m-card"><span class="m-badge">-17%</span><img src="img/p7.jpg" alt=""><div class="t">Montre strass lumineuse</div><div class="st">★★★★★ <span>(9)</span></div><div class="pr">249 Dhs<s>299</s></div><div class="dl">Livré demain à Casa</div></div>
+</div>
+<div class="m-tab"><span><b>⌂</b>Accueil</span><span><b>▦</b>Catégories</span><span><b>🛍</b>Panier</span><span><b>💬</b>WhatsApp</span></div>
+</div></div>
+<div class="notes"><h3>Ce qui change</h3><ul>
+<li>Le grand bandeau et le texte de présentation passent en bas de page (Google les lit quand même).</li>
+<li>4 produits visibles par écran au lieu d'un seul.</li>
+<li>Filtres en boutons fixés en haut : prix, marque, style.</li>
+<li>La phrase « Ce produit a plusieurs variations… » sous chaque produit disparaît.</li>
+<li>Les 21 prix cassés (BENYAR, MINI FOCUS, ex. « 799.799.335.335 Dhs ») sont corrigés avant tout le reste.</li>
+</ul><p class="why">Pourquoi : on compare plusieurs montres avant d'en choisir une. Plus on en voit d'un coup, plus on trouve vite celle qui plaît.</p></div>
+</div>
+</div></section>
+
+<section class="band"><div class="wrap">
+<h2>3. Fiche produit : tout ce qui rassure à côté du bouton</h2>
+<div class="step">
+<div class="col"><span class="lab av">Avant</span><div class="phone"><img class="shot" src="img/avant-produit.jpg" alt="Fiche produit actuelle"></div></div>
+<div class="col"><span class="lab ap">Après</span><div class="phone">
+<div class="m-gal"><img src="img/p1.jpg" alt=""><div class="m-dots">● ○ ○ ○ ○</div></div>
+<div class="m-pad">
+<h5>NIBOSI – Montre chronographe étanche, acier doré</h5>
+<div class="st" style="color:#b8860b;font-size:11.5px">★★★★★ <span style="color:#777">4,8 · 38 avis</span></div>
+<div class="m-price"><b>299 Dhs</b><s>399 Dhs</s><em>-25%</em></div>
+<div class="m-prom"><div>Paiement à la livraison</div><div>Livré demain à Casa, 48 h ailleurs</div><div>Échange 7 jours · garantie 6 mois</div></div>
+<div class="m-sw">Couleur : <i class="on" style="background:#c9a24a"></i><i style="background:#222"></i><i style="background:#bbb"></i></div>
+<div class="m-up"><span class="m-box"></span>Ajouter une gravure (prénom, date)<b>+50 Dhs</b></div>
+</div>
+<div class="m-sticky"><div class="m-btn">Commander · 299 Dhs</div><div class="m-wa">WA</div></div>
+</div></div>
+<div class="notes"><h3>Ce qui change</h3><ul>
+<li>Note et nombre d'avis juste sous le titre, comme Amazon. Les avis se collectent par WhatsApp après chaque livraison.</li>
+<li>Encadré vert sous le prix : paiement à la livraison, délai, échange et garantie. Aujourd'hui, cette information n'est nulle part sur la fiche.</li>
+<li>Couleurs en pastilles au lieu de la vignette « yellow ».</li>
+<li>Gravure à +50 Dhs proposée sur la fiche : vous avez déjà ce service, c'est le complément de vente le plus naturel.</li>
+<li>Barre fixe en bas : « Commander » et WhatsApp toujours visibles pendant le défilement.</li>
+<li>Titre réécrit et description courte en français ; le SKU AliExpress n'est plus affiché.</li>
+</ul><p class="why">Pourquoi : pour une montre à 300 Dhs payée à la réception, le client hésite surtout sur « est-ce sérieux ? ». La réponse doit être à côté du bouton.</p></div>
+</div>
+</div></section>
+
+<section class="band alt"><div class="wrap">
+<h2>4. Commande express : 4 champs, paiement à la livraison par défaut</h2>
+<div class="step">
+<div class="col"><span class="lab av">Avant</span><div class="phone"><img class="shot" src="img/avant-paiement.jpg" alt="Paiement actuel : carte bancaire cochée, bouton Continuer sur PayPal"></div></div>
+<div class="col"><span class="lab ap">Après</span><div class="phone">
+<div class="m-gal" style="filter:brightness(.55)"><img src="img/p1.jpg" alt=""></div>
+<div class="m-sheet"><div class="in">
+<h6>Finaliser ma commande <span>✕</span></h6>
+<div class="m-mini"><img src="img/p1.jpg" alt=""><div>NIBOSI chrono doré<br><span style="color:#777">Doré · gravure « Karim »</span></div><b>349 Dhs</b></div>
+<div class="m-f v"><small>Nom complet</small>Karim Benali</div>
+<div class="m-f v"><small>Téléphone (WhatsApp)</small>06 12 34 56 78</div>
+<div class="m-f v"><small>Ville</small>Casablanca ▾</div>
+<div class="m-f"><small>Adresse</small>Quartier, rue, numéro</div>
+<div class="m-pay"><i></i>Paiement à la livraison</div>
+<div class="m-tot"><span>Sous-total</span><span>349 Dhs</span><span>Livraison Casablanca</span><span>20 Dhs</span><span class="g">Total à payer à la réception</span><span class="g">369 Dhs</span></div>
+<div class="m-btn">Confirmer la commande</div>
+<div class="m-note">Nous vous confirmons par WhatsApp dans l'heure</div>
+</div></div>
+</div></div>
+<div class="notes"><h3>Ce qui change</h3><ul>
+<li>Le formulaire s'ouvre directement sur la fiche, sans passer par le panier (le « Acheter maintenant » d'Amazon).</li>
+<li>4 champs seulement ; l'e-mail devient facultatif.</li>
+<li>Vraie liste de villes au lieu des provinces (« Fahs-Beni Makada », « Marrakech-Ménara »).</li>
+<li>Paiement à la livraison choisi d'office ; carte et PayPal restent possibles en lien discret.</li>
+<li>Frais de livraison et total affichés avant de confirmer.</li>
+<li>Tout en français : plus de « Checkout », « Name », « Payment ».</li>
+</ul><p class="why">Pourquoi : chaque écran et chaque champ en plus fait perdre des acheteurs. C'est l'étape où l'on gagne le plus de commandes.</p></div>
+</div>
+</div></section>
+
+<section class="band"><div class="wrap">
+<h2>5. Après la commande : rassurer et éviter les colis refusés</h2>
+<div class="step">
+<div class="col"><span class="lab ap">Après</span><div class="phone"><div class="m-ok"><div class="c">✓</div><h5>Merci Karim, c'est commandé !</h5><p style="margin:0;color:#555">Commande n° A-1024</p>
+<div class="bx"><div><b>Total à payer à la réception :</b> 369 Dhs</div><div><b>Livraison prévue :</b> demain, Casablanca</div><div><b>Confirmation :</b> message WhatsApp dans l'heure</div></div>
+<div class="m-btn" style="margin-top:14px;background:#25d366">Suivre sur WhatsApp</div>
+<div class="m-sec" style="padding:14px 0 6px">Souvent achetés ensemble</div>
+<div class="m-mini"><img src="img/p8.jpg" alt=""><div>Coffret cadeau Adoris</div><b>+49 Dhs</b></div>
+</div></div></div>
+<div class="notes"><h3>Ce qui change</h3><ul>
+<li>Page de remerciement claire : numéro, total à payer, date de livraison.</li>
+<li>Confirmation par WhatsApp ou appel avant l'expédition : c'est ce qui réduit le plus les colis refusés.</li>
+<li>Proposition d'un coffret ou d'un deuxième article à ajouter avant l'envoi.</li>
+</ul><p class="why">Pourquoi : avec le paiement à la livraison, une commande ne rapporte que si le colis est accepté. Une confirmation rapide filtre les fausses commandes.</p></div>
+</div>
+<p class="small" style="margin-top:22px">Maquette indicative : les notes, nombres d'avis, délais, garanties, prix barrés et le client « Karim » sont des exemples de mise en page, à remplacer par vos vraies informations. Les photos produits viennent de votre site.</p>
+</div></section>
+
+<section class="band alt"><div class="wrap">
+<h2>Ce qu'on prend à Amazon et Jumia, et ce qu'on laisse</h2>
+<div class="scroll"><table class="pt">
+<thead><tr><th>Réflexe</th><th>Version Adoris</th><th>Priorité</th></tr></thead>
+<tbody>
+<tr><td>Promesse de livraison sous le prix</td><td>« Paiement à la livraison · Livré demain à Casa · Échange 7 jours »</td><td class="prio">Semaine 1</td></tr>
+<tr><td>Paiement court</td><td>4 champs, e-mail facultatif, paiement à la livraison par défaut, total affiché</td><td class="prio">Semaine 1</td></tr>
+<tr><td>Bouton d'achat toujours visible</td><td>Barre fixe « Commander » + WhatsApp sur mobile</td><td class="prio">Semaine 2</td></tr>
+<tr><td>Grille dense et filtres</td><td>2 colonnes, filtres en boutons fixés en haut</td><td class="prio">Semaine 2</td></tr>
+<tr><td>Avis clients avec photos</td><td>Demande d'avis par WhatsApp après livraison</td><td class="prio">Mois 1</td></tr>
+<tr><td>« Acheter maintenant »</td><td>Formulaire express sur la fiche produit</td><td class="prio">Mois 1</td></tr>
+<tr><td>« Souvent achetés ensemble »</td><td>Gravure +50 Dhs, coffret cadeau, bracelet de rechange</td><td class="prio">Mois 1</td></tr>
+<tr><td>À ne pas copier</td><td>Pages surchargées, méga-menus, publicités. À retirer aussi : comparateur, devise USD, liste de souhaits mise en avant</td><td class="prio">—</td></tr>
+</tbody></table></div>
+</div></section>
+
+<section class="band"><div class="wrap two">
+<div><h2>Pour le développeur</h2>
+<ul>
+<li>Pas de changement de plateforme : WooCommerce et le thème Konte suffisent, avec des réglages et des petits gabarits dans le thème enfant.</li>
+<li>Commande express : un plugin de formulaire de commande à la livraison sur la fiche produit, ou un tunnel une page (ex. Fluid Checkout). Retirer l'obligation de l'e-mail et des champs inutiles via les filtres <code>woocommerce_checkout_fields</code>.</li>
+<li>Paiement à la livraison en premier et sélectionné : ordre des moyens de paiement dans WooCommerce › Réglages › Paiements.</li>
+<li>Liste de villes : remplacer les provinces par les villes desservies par le transporteur, avec les zones de livraison à 20 / 50 Dhs.</li>
+<li>Avis : « Customer Reviews for WooCommerce » ou équivalent, avec rappel après livraison.</li>
+<li>Barre fixe mobile et grille 2 colonnes : options du thème Konte ou CSS dans le thème enfant.</li>
+<li>Corriger d'abord les 21 prix enregistrés en double (l'API de la boutique renvoie <code>79979933533500</code>) ; suspect : le plugin de devise WOOCS.</li>
+</ul></div>
+<div><h2>Comment savoir si ça marche</h2>
+<ul>
+<li>Installer Microsoft Clarity (gratuit) avant les changements, pour voir où les visiteurs cliquent et abandonnent.</li>
+<li>Suivre chaque semaine 3 chiffres : visiteurs qui commandent (taux de conversion), paniers abandonnés et commandes acceptées à la livraison.</li>
+<li>Changer une étape à la fois (paiement d'abord, puis fiche produit) pour savoir ce qui a fait la différence.</li>
+</ul>
+<p class="small">Revue faite sur les pages publiques le 23/11/2026, avec un téléphone simulé (Pixel 7), sans passer de commande. Version ordinateur non revue en détail.</p></div>
+</div></section>
+</body>
+</html>
