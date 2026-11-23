@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Audit Adoris – propriétaire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE work: a calm report for the shop owner, plain words
+   IDEA a watch shop's display case: black frame, white card, gold price tag
+   PICTURE counts of points to fix per site, drawn as stacked bars by urgency
+   COLOUR white ground, near-black ink, Adoris gold #a87a1f; urgency red/orange/grey with labels
+   TYPE Jost (close to the Adoris logo) + Inter
+   LAYOUT title and key figures on top, main chart full width, then 5 actions, then the good news */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#121110);--ink:light-dark(#141312,#f1eee7);--mut:light-dark(#5d5a55,#b4afa6);--line:light-dark(#e3e0da,#34312d);--card:light-dark(#f6f4ef,#1c1a18);--gold:light-dark(#a87a1f,#d9a947);--crit:light-dark(#c3291c,#ff6b5c);--high:light-dark(#d9730d,#f3a04a);--low:light-dark(#9b978f,#77736c)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:Jost,Futura,system-ui,sans-serif;font-weight:600;letter-spacing:-.02em;line-height:1.08;margin:0}
+h1{font-size:clamp(30px,4.6vw,48px);text-wrap:balance;max-width:22ch}
+h2{font-size:clamp(24px,3vw,32px);margin-bottom:14px;text-wrap:balance}
+h3{font-size:20px}
+.band{padding:clamp(28px,4vw,60px) max(5vw,16px)}
+.wrap{max-width:1160px;margin:0 auto}
+.top{background:#111;color:#f4f1ea}
+.top .who{color:#cdbb8f;margin:0 0 14px;font-size:15px}
+.top p.lead{font-size:18px;max-width:62ch;color:#dcd7cc;margin:16px 0 0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(11em,1fr));gap:12px;margin-top:28px}
+.kpi{border-top:2px solid #d9a947;padding-top:10px}
+.kpi b{display:block;font:600 clamp(28px,4vw,40px)/1 Jost,sans-serif;color:#fff;white-space:nowrap}
+.kpi span{font-size:14px;color:#cfc9bd}
+.chart{display:grid;gap:18px;margin-top:8px}
+.row{display:grid;grid-template-columns:9.5em minmax(0,1fr) 3em;gap:12px;align-items:center}
+.row .n{font-weight:600}
+.bar{display:flex;gap:2px;height:34px}
+.bar i{display:block;height:100%;border-radius:4px}
+.tot{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin:4px 0 18px;font-size:14px;color:var(--mut)}
+.legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.note{font-size:14px;color:var(--mut);margin-top:12px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(24px,4vw,48px)}
+.hb{display:grid;gap:10px;margin-top:10px}
+.hb .r{display:grid;grid-template-columns:8.5em minmax(0,1fr) 4.5em;gap:10px;align-items:center;font-size:15px}
+.hb .t{height:22px;background:var(--line);border-radius:4px;position:relative}
+.hb .t i{position:absolute;inset:0 auto 0 0;border-radius:4px;background:var(--ink)}
+.hb .t.goal i{background:var(--gold)}
+.hb .v{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:600}
+.alt{background:var(--card)}
+ol.acts{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+ol.acts li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;padding:16px 18px;background:var(--bg);border:1px solid var(--line);border-radius:10px}
+.tag{font-size:13px;font-weight:600;padding:3px 9px;border-radius:999px;color:#fff;white-space:nowrap;align-self:start}
+.acts p{margin:4px 0 0;color:var(--mut)}
+.who2{font-size:14px;margin-top:6px}
+ul.good{margin:0;padding-left:1.2em;display:grid;gap:6px}
+footer{font-size:14px;color:var(--mut)}
+@media(max-width:600px){.row{grid-template-columns:minmax(0,1fr) 2.5em}.row .n{grid-column:1/-1}.hb .r{grid-template-columns:minmax(0,1fr) 4.5em}.hb .r .l{grid-column:1/-1}.hb .t{grid-column:1}}
+</style>
+</head>
+<body>
+<header class="band top"><div class="wrap">
+<p class="who">Audit des sites adoristore.ma et adoris.ma · 23 novembre 2026</p>
+<h1>Les deux sites fonctionnent, mais la boutique perd des clients à cause d'erreurs faciles à corriger</h1>
+<p class="lead">La plupart des problèmes se corrigent en quelques heures. Les plus urgents sont visibles par vos clients dès la page d'accueil : un prix délirant, des liens qui mènent au mauvais endroit et une page qui s'affiche lentement sur téléphone.</p>
+<div class="kpis">
+<div class="kpi"><b id="k-crit">3</b><span>erreurs à corriger aujourd'hui</span></div>
+<div class="kpi"><b>10 Mo</b><span>poids de l'accueil de la boutique sur mobile (repère : moins de 2 Mo)</span></div>
+<div class="kpi"><b>63 / 125</b><span>photos de l'accueil sans description pour Google</span></div>
+<div class="kpi"><b>0</b><span>page de conditions de vente</span></div>
+</div>
+</div></header>
+
+<section class="band"><div class="wrap">
+<h2>La boutique concentre presque tous les problèmes urgents</h2>
+<div class="legend" id="lg"></div>
+<div class="chart" id="sev"></div>
+<p class="note">Nombre de points relevés pendant l'audit, classés par urgence. « Les deux » regroupe ce qui touche les deux sites en même temps.</p>
+</div></section>
+
+<section class="band alt"><div class="wrap two">
+<div>
+<h2>La boutique est cinq fois trop lourde</h2>
+<p>Plus une page est lourde, plus elle met de temps à s'ouvrir avec la 4G.</p>
+<div class="hb" id="weight"></div>
+</div>
+<div>
+<h2>Sur téléphone, il faut 7 à 9 secondes pour tout afficher</h2>
+<p>Au-delà de 3 secondes, une bonne partie des visiteurs quitte la page.</p>
+<div class="hb" id="speed"></div>
+</div>
+<p class="note" style="grid-column:1/-1">Mesures faites le 23/11/2026 avec un navigateur qui simule un téléphone, depuis un serveur hors du Maroc. Les chiffres réels peuvent être un peu différents, mais l'écart entre les deux sites est bien réel.</p>
+</div></section>
+
+<section class="band"><div class="wrap">
+<h2>Les 6 choses à faire, dans l'ordre</h2>
+<ol class="acts">
+<li><span class="tag" style="background:var(--crit)">Aujourd'hui</span><div><h3>Corriger le prix et les liens cassés de la boutique</h3><p>La montre MINI FOCUS MF3 s'affiche à « 749.749.349.349 Dhs ». Le lien « Livraison » mène vers une marque, le bouton Instagram ne mène pas à votre compte, « Devenir partenaire » ouvre une page en arabe.</p><div class="who2">Le développeur · moins d'une heure</div></div></li>
+<li><span class="tag" style="background:var(--crit)">Aujourd'hui</span><div><h3>Corriger les fautes et traduire les boutons restés en anglais</h3><p>« Toutube », « Engageament », « Add to wishlist », « Sign in »… Ces détails font douter de la qualité de la boutique.</p><div class="who2">Le développeur · 1 h 30</div></div></li>
+<li><span class="tag" style="background:var(--high)">Cette semaine</span><div><h3>Ajouter les conditions de vente et l'identité de l'entreprise</h3><p>Raison sociale, ICE, adresse, retours, garantie. Un client qui paie à la livraison veut savoir à qui il a affaire.</p><div class="who2">Vous fournissez les informations, le développeur crée les pages · 2 h</div></div></li>
+<li><span class="tag" style="background:var(--high)">Cette semaine</span><div><h3>Rendre la boutique plus rapide sur téléphone et mettre les sites à jour</h3><p>Alléger la page d'accueil (vidéo, produits affichés deux fois, trop de modules). Mettre à jour WordPress et la version PHP, qui ne reçoit plus de correctifs de sécurité.</p><div class="who2">Le développeur · ½ à 1 jour</div></div></li>
+<li><span class="tag" style="background:var(--low)">Ce mois-ci</span><div><h3>Réécrire les fiches des meilleures ventes</h3><p>Aujourd'hui, elles sont copiées d'AliExpress avec une traduction automatique (« Matériel des boîtes : Papier », « Certification : NONE »). Commencez par les 20 à 30 montres qui se vendent le plus, et arrondissez les prix (155 Dhs plutôt que 154,82 Dhs).</p><div class="who2">Vous ou une personne de l'équipe · 1 à 2 jours</div></div></li>
+<li><span class="tag" style="background:var(--low)">Ce mois-ci</span><div><h3>Relier les deux sites et clarifier le message</h3><p>Sur la boutique : « Vous êtes revendeur ? → adoris.ma ». Sur adoris.ma : un vrai bouton vers le catalogue grossiste. Présenter la boutique comme « montres tendance à petit prix » plutôt que « montres de luxe », et n'afficher « Distributeur officiel » que si vous pouvez le prouver.</p><div class="who2">Vous décidez du message, le développeur l'intègre · 1 h</div></div></li>
+</ol>
+</div></section>
+
+<section class="band alt"><div class="wrap two">
+<div>
+<h2>Ce qui marche déjà bien</h2>
+<ul class="good">
+<li>Les deux sites sont sécurisés (HTTPS) et s'affichent bien sur téléphone.</li>
+<li>Bouton WhatsApp visible et commande possible sur WhatsApp depuis la fiche produit.</li>
+<li>Paiement à la livraison, livraison claire : 20 Dhs à Casablanca, 50 Dhs ailleurs, gratuite dès 500 Dhs.</li>
+<li>Grand choix de produits bien rangés par catégorie et par marque.</li>
+<li>adoris.ma existe en français et en arabe, et se charge vite sur ordinateur.</li>
+<li>Un blog est lancé (3 articles utiles) et Google peut lire la liste des pages des deux sites.</li>
+</ul>
+</div>
+<div>
+<h2>Ce que ça peut rapporter</h2>
+<p>Corriger les erreurs visibles et accélérer la boutique, c'est ce qui coûte le moins et rapporte le plus vite : plus de visiteurs restent, et ceux qui restent font davantage confiance pour commander.</p>
+<p>Les fiches produits réécrites et les photos décrites aident ensuite Google à montrer vos montres quand quelqu'un cherche « montre homme Casablanca » ou « montre cadeau Maroc ».</p>
+<p>Le détail technique, point par point, est dans la version pour le développeur.</p>
+</div>
+</div></section>
+
+<footer class="band"><div class="wrap">Audit réalisé à partir des pages publiques des deux sites, sans accès à l'administration et sans commande test.</div></footer>
+
+<script src="issues.js"></script>
+<script>
+{
+const lv=[["Urgent",["critique"],"var(--crit)"],["Important",["haute"],"var(--high)"],["À planifier",["moyenne","basse"],"var(--low)"]];
+document.getElementById('lg').innerHTML=lv.map(l=>`<span style="--c:${l[2]}">${l[0]}</span>`).join('');
+const sites=["store","adoris","both"];
+const counts=sites.map(s=>lv.map(l=>ISSUES.filter(i=>i.site===s&&l[1].includes(i.sev)).length));
+const max=Math.max(...counts.map(c=>c.reduce((a,b)=>a+b,0)));
+document.getElementById('sev').innerHTML=sites.map((s,k)=>{const c=counts[k],t=c.reduce((a,b)=>a+b,0);
+ return `<div class="row"><div class="n">${SITE[s]}</div><div class="bar" style="width:${t/max*100}%">${c.map((v,j)=>v?`<i title="${lv[j][0]} : ${v}" style="flex:${v};background:${lv[j][2]}"></i>`:'').join('')}</div><div class="tot">${t}</div></div>`}).join('');
+document.getElementById('k-crit').textContent=ISSUES.filter(i=>i.sev==='critique').length;
+const hb=(id,rows,unit,fmt)=>{const m=Math.max(...rows.map(r=>r[1]));document.getElementById(id).innerHTML=rows.map(r=>`<div class="r"><span class="l">${r[0]}</span><div class="t${r[2]?' goal':''}"><i style="width:${r[1]/m*100}%"></i></div><span class="v">${fmt(r[1])} ${unit}</span></div>`).join('')};
+const mob=p=>PERF.find(x=>x.p===p&&x.dev==='Mobile');
+hb('weight',[["Boutique",mob("Accueil adoristore.ma").kb/1024],["adoris.ma",mob("Accueil adoris.ma").kb/1024],["Repère conseillé",2,1]],"Mo",v=>v.toFixed(1).replace('.',','));
+hb('speed',[["Fiche produit",mob("Fiche produit adoristore.ma").load/1000],["Accueil adoris.ma",mob("Accueil adoris.ma").load/1000],["Accueil boutique",mob("Accueil adoristore.ma").load/1000],["Repère conseillé",3,1]],"s",v=>v.toFixed(1).replace('.',','));
+}
+</script>
+</body>
+</html>

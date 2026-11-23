@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Audit Adoris – technique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+/* VOICE work: a technical punch list for the site developer
+   IDEA a watchmaker's service sheet: each defect, its evidence, the repair, the time
+   PICTURE severity × area matrix on top, then per-page performance bars
+   COLOUR white ground, ink, Adoris gold accent; severity red/orange/grey/light with text labels
+   TYPE Jost + Inter, mono for URLs and settings
+   LAYOUT title, figures, matrix; perf charts in two columns; filterable issues table; stack and method */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#121110);--ink:light-dark(#141312,#f1eee7);--mut:light-dark(#5d5a55,#b4afa6);--line:light-dark(#e3e0da,#34312d);--card:light-dark(#f6f4ef,#1c1a18);--gold:light-dark(#a87a1f,#d9a947);--critique:light-dark(#c3291c,#ff6b5c);--haute:light-dark(#d9730d,#f3a04a);--moyenne:light-dark(#8a867e,#8f8b83);--basse:light-dark(#c9c5bd,#55524c)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:Jost,Futura,system-ui,sans-serif;font-weight:600;letter-spacing:-.02em;line-height:1.08;margin:0}
+h1{font-size:clamp(30px,4.4vw,46px);text-wrap:balance;max-width:24ch}
+h2{font-size:clamp(22px,2.8vw,30px);margin-bottom:12px;text-wrap:balance}
+code,.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:13.5px;overflow-wrap:anywhere}
+.band{padding:clamp(28px,4vw,56px) max(5vw,16px)}
+.wrap{max-width:1200px;margin:0 auto}
+.top{background:#111;color:#f4f1ea}
+.top .who{color:#cdbb8f;margin:0 0 14px;font-size:15px}
+.top p.lead{font-size:17px;max-width:70ch;color:#dcd7cc;margin:14px 0 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(24px,4vw,48px)}
+.mx{width:100%;border-collapse:separate;border-spacing:3px;font-size:14px}
+.mx th{font-weight:600;text-align:left;color:var(--mut);padding:4px 6px}
+.mx td{text-align:center;height:40px;border-radius:5px;font-weight:600;font-variant-numeric:tabular-nums}
+.mx td.lab{text-align:left;font-weight:400;padding-left:6px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--mut);margin:10px 0}
+.legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.alt{background:var(--card)}
+.hb{display:grid;gap:8px;margin-top:8px}
+.hb .r{display:grid;grid-template-columns:13em minmax(0,1fr) 5.5em;gap:10px;align-items:center;font-size:14px}
+.hb .t{height:20px;background:var(--line);border-radius:4px;position:relative}
+.hb .t i{position:absolute;inset:0 auto 0 0;border-radius:4px;background:var(--ink)}
+.hb .t.ref i{background:var(--gold)}
+.hb .v{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:600}
+.note{font-size:14px;color:var(--mut)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 16px}
+.filters button{font:inherit;font-size:14px;min-height:40px;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.filters button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.scroll{overflow-x:auto}
+table.iss{width:100%;border-collapse:collapse;font-size:14.5px}
+table.iss th{text-align:left;font-weight:600;color:var(--mut);border-bottom:2px solid var(--ink);padding:8px 8px}
+table.iss td{border-bottom:1px solid var(--line);padding:10px 8px;vertical-align:top}
+.sev{display:inline-block;font-size:12.5px;font-weight:600;padding:2px 8px;border-radius:999px;color:#fff;white-space:nowrap}
+.sev.basse{color:#222}
+.id{font-weight:600;white-space:nowrap}
+.ev{color:var(--mut);font-size:13.5px;margin-top:4px}
+.eff{white-space:nowrap}
+table.perf{border-collapse:collapse;font-size:14px;width:100%}
+table.perf th,table.perf td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+table.perf th:first-child,table.perf td:first-child,table.perf td:nth-child(2),table.perf th:nth-child(2){text-align:left}
+dl.stack{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:6px 18px;margin:0;font-size:15px}
+dl.stack dt{color:var(--mut)}dl.stack dd{margin:0}
+pre{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px;overflow-x:auto;font-size:13px}
+@media(max-width:600px){.hb .r{grid-template-columns:minmax(0,1fr) 5.5em}.hb .r .l{grid-column:1/-1}
+table.iss thead{display:none}table.iss tr{display:grid;padding:10px 0;border-bottom:1px solid var(--line)}table.iss td{border:0;padding:3px 0}}
+</style>
+</head>
+<body>
+<header class="band top"><div class="wrap">
+<p class="who">Audit technique · adoristore.ma (WooCommerce) et adoris.ma (vitrine B2B) · 23 novembre 2026</p>
+<h1>26 corrections, dont 3 bloquantes et une boutique 5 fois trop lourde</h1>
+<p class="lead">Les deux sites sont des WordPress hébergés chez Hostinger (en-tête <code>server: hcdn</code>), sous PHP 8.1. Priorité : le prix cassé et les liens faux du footer de la boutique, puis la sécurité (PHP, WordPress d'adoris.ma), puis la performance de l'accueil boutique.</p>
+</div></header>
+
+<section class="band"><div class="wrap grid">
+<div>
+<h2>Points relevés, par domaine et par gravité</h2>
+<div class="legend" id="lg"></div>
+<div class="scroll"><table class="mx" id="mx"></table></div>
+</div>
+<div>
+<h2>Environnement relevé</h2>
+<dl class="stack">
+<dt>adoristore.ma</dt><dd>WordPress 6.8.13 · WooCommerce 10.7.0 · thème Konte (+ child) · WPBakery · Slider Revolution 6.7.3 · Yoast SEO · plugins : contact-form-7, creame-whatsapp-me, google-analytics-for-wordpress, konte-addons, wcboost-products-compare, wcboost-variation-swatches, wcboost-wishlist, woocommerce-currency-switcher, woocommerce-paypal-payments</dd>
+<dt>adoris.ma</dt><dd>WordPress 6.5.15 · thème Salient (salient-core, nectar-slider, portfolio) · WPBakery (version Salient) · Yoast SEO · contact-form-7 · creame-whatsapp-me · version arabe sous <code>/ar/</code></dd>
+<dt>Communs</dt><dd>PHP 8.1.34 (fin de support sécurité le 31/12/2025) · HTTPS OK · www → sans www en 301 · robots.txt Yoast ouvert · <code>sitemap_index.xml</code> OK · CSP limitée à <code>upgrade-insecure-requests</code></dd>
+</dl>
+</div>
+</div></section>
+
+<section class="band alt"><div class="wrap">
+<div class="grid">
+<div><h2>Poids transféré par page</h2><div class="hb" id="kb"></div></div>
+<div><h2>Chargement complet (événement load)</h2><div class="hb" id="ld"></div></div>
+</div>
+<div class="scroll" style="margin-top:28px"><table class="perf" id="perf"></table></div>
+<p class="note">Mesuré avec Chromium/Playwright (mobile = Pixel 7 simulé, ordinateur = 1366×850), 1 passage par page, depuis un serveur cloud hors du Maroc. Les scripts tiers (Google Tag Manager, TikTok…) étaient bloqués par le proxy de test : les vraies valeurs sont plus élevées. Le chargement de 19,9 s de l'accueil boutique sur ordinateur est probablement gonflé par ces blocages ; à recontrôler avec PageSpeed Insights. Le poids est la somme des <code>content-length</code> déclarés.</p>
+</div></section>
+
+<section class="band"><div class="wrap">
+<h2>Liste des corrections</h2>
+<div class="filters" id="flt" role="group" aria-label="Filtrer par site"></div>
+<div class="scroll"><table class="iss"><thead><tr><th>ID</th><th>Gravité</th><th>Site</th><th>Problème et preuve</th><th>Correction proposée</th><th>Durée</th></tr></thead><tbody id="tb"></tbody></table></div>
+</div></section>
+
+<section class="band alt"><div class="wrap grid">
+<div>
+<h2>En-têtes à ajouter (.htaccess, après tests)</h2>
+<pre><code>&lt;IfModule mod_headers.c&gt;
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header unset X-Powered-By
+&lt;/IfModule&gt;</code></pre>
+<p class="note">Et dans le thème enfant : <code>remove_action('wp_head','wp_generator');</code> ainsi que le filtre équivalent pour la balise generator de WooCommerce.</p>
+</div>
+<div>
+<h2>Plan de recette après corrections</h2>
+<ul>
+<li>PageSpeed Insights mobile sur l'accueil, une fiche produit et une catégorie de chaque site : viser LCP &lt; 2,5 s et une page d'accueil &lt; 2 Mo.</li>
+<li>Commande test complète (paiement à la livraison et PayPal), e-mails de confirmation compris.</li>
+<li>Crawl des liens (Screaming Frog, version gratuite) : 0 lien 404, 0 lien de footer faux.</li>
+<li>Google Search Console pour les deux domaines : soumettre <code>sitemap_index.xml</code> et vérifier la couverture.</li>
+<li>Test des données structurées Product sur 3 fiches (Rich Results Test).</li>
+<li>Sauvegarde complète avant toute mise à jour de PHP ou de WordPress.</li>
+</ul>
+</div>
+</div></section>
+
+<script src="issues.js"></script>
+<script>
+{
+const SV=["critique","haute","moyenne","basse"];
+document.getElementById('lg').innerHTML=SV.map(s=>`<span style="--c:var(--${s})">${SEV[s]}</span>`).join('');
+const areas=[...new Set(ISSUES.map(i=>i.area))].sort((a,b)=>ISSUES.filter(i=>i.area===b).length-ISSUES.filter(i=>i.area===a).length);
+document.getElementById('mx').innerHTML=`<tr><th>Domaine</th>${SV.map(s=>`<th>${SEV[s]}</th>`).join('')}<th>Total</th></tr>`+areas.map(a=>{const c=SV.map(s=>ISSUES.filter(i=>i.area===a&&i.sev===s).length);
+ return `<tr><td class="lab">${a}</td>${c.map((v,k)=>`<td style="${v?`background:color-mix(in srgb,var(--${SV[k]}) ${30+v*22}%,transparent)`:'color:var(--mut)'}">${v||'·'}</td>`).join('')}<td>${c.reduce((x,y)=>x+y,0)}</td></tr>`}).join('');
+document.querySelector('h1').textContent=`${ISSUES.length} corrections, dont ${ISSUES.filter(i=>i.sev==='critique').length} bloquantes et une boutique 5 fois trop lourde`;
+const hb=(id,rows,unit,fmt)=>{const m=Math.max(...rows.map(r=>r[1]));document.getElementById(id).innerHTML=rows.map(r=>`<div class="r"><span class="l">${r[0]}</span><div class="t${r[2]?' ref':''}"><i style="width:${r[1]/m*100}%"></i></div><span class="v">${fmt(r[1])} ${unit}</span></div>`).join('')};
+const short=p=>p.p.replace('adoristore.ma','boutique').replace('Accueil ','Accueil ').replace('Fiche produit ','Produit ')+' · '+(p.dev==='Mobile'?'mob.':'ord.');
+const fr=(v,d)=>v.toFixed(d).replace('.',',');
+hb('kb',[...PERF.map(p=>[short(p),p.kb/1024]),["Repère conseillé",2,1]],"Mo",v=>fr(v,1));
+hb('ld',[...PERF.map(p=>[short(p),p.load/1000]),["Repère conseillé",3,1]],"s",v=>fr(v,1));
+document.getElementById('perf').innerHTML=`<tr><th>Page</th><th>Appareil</th><th>Requêtes</th><th>Poids</th><th>1er affichage (FCP)</th><th>Load</th></tr>`+PERF.map(p=>`<tr><td>${p.p}</td><td>${p.dev}</td><td>${p.req}</td><td>${fr(p.kb/1024,1)} Mo</td><td>${fr(p.fcp/1000,1)} s</td><td>${fr(p.load/1000,1)} s</td></tr>`).join('');
+const F=[["all","Tout"],["store","adoristore.ma"],["adoris","adoris.ma"],["both","Les deux"]];let cur="all";
+const fl=document.getElementById('flt');
+const render=()=>{fl.innerHTML=F.map(f=>`<button type="button" data-f="${f[0]}" aria-pressed="${f[0]===cur}">${f[1]} (${f[0]==='all'?ISSUES.length:ISSUES.filter(i=>i.site===f[0]).length})</button>`).join('');
+ const list=ISSUES.filter(i=>cur==='all'||i.site===cur).sort((a,b)=>SV.indexOf(a.sev)-SV.indexOf(b.sev));
+ document.getElementById('tb').innerHTML=list.map(i=>`<tr><td class="id">${i.id}</td><td><span class="sev ${i.sev}" style="background:var(--${i.sev})">${SEV[i.sev]}</span></td><td>${SITE[i.site]}</td><td><b>${i.t}</b><div class="ev">${i.ev}</div></td><td>${i.fix}</td><td class="eff">${i.eff}</td></tr>`).join('')};
+fl.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;cur=b.dataset.f;render()});
+render();
+}
+</script>
+</body>
+</html>
