@@ -219,7 +219,7 @@ td.k{font-weight:600;width:28%}
 <div class="notes">
 <div class="note"><span class="n">1</span><div><b>Deux blocs numérotés</b><span class="why">Adresse de livraison, puis paiement : le client voit qu'il a presque fini.</span></div></div>
 <div class="note"><span class="n">2</span><div><b>4 champs, vraie liste de villes</b><span class="why">E-mail facultatif ; plus de provinces incompréhensibles.</span></div></div>
-<div class="note"><span class="n">3</span><div><b>Paiement à la livraison uniquement</b><span class="why">Aucune carte bancaire demandée : le client paie le livreur en espèces.</span></div></div>
+<div class="note"><span class="n">3</span><div><b>Paiement à la livraison</b><span class="why">Un seul mode de paiement, rien à choisir.</span></div></div>
 <div class="note"><span class="n">4</span><div><b>Récapitulatif avec code promo</b><span class="why">Les frais de livraison changent selon la ville choisie, le total est toujours visible.</span></div></div>
 </div>
 <div class="browser" style="margin:16px auto 0;width:72%"><div class="bar"><i></i><i></i><i></i><span>adoristore.ma/merci</span></div><img src="img/pc-merci.jpg" alt="Confirmation"></div>
@@ -327,7 +327,7 @@ const C=[["Écrans pour commander","depuis la fiche produit",4,1,""],["Champs ob
 const mx=5;
 document.getElementById('cmp').innerHTML=C.map(c=>`<div class="r"><div class="l">${c[0]}<small>${c[1]}</small></div><div class="bars"><div class="b av"><span>Avant</span><div class="t"><i style="width:${Math.max(c[2]/mx*100,6)}%">${c[2]}</i></div></div><div class="b ap"><span>Après</span><div class="t"><i style="width:${Math.max(c[3]/mx*100,6)}%">${c[3]}</i></div></div></div></div>`).join('');
 const ic=n=>`<span class="ic"><svg class="i"><use href="#i-${n}"/></svg></span>`;
-const A=[["cash","Paiement à la livraison uniquement","Achète sans risque, sans carte bancaire","Plus de commandes, aucun frais de paiement en ligne"],
+const A=[["cash","Paiement à la livraison","Achète sans risque","Plus de commandes, aucun frais de paiement en ligne"],
 ["truck","Délai et frais affichés partout","Sait quand et combien il paiera","Moins de questions et d'appels avant achat"],
 ["star","Notes et avis clients","Se fie à l'expérience des autres","Preuve sociale qui convertit les hésitants"],
 ["grid","Grille dense et filtres","Trouve vite la montre qui lui plaît","Plus de produits vus, plus de chances de vendre"],
