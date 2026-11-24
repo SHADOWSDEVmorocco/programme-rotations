@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adoris – plan d'intégration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&family=Jost:wght@600&display=swap" rel="stylesheet">
+<style>
+/* Action plan for Adoris: connect the new site to delivery, Attajir Pro and resellers.
+   Same identity as the new site: navy #0F2443, amber #F5B400. Diagrams drawn in SVG from data. */
+:root{color-scheme:light;--nav:#0F2443;--nav2:#1A3563;--amber:#F5B400;--ink:#17191C;--mut:#5C6168;--line:#DDE0E5;--bg:#EEF0F3;--ok:#1E7B45;--red:#C8372D;--blue:#2F5DA8}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:#fff;color:var(--ink);font:14px/1.5 Archivo,system-ui,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+h1,h2,h3{margin:0;letter-spacing:-.01em;line-height:1.15}
+h2{font-size:23px;font-weight:800;margin-bottom:6px}
+h3{font-size:15.5px;font-weight:700}
+p{margin:0 0 10px}
+.pg{padding:36px 42px;break-after:page}
+.pg:last-child{break-after:auto}
+.kick{font-size:13px;font-weight:700;color:#7A5600;margin-bottom:6px}
+.lead{color:#3a3e44;font-size:15px;max-width:74ch}
+.cover{background:var(--nav);color:#fff;height:296mm;overflow:hidden;display:flex;flex-direction:column;gap:18px}
+.logo{font:600 28px/1 Jost,sans-serif;letter-spacing:.07em}.logo small{display:block;font-size:8.5px;letter-spacing:.6em;margin-top:4px}
+.cover h1{font-size:36px;font-weight:800;max-width:22ch;line-height:1.1}
+.cover .lead{color:#C9D4E3}
+.figs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.fig{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:12px}
+.fig b{display:block;font-size:22px;color:var(--amber);line-height:1.15}
+.fig span{font-size:12.5px;color:#C9D4E3}
+.card{background:#fff;border-radius:10px;padding:14px}
+.dg svg{display:block;width:100%;height:auto}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:12px;color:var(--mut);margin-top:8px}
+.legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.meta{margin-top:auto;font-size:12.5px;color:#9FB0C8}
+.gantt{display:grid;grid-template-columns:190px repeat(7,minmax(0,1fr));border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:12.5px;margin-top:10px}
+.gantt div{padding:7px 8px;border-bottom:1px solid var(--line)}
+.gantt .h{background:var(--bg);font-weight:700;text-align:center}
+.gantt .h:first-child{text-align:left}
+.gantt .t{font-weight:700}
+.gantt .t small{display:block;font-weight:400;color:var(--mut)}
+.gantt .bar{grid-column:var(--s)/var(--e);margin:6px 4px;border-radius:5px;background:var(--c);color:#fff;font-weight:700;display:flex;align-items:center;padding:6px 8px;border:0}
+.gantt .gap{border-bottom:1px solid var(--line)}
+.phase{border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-top:12px;break-inside:avoid}
+.phase header{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:8px}
+.phase .n{width:30px;height:30px;border-radius:50%;background:var(--c);color:#fff;font-weight:800;display:grid;place-items:center;flex:none;align-self:center}
+.phase .d{margin-left:auto;font-size:12.5px;font-weight:700;color:var(--mut)}
+table{width:100%;border-collapse:collapse;font-size:12.8px}
+th{text-align:left;font-size:12px;color:var(--mut);padding:5px 6px;border-bottom:1px solid var(--ink)}
+td{padding:6px;border-bottom:1px solid var(--line);vertical-align:top}
+td:first-child{width:46%}
+td.w{white-space:nowrap;font-weight:600}
+.res{margin-top:8px;font-size:13px;background:#F3F6FB;border-radius:6px;padding:8px 10px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.box{background:var(--bg);border-radius:8px;padding:12px 14px;font-size:13.5px}
+.box ul,.list{margin:6px 0 0;padding-left:1.1em;display:grid;gap:5px}
+.small{font-size:12px;color:var(--mut)}
+@media screen{body{background:var(--bg)}.pg{max-width:900px;margin:0 auto 14px;background:#fff}.pg.cover{background:var(--nav);height:auto}}
+</style>
+</head>
+<body>
+
+<section class="pg cover">
+<div class="logo">ADORIS<small>STORE</small></div>
+<div><div class="kick" style="color:var(--amber)">Plan d'action · novembre 2026</div>
+<h1>Relier le site à la livraison, à Attajir Pro et aux revendeurs</h1>
+<p class="lead" style="margin-top:12px">Le site devient le point d'entrée de toutes les commandes. Chaque commande suit un seul parcours : confirmée par l'équipe, envoyée au transporteur avec un numéro de suivi, puis enregistrée comme vente dans Attajir Pro une fois livrée et encaissée.</p></div>
+<div class="figs">
+<div class="fig"><b>5 phases</b><span>de la base de données au lancement</span></div>
+<div class="fig"><b>5 à 7 semaines</b><span>selon le transporteur et Attajir Pro</span></div>
+<div class="fig"><b>1 parcours</b><span>pour les commandes clients et revendeurs</span></div>
+<div class="fig"><b>0 ressaisie</b><span>entre le site, le transporteur et Attajir</span></div>
+</div>
+<div class="card dg"><svg id="arch" viewBox="0 0 760 400" role="img" aria-label="Architecture : le site, l'espace revendeurs et l'admin passent par Firebase, relié au transporteur, à Attajir Pro et à WhatsApp"></svg></div>
+<p class="meta">Les noms de transporteurs sont des exemples : la disponibilité de leur API est à confirmer avec chacun.</p>
+</section>
+
+<section class="pg">
+<div class="kick">Le parcours d'une commande</div>
+<h2>De la commande à la vente confirmée, sans ressaisie</h2>
+<p class="lead">Chaque ligne est un acteur. Les flèches montrent qui passe la main à qui. Le serveur (Firebase) fait les liaisons automatiquement.</p>
+<div class="dg"><svg id="flow" viewBox="0 0 760 560" role="img" aria-label="Parcours d'une commande en 8 étapes entre client, site, équipe Adoris, transporteur et Attajir Pro"></svg></div>
+<div class="legend"><span style="--c:#0F2443">Automatique (serveur)</span><span style="--c:#F5B400">Action de l'équipe Adoris</span><span style="--c:#2F5DA8">Transporteur</span><span style="--c:#1E7B45">Attajir Pro</span><span style="--c:#C8372D">Refus ou retour</span></div>
+<table style="margin-top:12px"><thead><tr><th>Statut de la commande</th><th>Ce qui se passe automatiquement</th></tr></thead><tbody>
+<tr><td><b>Nouvelle</b></td><td>Enregistrée, alerte WhatsApp à l'équipe, client prévenu.</td></tr>
+<tr><td><b>Confirmée</b></td><td>Stock réservé dans Attajir Pro, colis créé chez le transporteur, numéro de suivi envoyé au client.</td></tr>
+<tr><td><b>En livraison</b></td><td>Statut mis à jour par le transporteur, visible sur la page de suivi.</td></tr>
+<tr><td><b>Livrée et encaissée</b></td><td>Vente confirmée dans Attajir Pro, marge revendeur calculée.</td></tr>
+<tr><td><b>Refusée ou retour</b></td><td>Réservation annulée, stock remis à son retour au magasin.</td></tr>
+<tr><td><b>Payée par le transporteur</b></td><td>Encaissement rapproché du relevé ; versement revendeur débloqué.</td></tr>
+</tbody></table>
+</section>
+
+<section class="pg">
+<div class="kick">Organigramme</div>
+<h2>Qui fait quoi</h2>
+<p class="lead">Les rôles dans le nouveau système. Chacun a son accès et ne voit que ce qui le concerne.</p>
+<div class="dg"><svg id="org" viewBox="0 0 760 430" role="img" aria-label="Organigramme des rôles Adoris, de la direction aux partenaires"></svg></div>
+<div class="two" style="margin-top:12px">
+<div class="box"><h3>Accès dans le système</h3><ul>
+<li><b>Administrateur :</b> tout, y compris réglages, prix et revendeurs.</li>
+<li><b>Employé :</b> confirme les commandes, crée les colis, suit les retours.</li>
+<li><b>Revendeur :</b> son catalogue, ses commandes, ses marges, ses versements.</li>
+<li><b>Client :</b> sa commande et son suivi, sans compte à créer.</li></ul></div>
+<div class="box"><h3>Systèmes reliés</h3><ul>
+<li><b>Transporteur :</b> reçoit les colis, renvoie les statuts et les encaissements.</li>
+<li><b>Attajir Pro :</b> référence pour le stock, les ventes et les clients.</li>
+<li><b>WhatsApp :</b> alertes à l'équipe, confirmation et suivi pour les clients.</li></ul></div>
+</div>
+</section>
+
+<section class="pg">
+<div class="kick">Calendrier</div>
+<h2>5 phases sur 5 à 7 semaines</h2>
+<div class="gantt" id="gantt"></div>
+<p class="small" style="margin-top:6px">Les phases 2 et 3 peuvent avancer en parallèle si l'accès au transporteur et à Attajir Pro est disponible dès le début.</p>
+
+<div class="phase" style="--c:#0F2443"><header><span class="n">1</span><h3>Base de données et vraie administration</h3><span class="d">Semaines 1 à 2</span></header>
+<table><thead><tr><th>Tâche</th><th>Détail</th></tr></thead><tbody>
+<tr><td>Brancher le site sur Firebase</td><td>Commandes, produits, clients et revendeurs enregistrés sur le serveur.</td></tr>
+<tr><td>Comptes et rôles</td><td>Connexion admin, employé, revendeur ; règles de sécurité par rôle.</td></tr>
+<tr><td>Alertes WhatsApp</td><td>Chaque nouvelle commande prévient l'équipe.</td></tr>
+<tr><td>Import du catalogue</td><td>Environ 238 produits, depuis le site actuel ou Attajir Pro.</td></tr>
+</tbody></table><p class="res"><b>Résultat :</b> les commandes passées sur n'importe quel téléphone arrivent dans l'admin.</p></div>
+
+<div class="phase" style="--c:#2F5DA8"><header><span class="n">2</span><h3>Livraison et suivi des colis</h3><span class="d">Semaines 2 à 4</span></header>
+<table><thead><tr><th>Tâche</th><th>Détail</th></tr></thead><tbody>
+<tr><td>Choisir 1 ou 2 transporteurs avec API</td><td>Exemples : Sendit, Ozon Express, Cathedis (à confirmer).</td></tr>
+<tr><td>Création du colis en un clic</td><td>Nom, téléphone, ville, adresse, montant à encaisser ; retour du numéro de suivi et de l'étiquette.</td></tr>
+<tr><td>Statuts automatiques</td><td>Notification du transporteur ou vérification toutes les 30 minutes.</td></tr>
+<tr><td>Page de suivi client</td><td>/suivi/ avec le numéro de commande ; lien envoyé sur WhatsApp.</td></tr>
+<tr><td>Rapprochement des encaissements</td><td>Import du relevé du transporteur, colis par colis.</td></tr>
+</tbody></table><p class="res"><b>Résultat :</b> plus de saisie sur le site du transporteur, chaque colis est suivi.</p></div>
+</section>
+
+<section class="pg">
+<div class="phase" style="--c:#1E7B45;margin-top:0"><header><span class="n">3</span><h3>Liaison avec Attajir Pro</h3><span class="d">Semaines 3 à 5</span></header>
+<table><thead><tr><th>Tâche</th><th>Détail</th></tr></thead><tbody>
+<tr><td>Associer les produits</td><td>Chaque produit du site relié à son article Attajir (référence commune).</td></tr>
+<tr><td>Stock synchronisé</td><td>Attajir Pro est la référence ; le site se met à jour pour ne pas vendre une montre déjà vendue au magasin.</td></tr>
+<tr><td>Commande confirmée</td><td>Création dans Attajir et réservation du stock.</td></tr>
+<tr><td>Livrée et encaissée</td><td>Vente confirmée dans Attajir (facture, chiffre d'affaires).</td></tr>
+<tr><td>Refus ou retour</td><td>Réservation annulée, stock remis.</td></tr>
+<tr><td>Clients</td><td>Fiche client créée ou mise à jour dans Attajir.</td></tr>
+</tbody></table><p class="res"><b>Méthode :</b> si Attajir Pro est sur Firebase, écriture directe dans ses données ; sinon, par son API ou un échange de fichiers.</p></div>
+
+<div class="phase" style="--c:#F5B400"><header><span class="n">4</span><h3>Gestion des partenaires</h3><span class="d">Semaines 5 à 6</span></header>
+<table><thead><tr><th>Tâche</th><th>Détail</th></tr></thead><tbody>
+<tr><td>Validation des comptes</td><td>CIN, et RC pour les grossistes ; remise ou grille de prix par revendeur, reprise d'Attajir si possible.</td></tr>
+<tr><td>Commandes revendeurs</td><td>Même parcours : transporteur puis Attajir, marquées « revendeur ».</td></tr>
+<tr><td>Relevé de marges</td><td>Seulement sur les colis livrés et encaissés ; relevé de versement chaque semaine.</td></tr>
+<tr><td>Tableau de bord revendeur</td><td>Commandes, suivi des colis, marges et versements en temps réel.</td></tr>
+<tr><td>Contrat revendeur</td><td>Règles sur les colis refusés, délais de paiement, usage des photos.</td></tr>
+</tbody></table></div>
+
+<div class="phase" style="--c:#5C6168"><header><span class="n">5</span><h3>Tests et lancement</h3><span class="d">Semaines 6 à 7</span></header>
+<table><thead><tr><th>Tâche</th><th>Détail</th></tr></thead><tbody>
+<tr><td>Commandes de test de bout en bout</td><td>Site, transporteur, encaissement, Attajir, revendeur.</td></tr>
+<tr><td>Passage sur adoristore.ma</td><td>Redirection des anciennes adresses, ouverture de l'indexation Google.</td></tr>
+<tr><td>Sécurité et données</td><td>Sauvegardes automatiques, suivi des erreurs, déclaration CNDP (loi 09-08).</td></tr>
+<tr><td>Formation</td><td>Prise en main de l'admin par l'équipe et des espaces par les revendeurs.</td></tr>
+</tbody></table></div>
+</section>
+
+<section class="pg">
+<div class="kick">Pour démarrer</div>
+<h2>Ce qu'il faut réunir</h2>
+<div class="two">
+<div class="box"><h3>Informations et accès</h3><ul class="list">
+<li><b>Attajir Pro :</b> est-il sur Firebase ? Nom du projet, structure des articles, ventes et clients, accès au code.</li>
+<li><b>Transporteur :</b> lequel est utilisé aujourd'hui, documentation de son API, identifiants API.</li>
+<li><b>Firebase :</b> compte Google du projet et passage au forfait Blaze (paiement à l'usage, nécessaire pour appeler le transporteur et Attajir).</li>
+<li><b>WhatsApp :</b> numéro pour les alertes ; API WhatsApp Business recommandée pour les clients.</li>
+<li><b>Légal :</b> raison sociale, ICE, RC, conditions de retour et de garantie.</li></ul></div>
+<div class="box"><h3>Coûts à prévoir</h3><ul class="list">
+<li><b>Firebase :</b> paiement à l'usage, faible à ce volume de commandes.</li>
+<li><b>Transporteur :</b> frais par colis et par encaissement, selon contrat.</li>
+<li><b>WhatsApp Business API :</b> coût par conversation, selon le fournisseur.</li>
+<li><b>Nom de domaine :</b> adoristore.ma déjà existant.</li></ul>
+<p class="small" style="margin-top:8px">Montants à obtenir auprès de chaque fournisseur.</p></div>
+</div>
+<h3 style="margin-top:18px">Points d'attention</h3>
+<table><thead><tr><th>Risque</th><th>Comment le limiter</th></tr></thead><tbody>
+<tr><td>Le transporteur n'a pas d'API ouverte</td><td>Choisir un transporteur qui en a une, ou passer par un import de fichier en attendant.</td></tr>
+<tr><td>Attajir Pro ne permet pas l'écriture de ventes de l'extérieur</td><td>Ajouter une petite fonction d'import dans Attajir, ou un échange de fichiers quotidien.</td></tr>
+<tr><td>Écarts de stock entre magasin et site</td><td>Attajir Pro comme seule référence, mise à jour du site en continu.</td></tr>
+<tr><td>Colis refusés et fausses commandes</td><td>Confirmation obligatoire avant création du colis ; historique par numéro de téléphone.</td></tr>
+<tr><td>Données clients</td><td>Accès par rôle, règles de sécurité Firebase, déclaration CNDP.</td></tr>
+</tbody></table>
+</section>
+
+<script>
+{
+const NS='http://www.w3.org/2000/svg';
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const defs=`<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5C6168"/></marker><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#C8372D"/></marker></defs>`;
+const box=(x,y,w,h,fill,stroke,lines,col='#17191C',r=10,fs=13)=>{const lh=fs+4,y0=y+h/2-(lines.length-1)*lh/2+fs*0.35;return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}" fill="${fill}" stroke="${stroke}" stroke-width="1.5"/>`+lines.map((t,i)=>`<text x="${x+w/2}" y="${y0+i*lh}" text-anchor="middle" font-family="Archivo" font-size="${i?fs-1.5:fs}" font-weight="${i?400:700}" fill="${col}">${esc(t)}</text>`).join('')};
+const line=(x1,y1,x2,y2,c='#5C6168',m='ar',dash='')=>`<path d="M${x1} ${y1} L${x2} ${y2}" stroke="${c}" stroke-width="1.6" fill="none" marker-end="url(#${m})"${dash?` stroke-dasharray="${dash}"`:''}/>`;
+const lbl=(x,y,t,c='#5C6168')=>`<text x="${x}" y="${y}" text-anchor="middle" font-family="Archivo" font-size="11.5" fill="${c}" paint-order="stroke" stroke="#fff" stroke-width="4">${esc(t)}</text>`;
+
+/* architecture */
+{let s=defs;
+const top=[['Site client','commandes, suivi',40],['Espace revendeurs','prix, commandes, marges',290],['Admin Adoris','confirmation, colis',540]];
+top.forEach(([a,b,x])=>{s+=box(x,20,180,64,'#EEF2F8','#0F2443',[a,b]);});
+s+=box(230,160,300,78,'#0F2443','#0F2443',['Firebase','base de données, comptes, serveur'],'#fff',12,15);
+const bot=[['Transporteur (API)','colis, suivi, encaissements',40,'#E6EEF9','#2F5DA8'],['Attajir Pro','stock, ventes, clients',290,'#E6F3EC','#1E7B45'],['WhatsApp','alertes et suivi client',540,'#FFF4D1','#B8860B']];
+bot.forEach(([a,b,x,f,st])=>{s+=box(x,316,180,64,f,st,[a,b]);});
+[[130,84,330,160],[380,84,380,160],[630,84,430,160]].forEach(([a,b,c,d])=>{s+=line(a,b,c,d)+line(c,d,a,b);});
+[[330,238,130,316,'colis'],[380,238,380,316,'ventes, stock'],[430,238,630,316,'messages']].forEach(([a,b,c,d,t])=>{s+=line(a,b,c,d)+line(c,d,a,b)+lbl((a+c)/2+(a<c?18:a>c?-18:30),(b+d)/2+4,t);});
+document.getElementById('arch').innerHTML=s;}
+
+/* order flow swimlanes */
+{const lanes=['Client, revendeur','Site et serveur','Équipe Adoris','Transporteur','Attajir Pro'],L0=118,LH=84,T=30,W=760;
+let s=defs;
+lanes.forEach((l,i)=>{const y=T+i*LH;s+=`<rect x="0" y="${y}" width="${W}" height="${LH}" fill="${i%2?'#F6F7F9':'#fff'}"/><text x="10" y="${y+LH/2+4}" font-family="Archivo" font-size="12" font-weight="700" fill="#17191C">${esc(l)}</text>`;});
+s+=`<line x1="${L0-8}" y1="${T}" x2="${L0-8}" y2="${T+LH*5}" stroke="#DDE0E5"/>`;
+const C=k=>L0+4+k*79, N=[
+ ['a',0,0,'1. Commande','site, WhatsApp','#EEF2F8','#0F2443'],
+ ['b',1,1,'2. Enregistrée','alerte équipe','#0F2443','#0F2443','#fff'],
+ ['c',2,2,'3. Confirmée','appel, message','#FFF4D1','#B8860B'],
+ ['d',4,4,'4. Stock','réservé','#E6F3EC','#1E7B45'],
+ ['e',3,3,'4. Colis créé','n° de suivi','#E6EEF9','#2F5DA8'],
+ ['f',0,4,'5. Suivi','page /suivi/','#EEF2F8','#0F2443'],
+ ['g',3,5,'6. Livrée','encaissée','#E6EEF9','#2F5DA8'],
+ ['h',4,6,'7. Vente','confirmée','#E6F3EC','#1E7B45'],
+ ['i',1,7,'8. Marge','revendeur','#0F2443','#0F2443','#fff'],
+ ['r',3,7,'Refus','retour','#FDE8E9','#C8372D']];
+const pos={};N.forEach(([id,lane,col,a,b,f,st,tc])=>{const x=C(col),y=T+lane*LH+16;pos[id]={x,y,w:72,h:LH-32};s+=box(x,y,72,LH-32,f,st,b?[a,b]:[a],tc||'#17191C',8,10.5);});
+const P=(id,side)=>{const p=pos[id];return side==='r'?[p.x+p.w,p.y+p.h/2]:side==='l'?[p.x,p.y+p.h/2]:side==='b'?[p.x+p.w/2,p.y+p.h]:[p.x+p.w/2,p.y];};
+const E=[['a','r','b','l'],['b','r','c','l'],['c','b','e','t'],['c','r','d','t'],['e','t','f','b'],['e','r','g','l'],['g','b','h','t'],['h','t','i','b']];
+E.forEach(([a,sa,b,sb])=>{const [x1,y1]=P(a,sa),[x2,y2]=P(b,sb);s+=`<path d="M${x1} ${y1} C ${sa==='r'?x1+30:x1} ${sa==='b'?y1+30:sa==='t'?y1-30:y1}, ${sb==='l'?x2-30:x2} ${sb==='t'?y2-30:sb==='b'?y2+30:y2}, ${x2} ${y2}" stroke="#5C6168" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>`;});
+{const [x1,y1]=P('g','r'),[x2,y2]=P('r','l');s+=`<path d="M${x1} ${y1+10} L${x2} ${y2+10}" stroke="#C8372D" stroke-width="1.6" stroke-dasharray="5 4" fill="none" marker-end="url(#arr)"/>`;s+=lbl((x1+x2)/2,y1+4,'si refus','#C8372D');}
+{const [x1,y1]=P('r','b'),[x2,y2]=[pos.h.x+pos.h.w,pos.h.y+pos.h.h/2];s+=`<path d="M${x1} ${y1} C ${x1} ${y1+40}, ${x2+40} ${y2}, ${x2} ${y2}" stroke="#C8372D" stroke-width="1.6" stroke-dasharray="5 4" fill="none" marker-end="url(#arr)"/>`;s+=lbl(x1-26,y1+46,'stock remis','#C8372D');}
+s+=`<text x="${L0+8}" y="18" font-family="Archivo" font-size="12" fill="#5C6168">De gauche à droite : l'ordre des étapes</text>`;
+document.getElementById('flow').setAttribute('viewBox',`0 0 ${W} ${T+LH*5+10}`);document.getElementById('flow').innerHTML=s;}
+
+/* org chart */
+{let s=defs;const B=(x,y,w,a,b,f,st,tc)=>box(x,y,w,58,f,st,b?[a,b]:[a],tc||'#17191C',9,13);
+s+=B(280,10,200,'Direction Adoris','décisions, prix, contrats','#0F2443','#0F2443','#fff');
+s+=B(280,110,200,'Administrateur','accès complet au système','#EEF2F8','#0F2443');
+const lvl3=[['Employé confirmation','appels, WhatsApp, colis',20],['Gestion du stock','dans Attajir Pro',200],['Gestion revendeurs','comptes, marges, versements',380],['Service client','suivi, retours',560]];
+lvl3.forEach(([a,b,x])=>{s+=B(x,220,180,a,b,'#FFF4D1','#B8860B');});
+const ext=[['Clients','commandent, suivent',20,'#EEF2F8','#0F2443'],['Revendeurs','grossistes, en ligne, affiliés',200,'#FFF4D1','#B8860B'],['Transporteur','livraison, encaissement',380,'#E6EEF9','#2F5DA8'],['Attajir Pro','stock et ventes',560,'#E6F3EC','#1E7B45']];
+ext.forEach(([a,b,x,f,st])=>{s+=B(x,350,180,a,b,f,st);});
+s+=line(380,68,380,110);
+lvl3.forEach(([, ,x])=>{s+=`<path d="M380 168 L380 194 L${x+90} 194 L${x+90} 220" stroke="#5C6168" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>`;});
+lvl3.forEach(([, ,x],i)=>{s+=`<path d="M${x+90} 278 L${ext[i][2]+90} 350" stroke="#9AA0A8" stroke-width="1.4" stroke-dasharray="4 4" fill="none"/>`;});
+s+=`<text x="380" y="322" text-anchor="middle" font-family="Archivo" font-size="12" fill="#5C6168" paint-order="stroke" stroke="#fff" stroke-width="4">en lien avec les partenaires et systèmes externes</text>`;
+document.getElementById('org').innerHTML=s;}
+
+/* gantt */
+{const G=document.getElementById('gantt');let h='<div class="h">Phase</div>'+[1,2,3,4,5,6,7].map(w=>`<div class="h">S${w}</div>`).join('');
+[['1. Base de données et admin','Firebase, comptes, catalogue',1,3,'#0F2443'],['2. Livraison et suivi','API transporteur, page de suivi',2,5,'#2F5DA8'],['3. Liaison Attajir Pro','stock, ventes, clients',3,6,'#1E7B45'],['4. Partenaires','revendeurs, marges, versements',5,7,'#B8860B'],['5. Tests et lancement','adoristore.ma, formation',6,8,'#5C6168']]
+.forEach(([t,sub,a,b,c])=>{h+=`<div class="t">${t}<small>${sub}</small></div>`;for(let w=1;w<8;w++){if(w===a)h+=`<div class="bar" style="--s:${a+1};--e:${b+1};--c:${c}">S${a} à S${b-1}</div>`;else if(w<a||w>=b)h+='<div class="gap"></div>';}});
+G.innerHTML=h;}
+}
+</script>
+</body>
+</html>
