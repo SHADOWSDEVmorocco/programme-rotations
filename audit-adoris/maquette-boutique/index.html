@@ -261,6 +261,77 @@ img{max-width:100%;display:block}
 .tl small{display:block;font-weight:400}
 .rec{display:grid;grid-template-columns:1fr auto;gap:6px 16px;background:var(--bg);border-radius:6px;padding:14px;font-size:14px;margin:0}
 .rec dd{margin:0;text-align:right;font-weight:600}
+
+.cod{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--nav);background:#F3F6FB;border-radius:6px;padding:12px 14px;font-size:13.5px;color:var(--mut)}
+.cod b{display:block;color:var(--ink);font-size:15px}.cod .i{color:var(--nav);width:24px;height:24px}
+.ph2{background:var(--nav);color:#fff;border-radius:6px;padding:28px 30px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:center;margin-top:12px}
+.ph2 h1{font-size:clamp(26px,3vw,38px);line-height:1.08;margin:0 0 10px;font-weight:800;letter-spacing:-.02em}
+.ph2 p{color:#C9D4E3;margin:0 0 18px;font-size:15.5px;max-width:52ch}
+.ph2 .ctas{display:flex;gap:10px;flex-wrap:wrap}
+.ph2 .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.5);color:#fff}
+.ph2 ul{list-style:none;margin:0;padding:16px 18px;display:grid;gap:10px;background:rgba(255,255,255,.07);border-radius:6px;font-size:14.5px}
+.ph2 li{display:flex;gap:10px;align-items:flex-start}.ph2 li .i{color:var(--amber)}
+.offers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.offer{border:1px solid var(--line);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:8px;font-size:14px}
+.offer .ic{width:40px;height:40px;border-radius:8px;background:#FFF4D1;display:grid;place-items:center;color:var(--ink)}
+.offer h3{font-size:17px;margin:2px 0 0}
+.offer p{margin:0;color:var(--mut)}
+.offer dl{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin:4px 0 0;font-size:13.5px}
+.offer dt{color:var(--mut)}.offer dd{margin:0;font-weight:700}
+.offer.hl{border:2px solid var(--amber)}
+.tiers{width:100%;border-collapse:collapse;font-size:14px}
+.tiers th{text-align:left;background:#F6F7F9;padding:9px 12px;border-bottom:1px solid var(--line);font-size:13px}
+.tiers td{padding:10px 12px;border-bottom:1px solid var(--line)}
+.tiers td:last-child,.tiers th:last-child{text-align:right}
+.tiers .pct{display:inline-block;background:#E6F3EC;color:var(--ok);font-weight:800;padding:2px 8px;border-radius:4px}
+.steps4{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;counter-reset:s}
+.steps4 li{counter-increment:s;border-top:3px solid var(--nav);padding-top:10px;font-size:13.5px;color:var(--mut)}
+.steps4 li::before{content:counter(s);display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--nav);color:#fff;font-weight:700;font-size:13px;margin-bottom:6px}
+.steps4 b{display:block;color:var(--ink);font-size:15px}
+.ins{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:20px;align-items:start}
+.ins form{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+.ins form .full{grid-column:1/-1}
+.ins aside{background:var(--bg);border-radius:6px;padding:16px;font-size:14px}
+.ins aside h3{margin:0 0 8px;font-size:15px}
+.ins details{border-bottom:1px solid var(--line);padding:8px 0}
+.ins summary{cursor:pointer;font-weight:600}
+.ins details p{margin:6px 0 0;color:var(--mut)}
+.sent{display:none;grid-column:1/-1;background:#E6F3EC;color:var(--ok);border-radius:6px;padding:12px;font-weight:600;margin-top:10px}
+.sent.on{display:block}
+.prohd{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:12px;padding:16px 18px}
+.prohd .av{width:46px;height:46px;border-radius:50%;background:var(--nav);color:#fff;display:grid;place-items:center;font-weight:800}
+.prohd h1{font-size:20px;margin:0;font-weight:800}
+.prohd small{color:var(--mut);display:block}
+.lvl{background:#FFF4D1;border:1px solid var(--amber);border-radius:16px;padding:3px 10px;font-weight:700;font-size:13px}
+.prohd .r{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:12px}
+.kpi{padding:14px 16px;font-size:13.5px;color:var(--mut)}
+.kpi b{display:block;font-size:24px;color:var(--ink);font-weight:800;letter-spacing:-.01em;margin-top:2px}
+.kpi small{display:block;color:var(--ok);font-weight:600;margin-top:2px}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:12px;overflow-x:auto}
+.tabs button{flex:none;border:0;background:none;padding:10px 14px;font-weight:600;color:var(--mut);border-bottom:3px solid transparent;margin-bottom:-1px}
+.tabs button.on{color:var(--nav);border-color:var(--nav)}
+.scroll{overflow-x:auto}
+.cat2{width:100%;border-collapse:collapse;font-size:13.5px;min-width:820px}
+.cat2 th{text-align:left;font-size:12.5px;color:var(--mut);font-weight:600;padding:8px;border-bottom:1px solid var(--line);white-space:nowrap}
+.cat2 td{padding:8px;border-bottom:1px solid var(--line);vertical-align:middle}
+.cat2 .pi{display:flex;gap:10px;align-items:center}.cat2 .pi img{width:48px;aspect-ratio:1;object-fit:contain;border:1px solid var(--line);border-radius:4px}
+.cat2 .n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.cat2 .yp{font-weight:800;color:var(--nav)}
+.cat2 .mg{color:var(--ok);font-weight:700}
+.cat2 .q{display:flex;align-items:center;border:1px solid var(--line);border-radius:6px;width:max-content}
+.cat2 .q button{border:0;background:none;width:30px;height:32px;display:grid;place-items:center}
+.cat2 .q span{min-width:26px;text-align:center;font-weight:700}
+.cat2 .acts2{display:flex;gap:6px;justify-content:flex-end}
+.sbtn{height:34px;border-radius:6px;border:1px solid var(--line);background:#fff;padding:0 10px;font-weight:600;font-size:13px;display:inline-flex;gap:6px;align-items:center;white-space:nowrap}
+.sbtn.y{background:var(--amber);border-color:var(--amber)}
+.st{display:inline-block;padding:2px 8px;border-radius:10px;font-size:12px;font-weight:700;white-space:nowrap}
+.st.ok{background:#E6F3EC;color:var(--ok)}.st.go{background:#FFF4D1;color:#7A5600}.st.ko{background:#FDE8E9;color:var(--red)}
+.pro2{display:grid;grid-template-columns:1fr;gap:12px;margin-top:12px;align-items:start}
+.pro2>div:last-child{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:12px;align-items:start}
+.link{display:flex;gap:6px;margin-top:8px}.link input{flex:1;height:40px;border:1px solid var(--line);border-radius:6px;padding:0 10px;font-size:13.5px;background:#F6F7F9}
+@media(max-width:900px){.ph2,.ins,.pro2,.pro2>div:last-child{grid-template-columns:1fr}.offers{grid-template-columns:1fr}.steps4{grid-template-columns:1fr 1fr}.kpis{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.ph2{padding:18px}.ins form{grid-template-columns:1fr}.prohd .r{margin-left:0}.kpi b{font-size:20px}}
 .tab{display:none}
 .view{display:none}.view.on{display:block}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -344,10 +415,11 @@ img{max-width:100%;display:block}
 <symbol id="i-watch" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5.5"/><path d="M12 9.5V12l1.5 1.2M9 7l.8-3.5h4.4L15 7M9 17l.8 3.5h4.4L15 17"/></symbol>
 <symbol id="i-glasses" viewBox="0 0 24 24"><circle cx="6.5" cy="14" r="3.5"/><circle cx="17.5" cy="14" r="3.5"/><path d="M10 14c1.3-1 2.7-1 4 0M3 14l1.5-6h2M21 14l-1.5-6h-2"/></symbol>
 <symbol id="i-box" viewBox="0 0 24 24"><path d="M3.5 7.5 12 3.5l8.5 4v9L12 20.5l-8.5-4z"/><path d="M3.5 7.5 12 11.5l8.5-4M12 11.5v9"/></symbol>
+<symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
 <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12.5V4h8.5l8.5 8.5-8 8z"/><circle cx="8" cy="8.5" r="1.4"/></symbol>
 </svg>
 
-<div class="top"><div class="w"><span><svg class="i s"><use href="#i-cash"/></svg>Paiement à la livraison partout au Maroc</span><span><svg class="i s"><use href="#i-truck"/></svg>Livraison gratuite dès 500 Dhs</span><span class="x"><svg class="i s"><use href="#i-chat"/></svg>Commandes WhatsApp : 06 63 58 31 62</span></div></div>
+<div class="top"><div class="w"><span><svg class="i s"><use href="#i-cash"/></svg>Paiement à la livraison partout au Maroc</span><span><svg class="i s"><use href="#i-truck"/></svg>Livraison gratuite dès 500 Dhs</span><span class="x"><svg class="i s"><use href="#i-chat"/></svg>Commandes WhatsApp : 06 63 58 31 62</span><a class="x" href="#partenaire" style="display:flex;gap:6px;align-items:center;text-decoration:underline"><svg class="i s"><use href="#i-store"/></svg>Espace revendeurs</a></div></div>
 <header class="hd">
 <div class="w hrow">
 <div style="display:flex;gap:8px;align-items:center"><button class="burger" aria-label="Menu"><svg class="i"><use href="#i-menu"/></svg></button><a href="#accueil" class="logo">ADORIS<small>STORE</small></a></div>
@@ -355,7 +427,7 @@ img{max-width:100%;display:block}
 <div class="acts"><a class="hide"><svg class="i"><use href="#i-user"/></svg><span class="lb">Bonjour<b>Mon compte</b></span></a><a class="hide"><svg class="i"><use href="#i-heart"/></svg><span class="lb">Mes<b>Favoris</b></span></a><a href="#commande"><svg class="i"><use href="#i-bag"/></svg><span class="cc">0</span><span class="lb">Mon<b>Panier</b></span></a></div>
 </div>
 <form class="search ms" onsubmit="event.preventDefault();location.hash='categorie'"><input placeholder="Rechercher une montre, une marque…" aria-label="Rechercher"><button aria-label="Rechercher"><svg class="i"><use href="#i-search"/></svg></button></form>
-<nav class="sub"><div class="w"><a href="#categorie"><svg class="i s"><use href="#i-menu"/></svg>Tous les rayons</a><a class="deal" href="#categorie"><svg class="i s"><use href="#i-bolt"/></svg>Ventes flash</a><a href="#categorie">Montres hommes</a><a href="#categorie">Montres femmes</a><a href="#categorie">Smartwatch</a><a href="#categorie">Lunettes</a><a href="#categorie">Coffrets</a><a href="#produit-g1">Gravure</a><a href="#categorie">Moins de 200 Dhs</a><a href="#categorie">Nouveautés</a></div></nav>
+<nav class="sub"><div class="w"><a href="#categorie"><svg class="i s"><use href="#i-menu"/></svg>Tous les rayons</a><a class="deal" href="#categorie"><svg class="i s"><use href="#i-bolt"/></svg>Ventes flash</a><a href="#categorie">Montres hommes</a><a href="#categorie">Montres femmes</a><a href="#categorie">Smartwatch</a><a href="#categorie">Lunettes</a><a href="#categorie">Coffrets</a><a href="#produit-g1">Gravure</a><a href="#categorie">Moins de 200 Dhs</a><a href="#categorie">Nouveautés</a><a href="#partenaire" style="margin-left:auto"><svg class="i s"><use href="#i-store"/></svg>Espace revendeurs</a></div></nav>
 </header>
 
 <main>
@@ -410,15 +482,14 @@ img{max-width:100%;display:block}
 <div class="crumb"><a href="#accueil">Accueil</a><svg class="i s"><use href="#i-right"/></svg>Commande</div>
 <div class="co">
 <form class="panel" onsubmit="event.preventDefault();location.hash='merci'">
-<h1>Finaliser ma commande</h1><span style="color:var(--mut)">Vous payez en espèces à la livraison. Aucun compte à créer.</span>
+<h1>Finaliser ma commande</h1><span style="color:var(--mut)">Paiement en espèces à la livraison, aucun compte à créer.</span>
 <h2><span>1</span>Adresse de livraison</h2>
 <div class="two"><div class="fld">Nom et prénom<input value="Karim Benali" autocomplete="name"></div><div class="fld">Téléphone<input value="06 12 34 56 78" inputmode="tel" autocomplete="tel"></div></div>
 <div class="two"><div class="fld">Ville<select id="city"><option value="20">Casablanca</option><option value="50">Rabat</option><option value="50">Marrakech</option><option value="50">Tanger</option><option value="50">Agadir</option><option value="50">Fès</option></select></div><div class="fld">Quartier<input placeholder="Ex. Maârif"></div></div>
 <div class="fld">Adresse<input placeholder="Rue, numéro, point de repère"></div>
 <div class="fld">E-mail <small>facultatif</small><input type="email" placeholder="nom@exemple.ma"></div>
 <h2><span>2</span>Paiement</h2>
-<div class="pm"><label><input type="radio" name="p" checked><span>Paiement à la livraison<small>En espèces, au livreur</small></span><em class="tagr">Le plus choisi</em></label>
-<label><input type="radio" name="p"><span>Carte bancaire<small>Visa, Mastercard</small></span><svg class="i" style="margin-left:auto;color:var(--mut)"><use href="#i-card"/></svg></label></div>
+<div class="cod"><svg class="i"><use href="#i-cash"/></svg><span><b>Paiement à la livraison uniquement</b>Vous payez en espèces au livreur, après avoir vu votre commande. Aucune carte bancaire demandée.</span></div>
 <button class="btn" style="width:100%;margin-top:16px;min-height:52px;font-size:16px">Confirmer la commande, <span class="gt"></span></button>
 <p class="note"><svg class="i s"><use href="#i-chat"/></svg>Nous confirmons votre commande sur WhatsApp dans l'heure.</p>
 </form>
@@ -428,6 +499,68 @@ img{max-width:100%;display:block}
 <p class="note"><svg class="i s"><use href="#i-swap"/></svg>Échange sous 7 jours au magasin ou par coursier.</p></div>
 </div></div></section>
 
+
+<section class="view" id="v-partenaire"><div class="w">
+<div class="crumb"><a href="#accueil">Accueil</a><svg class="i s"><use href="#i-right"/></svg>Espace revendeurs</div>
+<div class="ph2"><div><h1>Vendez des montres Adoris, sans stock ou à prix de gros</h1><p>Magasin, boutique en ligne ou page Instagram : achetez à prix revendeur, ou laissez-nous livrer vos clients en paiement à la livraison. Vous gardez la marge.</p>
+<div class="ctas"><a class="btn" href="#" onclick="event.preventDefault();document.getElementById('insc').scrollIntoView({behavior:'smooth'})">Devenir revendeur</a><a class="btn ghost" href="#pro">J'ai déjà un compte</a></div></div>
+<ul><li><svg class="i"><use href="#i-check"/></svg>Plus de 300 modèles en stock à Derb Omar</li><li><svg class="i"><use href="#i-check"/></svg>Jusqu'à −40 % sur le prix public en gros</li><li><svg class="i"><use href="#i-check"/></svg>Livraison de vos clients en 24–48 h, partout au Maroc</li><li><svg class="i"><use href="#i-check"/></svg>Photos et fiches produits prêtes à publier</li></ul></div>
+
+<div class="panel blk"><div class="bh"><h2>Trois façons de travailler avec Adoris</h2></div><div class="offers">
+<div class="offer"><span class="ic"><svg class="i"><use href="#i-store"/></svg></span><h3>Grossiste</h3><p>Vous avez un magasin. Vous achetez en quantité au prix revendeur et vous revendez au comptoir.</p><dl><dt>Minimum</dt><dd>5 pièces</dd><dt>Remise</dt><dd>−25 % à −40 %</dd><dt>Paiement</dt><dd>À la livraison ou au magasin</dd></dl></div>
+<div class="offer hl"><span class="ic"><svg class="i"><use href="#i-truck"/></svg></span><h3>Revendeur en ligne</h3><p>Vous vendez sur Instagram, TikTok ou votre site. Vous fixez votre prix, nous livrons votre client et encaissons à la livraison.</p><dl><dt>Minimum</dt><dd>Aucun, dès 1 pièce</dd><dt>Prix revendeur</dt><dd>−20 % sur le prix public</dd><dt>Votre marge</dt><dd>Votre prix de vente − prix revendeur</dd><dt>Versement</dt><dd>Chaque vendredi</dd></dl></div>
+<div class="offer"><span class="ic"><svg class="i"><use href="#i-tag"/></svg></span><h3>Affilié</h3><p>Vous partagez votre lien Adoris. Chaque commande livrée grâce à vous vous rapporte une commission.</p><dl><dt>Minimum</dt><dd>Aucun</dd><dt>Commission</dt><dd>10 % par commande livrée</dd><dt>Versement</dt><dd>Chaque vendredi</dd></dl></div>
+</div></div>
+
+<div class="duo" style="grid-template-columns:1fr 1fr"><div class="panel blk" style="margin-top:0"><div class="bh"><h2>Prix revendeur selon la quantité</h2></div>
+<table class="tiers"><thead><tr><th>Quantité par commande</th><th>Exemple : montre à 299 Dhs</th><th>Remise</th></tr></thead><tbody>
+<tr><td>Revendeur en ligne, dès 1 pièce</td><td>239 Dhs</td><td><span class="pct">−20 %</span></td></tr>
+<tr><td>Grossiste, 5 à 9 pièces</td><td>224 Dhs</td><td><span class="pct">−25 %</span></td></tr>
+<tr><td>Grossiste, 10 à 49 pièces</td><td>209 Dhs</td><td><span class="pct">−30 %</span></td></tr>
+<tr><td>Grossiste, 50 pièces et plus</td><td>179 Dhs</td><td><span class="pct">−40 %</span></td></tr></tbody></table>
+<p class="note">Remises données à titre d'exemple, à fixer par Adoris.</p></div>
+<div class="panel blk" style="margin-top:0"><div class="bh"><h2>Comment ça marche</h2></div><ol class="steps4" style="grid-template-columns:1fr 1fr"><li><b>Inscription</b>Remplissez le formulaire en 2 minutes.</li><li><b>Validation</b>Un conseiller vous appelle sur WhatsApp sous 24 h.</li><li><b>Vente</b>Commandez en gros ou envoyez les commandes de vos clients.</li><li><b>Encaissement</b>Vos marges sont versées chaque vendredi.</li></ol></div></div>
+
+<div class="panel blk" id="insc"><div class="bh"><h2>Demande de compte revendeur</h2></div><div class="ins">
+<form onsubmit="event.preventDefault();document.getElementById('sent').classList.add('on')">
+<div class="fld">Nom et prénom<input value="Youssef Amrani"></div>
+<div class="fld">Téléphone WhatsApp<input value="06 98 76 54 32" inputmode="tel"></div>
+<div class="fld">Ville<select><option>Agadir</option><option>Casablanca</option><option>Rabat</option><option>Marrakech</option><option>Tanger</option><option>Fès</option></select></div>
+<div class="fld">Votre activité<select><option>Revendeur en ligne (Instagram, TikTok, site)</option><option>Magasin physique</option><option>Affilié</option></select></div>
+<div class="fld">Nom de la boutique ou de la page<input placeholder="Ex. @time.agadir"></div>
+<div class="fld">Ventes par mois (estimation)<select><option>Moins de 10 montres</option><option>10 à 50 montres</option><option>Plus de 50 montres</option></select></div>
+<div class="fld full">Message <small>facultatif</small><input placeholder="Marques ou modèles qui vous intéressent"></div>
+<button class="btn full" style="min-height:50px">Envoyer ma demande</button>
+<p class="sent" id="sent">Demande envoyée. Un conseiller Adoris vous écrit sur WhatsApp sous 24 h.</p>
+</form>
+<aside><h3>Questions fréquentes</h3>
+<details open><summary>Faut-il acheter du stock ?</summary><p>Non pour les revendeurs en ligne et les affiliés : nous livrons directement vos clients.</p></details>
+<details><summary>Comment mes clients paient-ils ?</summary><p>En espèces au livreur, à la livraison. Nous vous versons votre marge chaque vendredi.</p></details>
+<details><summary>Et si mon client refuse le colis ?</summary><p>Le colis revient au magasin. Aucun frais pour vous sur les 3 premiers retours du mois (exemple de règle).</p></details>
+<details><summary>Puis-je utiliser vos photos ?</summary><p>Oui, toutes les photos et fiches sont téléchargeables depuis votre espace.</p></details>
+</aside></div></div>
+</div></section>
+
+<section class="view" id="v-pro"><div class="w">
+<div class="crumb"><a href="#accueil">Accueil</a><svg class="i s"><use href="#i-right"/></svg><a href="#partenaire">Espace revendeurs</a><svg class="i s"><use href="#i-right"/></svg>Tableau de bord</div>
+<div class="panel prohd"><span class="av">YA</span><div><h1>Bonjour Youssef</h1><small>@time.agadir, revendeur en ligne depuis mars 2026</small></div><span class="lvl">Prix revendeur : −20 %</span><div class="r"><a class="sbtn"><svg class="i s"><use href="#i-chat"/></svg>Mon conseiller</a><a class="sbtn y" href="#pro">Nouvelle commande client</a></div></div>
+<div class="kpis"><div class="panel kpi">Commandes ce mois<b>38</b><small>31 livrées, 4 en cours</small></div><div class="panel kpi">Chiffre encaissé par vos clients<b>11 420 Dhs</b><small>payé à la livraison</small></div><div class="panel kpi">Votre marge du mois<b>2 940 Dhs</b><small>après retours</small></div><div class="panel kpi">Versé vendredi 27 novembre<b>1 280 Dhs</b><small>par virement</small></div></div>
+<div class="pro2">
+<div class="panel blk" style="margin-top:0"><div class="tabs"><button class="on">Catalogue revendeur</button><button>Mes commandes</button><button>Mes clients</button><button>Versements</button></div>
+<div class="bh" style="margin-bottom:8px"><h2 style="font-size:17px">Vos prix revendeur</h2><span style="color:var(--mut);font-size:13px">Stock mis à jour en temps réel</span></div>
+<div class="scroll"><table class="cat2"><thead><tr><th>Produit</th><th class="n">Stock</th><th class="n">Prix public</th><th class="n">Votre prix</th><th class="n">Marge</th><th>Quantité</th><th></th></tr></thead><tbody id="procat"></tbody></table></div></div>
+<div style="display:grid;gap:12px">
+<div class="panel blk" style="margin-top:0"><div class="bh"><h2 style="font-size:17px">Dernières commandes clients</h2></div>
+<div class="scroll"><table class="cat2" style="min-width:0"><thead><tr><th>Client</th><th class="n">Encaissé</th><th class="n">Marge</th><th>Statut</th></tr></thead><tbody>
+<tr><td>Salma B., Agadir<br><small style="color:var(--mut)">A-2291, NIBOSI chrono</small></td><td class="n">349 Dhs</td><td class="n mg">110 Dhs</td><td><span class="st ok">Livrée</span></td></tr>
+<tr><td>Omar K., Inezgane<br><small style="color:var(--mut)">A-2287, LIGE connectée</small></td><td class="n">460 Dhs</td><td class="n mg">140 Dhs</td><td><span class="st go">En livraison</span></td></tr>
+<tr><td>Nadia E., Tiznit<br><small style="color:var(--mut)">A-2280, REWARD femme</small></td><td class="n">270 Dhs</td><td class="n mg">86 Dhs</td><td><span class="st ok">Livrée</span></td></tr>
+<tr><td>Hicham A., Agadir<br><small style="color:var(--mut)">A-2274, SKMEI solaire</small></td><td class="n">0 Dhs</td><td class="n">0 Dhs</td><td><span class="st ko">Refusée</span></td></tr>
+</tbody></table></div></div>
+<div class="panel blk" style="margin-top:0"><div class="bh"><h2 style="font-size:17px">Votre lien d'affiliation</h2></div><p style="margin:0;color:var(--mut);font-size:13.5px">10 % sur chaque commande livrée passée avec ce lien.</p><div class="link"><input value="adoristore.ma/?ref=time-agadir" readonly aria-label="Lien d'affiliation"><button class="sbtn y" type="button" id="cpy">Copier</button></div></div>
+</div></div>
+<p class="note">Tableau de bord d'exemple : client, chiffres, niveaux et commissions sont fictifs.</p>
+</div></section>
 <section class="view" id="v-merci"><div class="w"><div class="panel ty">
 <div class="ok"><span><svg class="i"><use href="#i-check"/></svg></span><h1>Merci Karim, votre commande A-1024 est enregistrée</h1></div>
 <p>Un conseiller vous écrit sur WhatsApp dans l'heure pour confirmer l'adresse. Préparez le montant exact pour le livreur.</p>
@@ -440,13 +573,13 @@ img{max-width:100%;display:block}
 </main>
 
 <div class="pbar" id="pbar"><button class="btn line add" id="pbadd" data-id="m1">Ajouter au panier</button><a class="btn" href="#commande">Commander</a><a class="wab" aria-label="Commander sur WhatsApp"><svg class="i"><use href="#i-chat"/></svg></a></div>
-<nav class="tab" aria-label="Navigation"><a href="#accueil" data-v="accueil"><svg class="i"><use href="#i-home"/></svg>Accueil</a><a href="#categorie" data-v="categorie"><svg class="i"><use href="#i-grid"/></svg>Rayons</a><a href="#categorie"><svg class="i"><use href="#i-bolt"/></svg>Promos</a><a href="#commande" data-v="commande"><svg class="i"><use href="#i-bag"/></svg><b class="cc">0</b>Panier</a><a><svg class="i"><use href="#i-user"/></svg>Compte</a></nav>
+<nav class="tab" aria-label="Navigation"><a href="#accueil" data-v="accueil"><svg class="i"><use href="#i-home"/></svg>Accueil</a><a href="#categorie" data-v="categorie"><svg class="i"><use href="#i-grid"/></svg>Rayons</a><a href="#categorie"><svg class="i"><use href="#i-bolt"/></svg>Promos</a><a href="#commande" data-v="commande"><svg class="i"><use href="#i-bag"/></svg><b class="cc">0</b>Panier</a><a href="#partenaire" data-v="partenaire"><svg class="i"><use href="#i-store"/></svg>Revendeurs</a></nav>
 
 <footer class="ft"><div class="w fcols">
-<div><a class="logo" href="#accueil">ADORIS<small>STORE</small></a><p style="max-width:34ch">Montres, smartwatches et lunettes livrées partout au Maroc, depuis notre magasin de Derb Omar.</p><div class="payl"><span>Paiement à la livraison</span><span>VISA</span><span>Mastercard</span></div></div>
-<div><h4>Acheter</h4><ul><li>Montres hommes</li><li>Montres femmes</li><li>Smartwatch</li><li>Lunettes</li><li>Ventes flash</li></ul></div>
+<div><a class="logo" href="#accueil">ADORIS<small>STORE</small></a><p style="max-width:34ch">Montres, smartwatches et lunettes livrées partout au Maroc, depuis notre magasin de Derb Omar.</p><div class="payl"><span>Paiement à la livraison uniquement</span></div></div>
+<div><h4>Acheter</h4><ul><li><a href="#partenaire">Devenir revendeur</a></li><li>Montres hommes</li><li>Montres femmes</li><li>Smartwatch</li><li>Lunettes</li><li>Ventes flash</li></ul></div>
 <div><h4>Aide</h4><ul><li>Suivre ma commande</li><li>Livraison et frais</li><li>Échanges et retours</li><li>Conditions de vente</li><li>Mentions légales</li></ul></div>
-<div><h4>Contact</h4><ul><li><svg class="i s"><use href="#i-chat"/></svg>WhatsApp 06 63 58 31 62</li><li><svg class="i s"><use href="#i-mail"/></svg>contact@adoristore.ma</li><li><svg class="i s"><use href="#i-pin"/></svg>Kissariat Saidi, Garage Allal, Derb Omar, Casablanca</li><li><svg class="i s"><use href="#i-clock"/></svg>Tous les jours, de 10 h à 20 h</li><li><svg class="i s"><use href="#i-store"/></svg>Revendeurs : adoris.ma</li></ul></div>
+<div><h4>Contact</h4><ul><li><svg class="i s"><use href="#i-chat"/></svg>WhatsApp 06 63 58 31 62</li><li><svg class="i s"><use href="#i-mail"/></svg>contact@adoristore.ma</li><li><svg class="i s"><use href="#i-pin"/></svg>Kissariat Saidi, Garage Allal, Derb Omar, Casablanca</li><li><svg class="i s"><use href="#i-clock"/></svg>Tous les jours, de 10 h à 20 h</li><li><svg class="i s"><use href="#i-store"/></svg><a href="#partenaire" style="text-decoration:underline">Espace revendeurs</a></li></ul></div>
 </div><div class="w fbot"><span>© 2026 Adoris Store</span><span>Maquette : notes, avis, stocks, ventes, délais et caractéristiques sont des exemples à remplacer.</span></div></footer>
 
 <script src="produits.js"></script>
@@ -491,6 +624,10 @@ const setCart=()=>{document.querySelectorAll('.cc').forEach(e=>e.textContent=car
 document.getElementById('city').addEventListener('change',setCart);
 document.addEventListener('click',e=>{const b=e.target.closest('.add');if(!b)return;e.preventDefault();cart.push(b.dataset.id);setCart();b.classList.add('done');b.innerHTML=ic('check')+'Ajouté'});
 
+
+const proRows=['m1','m2','m3','f1','f3','s1','m6','l1'].map(id=>{const p=by(id),yp=Math.round(p.price*0.8),st=4+seed(id)%40;return `<tr><td><div class="pi"><img src="img/${p.id}.jpg" alt=""><span><b>${p.brand}</b><br>${p.name}</span></div></td><td class="n">${st}</td><td class="n">${fmt(p.price)}</td><td class="n yp">${fmt(yp)}</td><td class="n mg">+${p.price-yp} Dhs</td><td><div class="q"><button aria-label="Moins">${ic('minus')}</button><span>1</span><button aria-label="Plus">${ic('plus')}</button></div></td><td><div class="acts2"><button class="sbtn" type="button">${ic('truck')}Expédier à mon client</button><button class="sbtn y" type="button">${ic('bag')}En gros</button></div></td></tr>`}).join('');
+document.getElementById('procat').innerHTML=proRows;
+document.getElementById('cpy').addEventListener('click',e=>{navigator.clipboard?.writeText('adoristore.ma/?ref=time-agadir').catch(()=>{});e.target.textContent='Copié'});
 const prod=id=>{const p=by(id)||by('m1'),r=rate(p.id),off=p.old?Math.round((1-p.price/p.old)*100):0;
  const sim=P.filter(x=>x.cat===p.cat&&x.id!==p.id).slice(0,6);let k=0;while(sim.length<6){if(P[k].id!==p.id&&!sim.includes(P[k]))sim.push(P[k]);k++}
  const shots=[p.id,...sim.slice(0,3).map(s=>s.id)],dist=[72,18,6,3,1];
@@ -509,7 +646,7 @@ const prod=id=>{const p=by(id)||by('m1'),r=rate(p.id),off=p.old?Math.round((1-p.
  <label class="eng"><input type="checkbox">${ic('pen','i')}<span>Graver un prénom au dos</span><b>+50 Dhs</b></label>
  <div class="qty buyb">Quantité<select aria-label="Quantité"><option>1</option><option>2</option><option>3</option></select></div>
  <a class="btn buyb" href="#commande">Acheter maintenant</a><button class="btn line add buyb" data-id="${p.id}">${ic('bag')}Ajouter au panier</button><a class="btn wa buyb">${ic('chat')}Commander sur WhatsApp</a>
- <div class="sec2"><span>${ic('lock')}Données protégées</span><span>${ic('shield')}Garantie 6 mois</span></div></aside>
+ <div class="sec2"><span>${ic('cash')}Aucune carte demandée</span><span>${ic('shield')}Garantie 6 mois</span></div></aside>
  </div>
  <div class="panel blk"><div class="bh"><h2>Souvent achetés ensemble</h2></div><div class="fbt"><img src="img/${p.id}.jpg" alt=""><span class="pl">${ic('plus','i')}</span><img src="img/g1.jpg" alt=""><span class="pl">${ic('plus','i')}</span><img src="img/b2.jpg" alt=""><div class="t"><span>Montre, gravure et coffret</span><b>${fmt(p.price+50+225)}</b><a class="btn" href="#commande">Ajouter les trois au panier</a></div></div></div>
  <div class="panel blk"><div class="bh"><h2>Les clients ont aussi regardé</h2></div><div class="g6">${sim.map(s=>card(s)).join('')}</div></div>

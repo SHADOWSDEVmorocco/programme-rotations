@@ -42,7 +42,7 @@ p{margin:0 0 10px}
 .browser .bar{display:flex;gap:6px;align-items:center;padding:9px 12px;background:#f1eee8;border-bottom:1px solid var(--line)}
 .browser .bar i{width:10px;height:10px;border-radius:50%;background:#d8d3ca}
 .browser .bar span{margin-left:12px;background:#fff;border-radius:999px;padding:3px 14px;font-size:11.5px;color:var(--mut)}
-.browser img{display:block;width:100%;max-height:600px;object-fit:cover;object-position:top}
+.browser img{display:block;width:100%;max-height:640px;object-fit:cover;object-position:top}
 .cont img{display:block;width:100%}
 .cont{border:1px solid var(--line);border-top:0;border-radius:0 0 14px 14px;overflow:hidden;box-shadow:0 10px 30px rgba(18,18,18,.08)}
 .notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 22px;margin-top:14px}
@@ -113,6 +113,7 @@ td.k{font-weight:600;width:28%}
 <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7.5 3v5.5c0 4.7-3.2 8-7.5 9.5-4.3-1.5-7.5-4.8-7.5-9.5V6z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
 <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3.5" y="8" width="17" height="4.5" rx="1"/><path d="M5 12.5V20h14v-7.5M12 8v12"/></symbol>
 <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+<symbol id="i-store" viewBox="0 0 24 24"><path d="M4 9.5 5.5 4h13L20 9.5"/><path d="M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0"/><path d="M5.5 11.5V20h13v-8.5"/></symbol>
 <symbol id="i-lang" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.5 2.5 14.5 0 17M12 3.5c-2.5 2.5-2.5 14.5 0 17"/></symbol>
 </svg>
 
@@ -128,7 +129,7 @@ td.k{font-weight:600;width:28%}
 <div class="fig"><b>4</b><span>montres visibles par écran sur téléphone, au lieu d'1</span></div>
 <div class="fig"><b>6</b><span>montres par ligne sur ordinateur, 2 sur téléphone</span></div>
 </div>
-<div class="meta"><span><svg class="i"><use href="#i-monitor"/></svg>5 pages sur ordinateur</span><span><svg class="i"><use href="#i-phone"/></svg>5 écrans sur téléphone</span><span><svg class="i"><use href="#i-grid"/></svg>24 vrais produits Adoris</span></div>
+<div class="meta"><span><svg class="i"><use href="#i-monitor"/></svg>7 pages sur ordinateur, dont l'espace revendeurs</span><span><svg class="i"><use href="#i-phone"/></svg>5 écrans sur téléphone</span><span><svg class="i"><use href="#i-grid"/></svg>24 vrais produits Adoris</span></div>
 </section>
 
 <section class="pg">
@@ -218,13 +219,36 @@ td.k{font-weight:600;width:28%}
 <div class="notes">
 <div class="note"><span class="n">1</span><div><b>Deux blocs numérotés</b><span class="why">Adresse de livraison, puis paiement : le client voit qu'il a presque fini.</span></div></div>
 <div class="note"><span class="n">2</span><div><b>4 champs, vraie liste de villes</b><span class="why">E-mail facultatif ; plus de provinces incompréhensibles.</span></div></div>
-<div class="note"><span class="n">3</span><div><b>Paiement à la livraison présélectionné</b><span class="why">La carte reste possible, en second choix.</span></div></div>
+<div class="note"><span class="n">3</span><div><b>Paiement à la livraison uniquement</b><span class="why">Aucune carte bancaire demandée : le client paie le livreur en espèces.</span></div></div>
 <div class="note"><span class="n">4</span><div><b>Récapitulatif avec code promo</b><span class="why">Les frais de livraison changent selon la ville choisie, le total est toujours visible.</span></div></div>
 </div>
 <div class="browser" style="margin:16px auto 0;width:72%"><div class="bar"><i></i><i></i><i></i><span>adoristore.ma/merci</span></div><img src="img/pc-merci.jpg" alt="Confirmation"></div>
 <p class="small" style="margin:8px auto 0;width:72%">Page de confirmation : suivi en 4 étapes, total à payer en espèces, date de livraison et suivi par WhatsApp, pour réduire les colis refusés.</p>
 </section>
 
+<section class="pg">
+<div class="kick"><svg class="i"><use href="#i-store"/></svg>Espace revendeurs · 1/2</div>
+<h2>Une page pour recruter des revendeurs</h2>
+<div class="browser"><div class="bar"><i></i><i></i><i></i><span>adoristore.ma/revendeurs</span></div><img src="img/pc-partenaire.jpg" alt="Page espace revendeurs"></div>
+<div class="notes">
+<div class="note"><span class="n">1</span><div><b>Trois formules claires</b><span class="why">Grossiste (magasin), revendeur en ligne sans stock, affilié avec un lien : chacun trouve la sienne.</span></div></div>
+<div class="note"><span class="n">2</span><div><b>Prix selon la quantité</b><span class="why">Le revendeur voit tout de suite sa remise et son prix d'achat. Les pourcentages sont des exemples à fixer.</span></div></div>
+<div class="note"><span class="n">3</span><div><b>Inscription en 2 minutes</b><span class="why">Nom, WhatsApp, ville, activité, volume : un conseiller rappelle sous 24 h.</span></div></div>
+<div class="note"><span class="n">4</span><div><b>Questions fréquentes</b><span class="why">Stock, paiement des clients à la livraison, colis refusés, photos : les réponses avant l'appel.</span></div></div>
+</div>
+</section>
+<section class="pg">
+<div class="kick"><svg class="i"><use href="#i-store"/></svg>Espace revendeurs · 2/2</div>
+<h2>Le tableau de bord du revendeur</h2>
+<div class="browser"><div class="bar"><i></i><i></i><i></i><span>adoristore.ma/revendeurs/tableau-de-bord</span></div><img src="img/pc-pro.jpg" alt="Tableau de bord revendeur"></div>
+<div class="notes">
+<div class="note"><span class="n">1</span><div><b>Ses chiffres du mois</b><span class="why">Commandes, montant encaissé à la livraison, marge et prochain versement du vendredi.</span></div></div>
+<div class="note"><span class="n">2</span><div><b>Catalogue à prix revendeur</b><span class="why">Stock en temps réel, prix public, son prix et sa marge. Il commande en gros ou fait livrer son client.</span></div></div>
+<div class="note"><span class="n">3</span><div><b>Suivi des commandes de ses clients</b><span class="why">Livrée, en livraison, refusée : il sait ce qu'il va toucher.</span></div></div>
+<div class="note"><span class="n">4</span><div><b>Lien d'affiliation à copier</b><span class="why">Pour partager sur Instagram, TikTok ou WhatsApp.</span></div></div>
+</div>
+<div class="verdict"><span class="c"><svg class="i"><use href="#i-check"/></svg></span><div><b>Bon à savoir.</b> Cet espace peut aussi vivre sur adoris.ma, votre site grossiste, avec un lien depuis la boutique. Sur WooCommerce, il se monte avec un module de prix par rôle (prix revendeur), un module d'affiliation et un tableau de bord. Le paiement reste à la livraison : seules les marges sont versées aux revendeurs, par virement.</div></div>
+</section>
 <section class="pg">
 <div class="kick"><svg class="i"><use href="#i-phone"/></svg>Maquette téléphone</div>
 <h2>Sur téléphone, là où se font la plupart des commandes</h2>
@@ -282,7 +306,7 @@ td.k{font-weight:600;width:28%}
 <div class="plan">
 <div><span class="w">Semaine 1</span><h3>Corriger et rassurer</h3><ul><li>Réparer les 21 prix cassés</li><li>Tout traduire en français</li><li>Paiement à la livraison par défaut, e-mail facultatif</li><li>CGV, mentions légales, adresse du magasin</li></ul></div>
 <div><span class="w">Semaines 2–3</span><h3>Nouvelle interface</h3><ul><li>Thème léger et rapide, aux couleurs de la maquette</li><li>Accueil, catégories, fiche produit, barre fixe mobile</li><li>Commande en une page, vraie liste de villes</li><li>Images compressées : objectif moins de 2 Mo</li></ul></div>
-<div><span class="w">Mois 1–2</span><h3>Vendre plus</h3><ul><li>Avis clients demandés par WhatsApp</li><li>Gravure et coffret proposés sur chaque fiche</li><li>Fiches des 30 meilleures ventes réécrites</li><li>Confirmation de commande par WhatsApp</li></ul></div>
+<div><span class="w">Mois 1–2</span><h3>Vendre plus</h3><ul><li>Avis clients demandés par WhatsApp</li><li>Gravure et coffret proposés sur chaque fiche</li><li>Fiches des 30 meilleures ventes réécrites</li><li>Confirmation de commande par WhatsApp</li><li>Ouverture de l'espace revendeurs</li></ul></div>
 </div>
 <h3 style="margin-top:26px">Comment savoir si ça marche</h3>
 <div class="kpi">
@@ -303,7 +327,7 @@ const C=[["Écrans pour commander","depuis la fiche produit",4,1,""],["Champs ob
 const mx=5;
 document.getElementById('cmp').innerHTML=C.map(c=>`<div class="r"><div class="l">${c[0]}<small>${c[1]}</small></div><div class="bars"><div class="b av"><span>Avant</span><div class="t"><i style="width:${Math.max(c[2]/mx*100,6)}%">${c[2]}</i></div></div><div class="b ap"><span>Après</span><div class="t"><i style="width:${Math.max(c[3]/mx*100,6)}%">${c[3]}</i></div></div></div></div>`).join('');
 const ic=n=>`<span class="ic"><svg class="i"><use href="#i-${n}"/></svg></span>`;
-const A=[["cash","Paiement à la livraison mis en avant","Achète sans risque, sans carte","Plus de commandes, moins d'abandons au paiement"],
+const A=[["cash","Paiement à la livraison uniquement","Achète sans risque, sans carte bancaire","Plus de commandes, aucun frais de paiement en ligne"],
 ["truck","Délai et frais affichés partout","Sait quand et combien il paiera","Moins de questions et d'appels avant achat"],
 ["star","Notes et avis clients","Se fie à l'expérience des autres","Preuve sociale qui convertit les hésitants"],
 ["grid","Grille dense et filtres","Trouve vite la montre qui lui plaît","Plus de produits vus, plus de chances de vendre"],
