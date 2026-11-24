@@ -5,276 +5,284 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Adoris Store – maquette</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Jost:wght@500;600&display=swap" rel="stylesheet">
 <style>
-/* VOICE modern everyday shop: clean, confident, built to sell watches paid on delivery
-   IDEA a watch counter: black frame, white trays on a warm stone surface, gold tags, the promise on the glass
-   PICTURE the real Adoris products in white cards, dense grids
-   COLOUR stone #f4f2ee surface, white cards, ink #121212, gold #b4893a, sale #d92d20, trust green #16784a, WhatsApp #25d366
-   TYPE Plus Jakarta Sans for UI, Jost for the wordmark; line icons only, no emoji
-   LAYOUT desktop: promise bar, header with search pill, nav pills, hero + 2 tiles, trust cards, grids; phone: 2-col grids, icon tab bar, sticky buy bar */
-:root{color-scheme:light;--ink:#121212;--mut:#6b6862;--line:#e8e5df;--bg:#f4f2ee;--card:#fff;--soft:#f1eee8;--gold:#b4893a;--gold2:#e9d6ad;--red:#d92d20;--green:#16784a;--wa:#25d366;--r:18px;--sh:0 1px 2px rgba(18,18,18,.04),0 10px 30px rgba(18,18,18,.05)}
+/* IDEA a Derb Omar watch counter: steel case, white display slots, brass price tags on strings,
+   and one live dial whose arc counts down to the 16:00 shipping cut-off.
+   COLOUR steel #E4E6E7, vitrine #FFFFFF, dial blue #16325C, brass #B8892E, seconds red #C8372D, ink #1C1E22
+   TYPE Archivo only: expanded (wdth 125) for titles like dial lettering, normal for text; Jost for the wordmark
+   LAYOUT left aligned; products in a bordered case of 1px-separated slots; boldness spent on the hero dial only */
+:root{color-scheme:light;--steel:#E4E6E7;--steel2:#CDD1D4;--line:#C3C8CC;--white:#fff;--dial:#16325C;--dial2:#0F2443;--brass:#B8892E;--brassl:#EBD9AE;--red:#C8372D;--ink:#1C1E22;--mut:#5E646B;--ok:#2F6B4A}
 *{box-sizing:border-box;min-width:0}
-body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Plus Jakarta Sans",Inter,system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+html{scroll-padding-top:110px}
+body{margin:0;background:var(--steel);color:var(--ink);font:400 15.5px/1.55 Archivo,system-ui,sans-serif;overflow-x:clip}
 a{color:inherit;text-decoration:none}
-button{font:inherit;cursor:pointer;color:inherit}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
 img{max-width:100%;display:block}
-.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.i.s{width:16px;height:16px}.i.l{width:24px;height:24px}
-.w{max-width:1320px;margin:0 auto;padding:0 max(3vw,14px)}
-.promo{background:var(--ink);color:#e9e2d2;font-size:12.5px}
-.promo .w{display:flex;justify-content:center;gap:30px;padding-block:8px;flex-wrap:wrap}
-.promo span{display:flex;gap:7px;align-items:center}.promo b{color:#fff;font-weight:600}.promo .i{color:var(--gold2)}
-header.hd{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
-.hrow{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:28px;align-items:center;padding-block:12px}
-.brand{display:flex;gap:10px;align-items:center}
-.logo{font:600 26px/1 Jost,sans-serif;letter-spacing:.06em;text-align:center}
-.logo small{display:block;font-size:8.5px;letter-spacing:.55em;font-weight:500;margin-top:3px}
-.search{display:flex;align-items:center;gap:10px;background:var(--bg);border:1px solid transparent;border-radius:999px;padding:0 6px 0 18px;max-width:620px;width:100%;justify-self:center;height:48px}
-.search:focus-within{border-color:var(--ink);background:#fff}
-.search .i{color:var(--mut)}
-.search input{flex:1;border:0;background:transparent;font:inherit;font-size:16px;outline:0;height:100%}
-.search button{border:0;background:var(--ink);color:#fff;border-radius:999px;height:36px;padding:0 18px;font-weight:600;font-size:13.5px}
-.acts{display:flex;gap:8px;align-items:center}
-.ib{position:relative;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);background:#fff}
-.ib:hover{border-color:var(--ink)}
-.ib em{position:absolute;top:-3px;right:-3px;background:var(--gold);color:#fff;font-style:normal;font-size:10.5px;font-weight:700;border-radius:999px;min-width:19px;height:19px;display:grid;place-items:center;border:2px solid #fff}
-.wa-h{display:flex;gap:10px;align-items:center;margin-right:8px;font-size:12px;color:var(--mut);line-height:1.25}
-.wa-h b{display:block;color:var(--ink);font-size:13.5px}
-.wa-h .ib{background:#e9f9ef;border-color:#c8efd6;color:#128c4a}
-nav.nv .w{display:flex;gap:6px;padding-block:8px 12px;overflow-x:auto;white-space:nowrap}
-nav.nv a{flex:none;padding:7px 14px;border-radius:999px;font-weight:500;font-size:14px}
-nav.nv a:hover{background:var(--bg)}
-nav.nv a.on{background:var(--ink);color:#fff}
-nav.nv a.hot{color:var(--red)}
-.burger{display:none;border:0;background:none;padding:4px}
-.hero{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-top:20px}
-.hbig{position:relative;background:radial-gradient(120% 140% at 85% 30%,#4a3a22 0,#1a1714 45%,#111 100%);color:#fff;border-radius:28px;display:grid;grid-template-columns:1.1fr 1fr;align-items:center;overflow:hidden;min-height:380px}
-.hbig .tx{padding:clamp(24px,3.6vw,52px)}
-.pill{display:inline-flex;gap:6px;align-items:center;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);border-radius:999px;padding:5px 12px;font-size:12.5px;color:#efe6d3}
-.hbig h1{font-weight:700;font-size:clamp(30px,3.6vw,50px);line-height:1.04;letter-spacing:-.03em;margin:16px 0 0}
-.hbig h1 span{color:var(--gold2);white-space:nowrap}
-.hbig p{color:#d8cfbd;font-size:16px;margin:14px 0 24px;max-width:36ch}
-.hbig .ctas{display:flex;gap:10px;flex-wrap:wrap}
-.hvis{position:relative;height:100%;display:grid;place-items:center;padding:24px}
-.hvis::before{content:"";position:absolute;width:78%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#d9b46a55,transparent 68%)}
-.hvis img{position:relative;width:78%;aspect-ratio:1;object-fit:cover;border-radius:50%;box-shadow:0 30px 60px rgba(0,0,0,.45);border:6px solid rgba(255,255,255,.08)}
-.tag{position:absolute;left:8%;bottom:14%;background:#fff;color:var(--ink);border-radius:16px;padding:10px 14px;box-shadow:var(--sh);font-size:12px}
-.tag b{display:block;font-size:18px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:0 22px;font-weight:600;min-height:48px;font-size:14.5px;white-space:nowrap}
-.btn.gold{background:var(--gold);color:#fff}
-.btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
-.btn.line{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
-.btn.wa{background:var(--wa);color:#fff}
-.hside{display:grid;gap:16px}
-.tile{border-radius:24px;background:var(--card);box-shadow:var(--sh);display:grid;grid-template-columns:1fr 128px;align-items:center;overflow:hidden}
-.tile .tx{padding:20px}
-.tile .ic{width:40px;height:40px;border-radius:12px;background:var(--soft);display:grid;place-items:center;color:var(--gold);margin-bottom:10px}
-.tile h3{font-weight:700;font-size:18px;line-height:1.15;margin:0 0 4px}
-.tile p{margin:0 0 10px;color:var(--mut);font-size:13px}
-.tile a{font-weight:600;font-size:13.5px;display:inline-flex;gap:4px;align-items:center}
-.tile img{height:100%;object-fit:cover}
-.trust{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px}
-.trust div{display:flex;gap:12px;align-items:center;background:var(--card);border-radius:16px;padding:14px 16px;font-size:13px;color:var(--mut);box-shadow:var(--sh)}
-.trust b{display:block;font-size:14.5px;color:var(--ink)}
-.trust .c{width:42px;height:42px;border-radius:12px;background:#eaf5ef;color:var(--green);display:grid;place-items:center;flex:none}
-.sec{margin-top:44px}
-.sh{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:16px}
-.sh h2{font-weight:700;font-size:clamp(21px,2.2vw,28px);letter-spacing:-.02em;line-height:1.1;margin:0}
-.sh a{font-weight:600;font-size:13.5px;display:inline-flex;align-items:center;gap:2px;white-space:nowrap;border-bottom:1.5px solid var(--ink)}
-.cats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
-.cats a{background:var(--card);border-radius:20px;padding:10px 10px 12px;box-shadow:var(--sh);display:grid;gap:8px;font-weight:600;font-size:14px}
-.cats img{aspect-ratio:1;object-fit:cover;border-radius:14px;background:var(--soft)}
-.cats a span{display:flex;justify-content:space-between;align-items:center;padding:0 4px}
-.grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
-.card{position:relative;display:flex;flex-direction:column;background:var(--card);border-radius:var(--r);padding:8px 8px 14px;box-shadow:var(--sh);transition:transform .2s,box-shadow .2s}
-.card:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(18,18,18,.05),0 18px 40px rgba(18,18,18,.09)}
-.card .im{position:relative;border-radius:13px;overflow:hidden;background:var(--soft)}
-.card .im img{aspect-ratio:1;object-fit:cover;width:100%}
-.badge{position:absolute;top:8px;left:8px;background:var(--red);color:#fff;font-size:11.5px;font-weight:700;border-radius:999px;padding:3px 9px;z-index:1}
-.badge.new{background:var(--ink)}
-.fav{position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;border:0;box-shadow:0 2px 8px rgba(0,0,0,.08);z-index:1}
-.card .bd{padding:10px 6px 0;display:flex;flex-direction:column;gap:2px;flex:1}
-.card .br{font-size:11px;color:var(--mut);letter-spacing:.08em;font-weight:600}
-.card .nm{font-size:14px;line-height:1.3;height:2.6em;overflow:hidden;font-weight:500}
-.rt{display:flex;gap:4px;align-items:center;font-size:12.5px;color:var(--mut);white-space:nowrap}
-.rt .st{width:14px;height:14px;fill:#e0a526;stroke:none}
-.pf{display:flex;align-items:end;justify-content:space-between;gap:6px;margin-top:6px}
-.pr{font-weight:700;font-size:17px;white-space:nowrap;line-height:1.1}.pr s{display:block;color:#9a958e;font-weight:500;font-size:12px}
-.add{width:40px;height:40px;border-radius:50%;border:0;background:var(--ink);color:#fff;display:grid;place-items:center;flex:none}
-.add.done{background:var(--green)}
-.dl{display:flex;gap:5px;align-items:center;color:var(--green);font-size:12px;font-weight:500;margin-top:4px}
-.band{margin-top:44px;background:linear-gradient(120deg,#151310 0,#2b2219 60%,#5b4524 100%);color:#fff;border-radius:28px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;align-items:center}
-.band .tx{padding:clamp(24px,4vw,56px)}
-.band h2{font-weight:700;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;line-height:1.05;margin:14px 0 10px}
-.band p{color:#d9d0bf;margin:0 0 22px;max-width:44ch}
-.steps3{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:22px;font-size:13px;color:#e9e2d2}
-.steps3 span{display:flex;gap:8px;align-items:center}.steps3 i{font-style:normal;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.12);display:grid;place-items:center;font-weight:700;font-size:12px}
-.band img{height:100%;max-height:360px;width:100%;object-fit:cover}
-.revs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.rev{background:var(--card);border-radius:var(--r);padding:18px;box-shadow:var(--sh)}
-.rev p{margin:10px 0 14px;font-size:14.5px}
-.who{display:flex;gap:10px;align-items:center;font-size:13px}.who i{font-style:normal;width:36px;height:36px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-weight:700}
-.who small{display:block;color:var(--mut)}
-.brands{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:10px}
-.brands span{background:var(--card);border-radius:14px;padding:16px 6px;text-align:center;font:600 14px Jost,sans-serif;letter-spacing:.1em;box-shadow:var(--sh)}
-footer.ft{margin-top:56px;background:var(--ink);color:#cfc8ba;font-size:14px}
-.news{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-block:30px;border-bottom:1px solid #2a2825}
-.news h3{color:#fff;font-weight:700;font-size:20px;margin:0}
-.news form{display:flex;gap:8px;background:#1f1d1a;border-radius:999px;padding:5px 5px 5px 18px;min-width:min(100%,380px)}
-.news input{flex:1;background:transparent;border:0;color:#fff;font:inherit;outline:0}
-.fcols{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:28px;padding-block:34px}
-.ft h4{color:#fff;font-weight:700;font-size:15px;margin:0 0 12px}
+:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.i.s{width:17px;height:17px}
+.w{max-width:1280px;margin:0 auto;padding:0 max(3vw,16px)}
+.strip{background:var(--dial);color:#DCE3EC;font-size:13px}
+.strip .w{display:flex;gap:26px;padding-block:7px;flex-wrap:wrap}
+.strip span{display:flex;gap:7px;align-items:center}
+.strip .r{margin-left:auto}
+.hd{position:sticky;top:0;z-index:20;background:var(--white);border-bottom:1px solid var(--line)}
+.hrow{display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;gap:28px;align-items:center;height:68px}
+.logo{font:600 25px/1 Jost,sans-serif;letter-spacing:.07em;color:var(--dial);display:inline-block;justify-self:start}
+.logo small{display:block;font-size:8px;letter-spacing:.6em;margin-top:3px;text-align:center}
+.nav{display:flex;gap:22px;font-size:14.5px;font-weight:500}
+.nav a{padding:6px 0;border-bottom:2px solid transparent}
+.nav a.on,.nav a:hover{border-color:var(--dial)}
+.nav a.promo{color:var(--red)}
+.right{display:flex;gap:10px;align-items:center;justify-content:end}
+.search{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:6px;padding:0 12px;height:42px;background:var(--white);width:min(100%,320px);color:var(--mut)}
+.search input{border:0;outline:0;flex:1;font-size:15px;background:transparent;color:var(--ink)}
+.search.sm{display:none}
+.acts{display:flex;gap:2px;align-items:center}
+.ib{position:relative;display:grid;place-items:center;width:42px;height:42px;border-radius:6px;background:none;border:0}
+.ib:hover{background:var(--steel)}
+.ib b{position:absolute;top:4px;right:3px;min-width:18px;height:18px;border-radius:9px;background:var(--brass);color:#fff;font-size:11px;display:grid;place-items:center;padding:0 4px}
+.burger{display:none}
+.hero{background:var(--white)}
+.hero .w{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:48px;align-items:center;padding-block:44px 40px}
+.dialwrap{max-width:460px;width:100%;justify-self:center}
+.dialwrap svg{width:100%;height:auto;display:block}
+.hero h1{font-size:clamp(32px,4.2vw,56px);line-height:1.02;font-weight:700;font-stretch:125%;letter-spacing:-.02em;margin:0;max-width:15ch;color:var(--dial)}
+.left{font-size:19px;margin:18px 0 6px;font-weight:600}
+.left em{font-style:normal;color:var(--brass)}
+.sub{color:var(--mut);margin:0 0 26px;max-width:46ch}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:0 24px;border-radius:6px;border:1.5px solid var(--dial);background:var(--dial);color:#fff;font-weight:600;font-size:15px;white-space:nowrap}
+.btn:hover{background:var(--dial2)}
+.btn.out{background:var(--white);color:var(--dial)}
+.btn.out:hover{background:var(--steel)}
+.btn.wa{background:#1FA855;border-color:#1FA855;color:#fff}
+.pay{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;font-size:13.5px;color:var(--mut)}
+.pay span{display:flex;gap:7px;align-items:center}
+.bandw{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.band{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.band div{display:flex;gap:12px;align-items:flex-start;padding:18px 20px;font-size:13.5px;color:var(--mut)}
+.band div:first-child{padding-left:0}
+.band div+div{border-left:1px solid var(--line)}
+.band b{display:block;color:var(--ink);font-size:15px;font-weight:600}
+.band .i{color:var(--dial);margin-top:2px}
+.sec{padding-top:44px}
+.sh{display:flex;justify-content:space-between;align-items:baseline;gap:6px 16px;margin-bottom:18px;flex-wrap:wrap}
+.sh h2{font-size:clamp(22px,2.3vw,30px);font-weight:700;font-stretch:125%;letter-spacing:-.015em;margin:0;line-height:1.1}
+.sh a{font-weight:600;font-size:14.5px;color:var(--dial);text-decoration:underline;text-underline-offset:4px;white-space:nowrap}
+.case{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.g5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.slot{background:var(--white);position:relative;display:flex;flex-direction:column;padding:14px 14px 16px}
+.slot .im{position:relative;display:block;aspect-ratio:1;margin-bottom:12px}
+.slot .im img{width:100%;height:100%;object-fit:contain}
+.slot .br{font-size:12.5px;color:var(--mut)}
+.slot .nm{font-weight:500;font-size:14.5px;line-height:1.3;min-height:2.6em}
+.rt{display:flex;gap:5px;align-items:center;font-size:13px;color:var(--mut);margin-top:4px}
+.rt svg{width:14px;height:14px;fill:var(--brass);stroke:none}
+.rt b{color:var(--ink);font-weight:600}
+.add{margin-top:12px;display:flex;align-items:center;justify-content:center;gap:8px;height:40px;border:1px solid var(--line);border-radius:6px;background:var(--white);font-weight:600;font-size:14px;color:var(--dial)}
+.add:hover{border-color:var(--dial)}
+.add.done{background:var(--dial);color:#fff;border-color:var(--dial)}
+.tag{position:absolute;right:4px;bottom:-6px;transform:rotate(-4deg);transform-origin:100% 0;pointer-events:none}
+.tag::before{content:"";position:absolute;left:-26px;bottom:50%;width:32px;height:30px;border-left:1.2px solid #9B8A63;border-top:1.2px solid #9B8A63;border-radius:18px 0 0 0}
+.tag span{position:relative;display:block;background:var(--brassl);color:var(--ink);padding:6px 12px 6px 22px;font-weight:700;font-size:16px;line-height:1.1;white-space:nowrap;clip-path:polygon(12px 0,100% 0,100% 100%,12px 100%,0 50%)}
+.tag span::before{content:"";position:absolute;left:8px;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:var(--white);box-shadow:inset 0 0 0 1px #B79F6B}
+.tag s{display:block;font-weight:400;font-size:11.5px;color:#6F6346}.tag s em{font-style:normal;color:var(--red);font-weight:700;display:inline-block;text-decoration:none}
+.tag.sale span{background:#F2D6D2}
+.off,.new{position:absolute;left:0;top:0;font-weight:700;font-size:13px}
+.off{color:var(--red)}.new{color:var(--dial)}
+.cat{background:var(--white);padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px}
+.cat img{aspect-ratio:1;object-fit:contain}
+.cat b{font-weight:600;font-size:15px;display:flex;justify-content:space-between;align-items:baseline;gap:6px}
+.cat small{color:var(--mut);font-weight:400;font-size:13px;white-space:nowrap}
+.cat:hover b{color:var(--dial)}
+.grav{margin-top:48px;background:var(--dial);color:#fff}
+.grav .w{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:center;padding-block:44px}
+.back{max-width:340px;width:100%;justify-self:center}
+.grav h2{font-size:clamp(26px,3vw,40px);font-weight:700;font-stretch:125%;line-height:1.05;margin:0 0 12px}
+.grav p{color:#C9D4E3;max-width:46ch;margin:0 0 20px}
+.gin{display:flex;gap:10px;flex-wrap:wrap;max-width:540px}
+.gin label{flex:1 1 240px;display:grid;gap:6px;font-size:13.5px;color:#C9D4E3}
+.gin input{height:50px;border-radius:6px;border:1px solid #47628A;background:var(--dial2);color:#fff;padding:0 14px;font-size:16px;outline:0}
+.gin input:focus{border-color:var(--brassl)}
+.gin .btn{align-self:end;background:var(--brassl);color:var(--ink);border-color:var(--brassl)}
+.grav ol{margin:22px 0 0;padding-left:1.2em;color:#C9D4E3;font-size:14px;display:grid;gap:4px}
+.revs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}
+.rev p{font-size:16.5px;line-height:1.5;margin:8px 0 10px}
+.rev small{color:var(--mut);font-size:13.5px}
+.brands{display:flex;flex-wrap:wrap;gap:8px 30px;font-stretch:125%;font-weight:600;font-size:clamp(18px,2vw,26px);color:#8A9198}
+.brands a:hover{color:var(--dial)}
+.ft{margin-top:56px;background:var(--dial2);color:#B9C6D8;font-size:14px}
+.fcols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:32px;padding-block:40px}
+.ft h4{color:#fff;font-size:15px;font-weight:600;margin:0 0 12px}
 .ft ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-.ft li{display:flex;gap:8px;align-items:center}
-.ft .logo{color:#fff;text-align:left}
-.payl{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}.payl span{border:1px solid #3a3733;border-radius:8px;padding:5px 9px;font-size:11.5px;font-weight:600;color:#e9e2d2}
-.fbot{border-top:1px solid #2a2825;padding-block:14px;font-size:12.5px;color:#8f897e;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-.crumb{display:flex;gap:6px;align-items:center;font-size:13px;color:var(--mut);margin:18px 0 8px}
-.ph{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
-.ph h1{font-weight:700;font-size:clamp(26px,3vw,36px);letter-spacing:-.02em;margin:0}
+.ft li{display:flex;gap:9px;align-items:flex-start}
+.ft li .i{margin-top:2px}
+.ft .logo{color:#fff;display:inline-block}
+.fbot{border-top:1px solid #29426A;padding-block:16px;font-size:12.5px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.crumb{display:flex;gap:6px;align-items:center;font-size:13.5px;color:var(--mut);padding-top:22px}
+.ph{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:6px 0 18px}
+.ph h1{font-size:clamp(28px,3.2vw,42px);font-weight:700;font-stretch:125%;margin:0;line-height:1.05;color:var(--dial)}
 .ph span{color:var(--mut)}
-.clay{display:grid;grid-template-columns:270px minmax(0,1fr);gap:24px;margin-top:16px;align-items:start}
-.side{background:var(--card);border-radius:var(--r);padding:8px 18px 18px;box-shadow:var(--sh)}
-.side h4{font-weight:700;font-size:14px;margin:16px 0 10px}
-.side label{display:flex;gap:10px;align-items:center;font-size:14px;padding:4px 0}
-.side label em{margin-left:auto;color:var(--mut);font-style:normal;font-size:12px;background:var(--bg);border-radius:999px;padding:1px 8px}
-.side input{width:18px;height:18px;accent-color:var(--ink)}
-.slider{position:relative;height:4px;background:var(--line);border-radius:4px;margin:16px 8px 12px}
-.slider i{position:absolute;left:0;right:30%;top:0;bottom:0;background:var(--ink);border-radius:4px}
-.slider b{position:absolute;top:50%;width:18px;height:18px;border-radius:50%;background:#fff;border:2px solid var(--ink);transform:translate(-50%,-50%)}
-.range{display:flex;justify-content:space-between;font-size:13px;font-weight:600}
-.sw{display:flex;gap:8px;flex-wrap:wrap}.sw i{width:28px;height:28px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px #d4d0c8}
-.sw i.on{box-shadow:0 0 0 2px var(--ink)}
-.tbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
-.chips{display:flex;gap:8px;flex-wrap:wrap}
-.chips b{flex:none;display:inline-flex;gap:6px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-weight:600;font-size:13px;white-space:nowrap}
-.chips b.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-.sel{display:inline-flex;gap:8px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:500}
-.clay .grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.more{display:grid;justify-items:center;gap:8px;margin-top:26px;color:var(--mut);font-size:13px}
-.bar{width:200px;height:4px;background:var(--line);border-radius:4px;overflow:hidden}.bar i{display:block;width:14%;height:100%;background:var(--ink)}
-.chips .mfilt{display:none}
-.play{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px;margin-top:10px;align-items:start}
-.gal{background:var(--card);border-radius:24px;padding:12px;box-shadow:var(--sh);display:grid;grid-template-columns:80px minmax(0,1fr);gap:12px}
-.thumbs{display:grid;gap:10px;align-content:start}
-.thumbs img{border-radius:12px;border:2px solid transparent;aspect-ratio:1;object-fit:cover;background:var(--soft)}
-.thumbs img.on{border-color:var(--ink)}
-.main{border-radius:18px;overflow:hidden;background:var(--soft);position:relative}
-.main img{aspect-ratio:1;object-fit:cover;width:100%}
-.main .fav{top:12px;right:12px}
-.info{background:var(--card);border-radius:24px;padding:24px;box-shadow:var(--sh)}
-.info .br{color:var(--mut);letter-spacing:.08em;font-size:12px;font-weight:700}
-.info h1{font-weight:700;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.02em;line-height:1.15;margin:4px 0 8px}
-.bigp{display:flex;align-items:center;gap:10px;margin:14px 0}
-.bigp b{font-size:32px;letter-spacing:-.02em}.bigp s{color:#9a958e;font-size:16px}.bigp em{font-style:normal;background:#fdecea;color:var(--red);font-weight:700;border-radius:999px;padding:3px 10px;font-size:13px}
-.prom{display:grid;border:1px solid var(--line);border-radius:16px;overflow:hidden}
-.prom div{display:flex;gap:12px;align-items:center;padding:10px 14px;font-size:13.5px;background:#fff}
-.prom div+div{border-top:1px solid var(--line)}
-.prom .c{width:34px;height:34px;border-radius:10px;background:#eaf5ef;color:var(--green);display:grid;place-items:center;flex:none}
-.prom small{display:block;color:var(--mut)}
-.opt{margin-top:18px;font-size:14px}.opt .sw{margin-top:8px}.opt .sw i{width:34px;height:34px}
-.up{margin-top:16px;border-radius:16px;background:#faf5ea;border:1px solid var(--gold2);padding:12px 14px;display:flex;gap:12px;align-items:center;font-size:13.5px;cursor:pointer}
-.up .c{width:38px;height:38px;border-radius:10px;background:#fff;color:var(--gold);display:grid;place-items:center;flex:none}
-.up small{display:block;color:var(--mut)}
-.tg{margin-left:auto;display:flex;gap:10px;align-items:center;font-weight:700;white-space:nowrap}
-.tg i{flex:none;width:42px;height:24px;border-radius:999px;background:#d8d3ca;position:relative;transition:background .2s}
-.tg i::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:left .2s}
-.up.on .tg i{background:var(--ink)}.up.on .tg i::after{left:21px}
-.buy{display:grid;grid-template-columns:120px minmax(0,1fr) 48px;gap:10px;margin-top:18px}
-.qty{display:flex;border:1px solid var(--line);border-radius:999px;align-items:center;justify-content:space-between;padding:0 6px;font-weight:700}
-.qty button{width:34px;height:34px;border-radius:50%;border:0;background:var(--bg);display:grid;place-items:center}
-.buy .ib{width:48px;height:48px}
-.wa-l{margin-top:10px;width:100%}
-.specs{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:18px}
-.specs td{border-bottom:1px solid var(--line);padding:9px 2px}.specs td:first-child{color:var(--mut);width:44%}
-.fbt{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:var(--card);border-radius:24px;padding:18px;box-shadow:var(--sh)}
-.fbt img{width:104px;border-radius:14px;background:var(--soft)}
-.fbt .plus{width:30px;height:30px;border-radius:50%;background:var(--bg);display:grid;place-items:center;color:var(--mut)}
-.fbt .tot{margin-left:auto;text-align:right}
+.clay{display:grid;grid-template-columns:240px minmax(0,1fr);gap:28px;align-items:start}
+.side{font-size:14.5px}
+.side fieldset{border:0;border-top:1px solid var(--line);margin:0;padding:14px 0 16px;min-width:0}
+.side legend{font-weight:700;padding:0 0 8px;font-size:14.5px}
+.side label{display:flex;gap:10px;align-items:center;padding:4px 0}
+.side label em{margin-left:auto;font-style:normal;color:var(--mut);font-size:13px}
+.side input[type=checkbox]{width:17px;height:17px;accent-color:var(--dial)}
+.rng{display:flex;gap:8px;align-items:center}
+.rng input{width:100%;height:38px;border:1px solid var(--line);border-radius:6px;padding:0 10px;background:#fff}
+.sw{display:flex;gap:8px;flex-wrap:wrap}
+.sw button{width:30px;height:30px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px var(--line)}
+.sw button.on{box-shadow:0 0 0 2px var(--dial)}
+.tbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px;font-size:14px}
+.act{display:flex;gap:8px;flex-wrap:wrap}
+.act button{display:inline-flex;gap:6px;align-items:center;height:36px;padding:0 12px;border-radius:6px;border:1px solid var(--dial);background:var(--white);color:var(--dial);font-weight:600;font-size:13.5px}
+.act .mfil{display:none}
+.sort{display:flex;gap:8px;align-items:center;color:var(--mut)}
+.sort select{height:38px;border:1px solid var(--line);border-radius:6px;padding:0 10px;background:#fff;color:var(--ink)}
+.more{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px;font-size:14px;color:var(--mut);flex-wrap:wrap}
+.pl{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;align-items:start;margin-top:10px}
+.gal{display:grid;grid-template-columns:76px minmax(0,1fr);gap:10px}
+.th{display:grid;gap:10px;align-content:start}
+.th button{padding:0;border:1px solid var(--line);background:#fff;border-radius:4px;overflow:hidden}
+.th button.on{border-color:var(--dial);box-shadow:inset 0 0 0 1px var(--dial)}
+.th img{aspect-ratio:1;object-fit:contain}
+.big{background:#fff;border:1px solid var(--line);border-radius:4px;position:relative;padding:20px}
+.big img{aspect-ratio:1;object-fit:contain;width:100%}
+.big .off{left:20px;top:18px;font-size:15px}
+.info .br{color:var(--mut);font-size:14px}
+.info h1{font-size:clamp(24px,2.5vw,32px);font-weight:700;font-stretch:125%;line-height:1.1;margin:4px 0 10px;color:var(--dial)}
+.price{display:flex;align-items:baseline;gap:12px;margin:16px 0 18px}
+.price b{font-size:34px;font-weight:700;letter-spacing:-.02em}
+.price s{color:var(--mut);font-size:17px}
+.price em{font-style:normal;color:var(--red);font-weight:700}
+.prom{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.prom li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--mut)}
+.prom b{display:block;color:var(--ink);font-weight:600;font-size:15px}
+.prom .i{color:var(--dial);margin-top:2px}
+.optl{margin:18px 0 8px;font-size:14.5px}
+.engr{margin-top:18px;border:1px solid var(--line);border-radius:6px;background:#fff}
+.engr summary{list-style:none;display:flex;gap:12px;align-items:center;padding:12px 14px;cursor:pointer;font-weight:600}
+.engr summary::-webkit-details-marker{display:none}
+.engr summary small{display:block;color:var(--mut);font-weight:400;font-size:13px}
+.engr summary .p{margin-left:auto;color:var(--brass);white-space:nowrap}
+.engr .body{display:grid;grid-template-columns:110px minmax(0,1fr);gap:14px;align-items:center;padding:0 14px 14px}
+.engr .body input{height:44px;width:100%;border:1px solid var(--line);border-radius:6px;padding:0 12px;font-size:16px}
+.engr .body label{display:grid;gap:6px;font-size:14px;font-weight:600}
+.buy{display:grid;grid-template-columns:118px minmax(0,1fr);gap:10px;margin-top:18px}
+.qty{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:6px;background:#fff;padding:0 4px;font-weight:600}
+.qty button{width:36px;height:40px;border:0;background:none;display:grid;place-items:center}
+.buy2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.buy2 .add{margin:0;height:auto;min-height:50px;font-size:15px}
+.specs{width:100%;border-collapse:collapse;margin-top:22px;font-size:14px}
+.specs th{text-align:left;font-weight:400;color:var(--mut);padding:9px 0;border-bottom:1px solid var(--line);width:42%}
+.specs td{padding:9px 0;border-bottom:1px solid var(--line)}
+.set{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:4px;padding:16px 20px}
+.set img{width:96px;aspect-ratio:1;object-fit:contain}
+.set .pl2{color:var(--mut)}
+.set .tot{margin-left:auto;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.set .tot b{font-size:22px}
 .pbar{display:none}
-.stepper{display:flex;gap:8px;align-items:center;margin:18px 0 8px;flex-wrap:wrap;font-size:13.5px;font-weight:600;color:var(--mut)}
-.stepper span{display:flex;gap:8px;align-items:center}
-.stepper i{font-style:normal;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#fff;border:1px solid var(--line)}
-.stepper .d{color:var(--ink)}.stepper .d i{background:var(--green);color:#fff;border-color:var(--green)}
-.stepper .a{color:var(--ink)}.stepper .a i{background:var(--ink);color:#fff;border-color:var(--ink)}
-.stepper hr{width:40px;border:0;border-top:2px solid var(--line);margin:0}
-.co{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px;margin-top:18px;align-items:start}
-.box{background:var(--card);border-radius:24px;padding:24px;box-shadow:var(--sh)}
-.box h2{font-weight:700;font-size:19px;margin:0 0 16px;display:flex;gap:10px;align-items:center}
-.box h2 i{font-style:normal;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:12.5px;display:grid;place-items:center}
-.fld{display:grid;gap:6px;margin-bottom:14px;font-size:13px;font-weight:600}
-.inp{display:flex;gap:10px;align-items:center;border:1.5px solid var(--line);border-radius:14px;padding:0 14px;height:52px;background:#fff;color:var(--mut)}
-.inp:focus-within{border-color:var(--ink)}
-.inp input,.inp select{flex:1;border:0;outline:0;font:inherit;font-size:16px;font-weight:500;color:var(--ink);background:transparent;height:100%}
-.fld small{color:var(--mut);font-weight:400}
+.co{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.9fr);gap:36px;align-items:start;padding-bottom:14px}
+.steps{list-style:none;display:flex;gap:26px;margin:22px 0 6px;padding:0;font-size:14px;color:var(--mut);flex-wrap:wrap}
+.steps li{display:flex;gap:8px;align-items:center}
+.steps li span{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-weight:600;font-size:13px;background:#fff}
+.steps .d{color:var(--ink)}.steps .d span{background:var(--ok);border-color:var(--ok);color:#fff}
+.steps .a{color:var(--ink);font-weight:600}.steps .a span{border-color:var(--dial);color:var(--dial)}
+form.of{background:#fff;border:1px solid var(--line);border-radius:4px;padding:26px}
+form.of h2{font-size:19px;font-weight:700;font-stretch:125%;margin:0 0 16px}
+.fld{display:grid;gap:6px;margin-bottom:14px;font-size:14px;font-weight:600}
+.fld small{font-weight:400;color:var(--mut)}
+.fld .in{display:flex;align-items:center;gap:10px;height:50px;border:1px solid var(--line);border-radius:6px;padding:0 14px;color:var(--mut);background:#fff}
+.fld .in:focus-within{border-color:var(--dial);box-shadow:0 0 0 1px var(--dial)}
+.fld input,.fld select{flex:1;border:0;outline:0;height:100%;font-size:16px;font-weight:400;color:var(--ink);background:transparent}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.pay{display:grid;gap:10px}
-.pay label{display:flex;gap:12px;align-items:center;border:1.5px solid var(--line);border-radius:16px;padding:14px;font-size:14.5px;font-weight:600}
-.pay label.on{border-color:var(--ink);background:#faf9f6}
-.pay .c{width:40px;height:40px;border-radius:12px;background:var(--bg);display:grid;place-items:center;flex:none}
-.pay small{display:block;color:var(--mut);font-weight:400;font-size:12.5px}
-.pay input{margin-left:auto;accent-color:var(--ink);width:20px;height:20px}
-.li{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
-.li img{width:64px;border-radius:12px;background:var(--soft)}.li b{margin-left:auto;white-space:nowrap}
-.li small{display:block;color:var(--mut)}
-.sum{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:14px;font-size:14px}.sum .g{font-weight:700;font-size:18px;padding-top:10px;border-top:1px dashed var(--line)}
-.sum .free{color:var(--green);font-weight:600}
-.safe{display:flex;gap:8px;align-items:center;justify-content:center;color:var(--mut);font-size:12.5px;margin-top:12px}
-.ok{max-width:620px;margin:40px auto;text-align:center}
-.ok .c{width:84px;height:84px;border-radius:50%;background:#eaf5ef;color:var(--green);display:grid;place-items:center;margin:0 auto 16px}
-.ok .c .i{width:40px;height:40px;stroke-width:2.4}
-.ok h1{font-weight:700;font-size:32px;letter-spacing:-.02em;margin:0 0 8px}
-.ok .box{text-align:left;margin-top:22px;display:grid;gap:14px}
-.ok .row{display:flex;gap:12px;align-items:center;font-size:14px}.ok .row .c2{width:38px;height:38px;border-radius:10px;background:var(--bg);display:grid;place-items:center;flex:none}
-.ok .row small{display:block;color:var(--mut)}
-.tl{display:flex;justify-content:space-between;margin:4px 0 6px;position:relative}
-.tl::before{content:"";position:absolute;left:12%;right:12%;top:13px;border-top:2px dashed var(--line)}
-.tl span{position:relative;display:grid;justify-items:center;gap:6px;font-size:12px;color:var(--mut);width:25%}
-.tl i{width:28px;height:28px;border-radius:50%;background:#fff;border:2px solid var(--line);display:grid;place-items:center}
-.tl .d{color:var(--ink);font-weight:600}.tl .d i{background:var(--green);border-color:var(--green);color:#fff}
+.pm{display:grid;gap:8px;margin-bottom:6px}
+.pm label{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:6px;padding:13px 14px;font-weight:600;cursor:pointer}
+.pm label:has(input:checked){border-color:var(--dial);box-shadow:0 0 0 1px var(--dial)}
+.pm small{display:block;color:var(--mut);font-weight:400;font-size:13px}
+.pm input{accent-color:var(--dial);width:18px;height:18px}
+.pm .i{margin-left:auto;color:var(--mut)}
+.note{display:flex;gap:8px;align-items:center;justify-content:center;font-size:13px;color:var(--mut);margin:12px 0 0}
+.rc{position:relative;background:#FBFBF8;padding:24px 24px 30px;font-size:14px;margin-bottom:10px}
+.rc::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:10px;background:linear-gradient(-45deg,transparent 7px,#FBFBF8 0) 0 0/14px 10px,linear-gradient(45deg,transparent 7px,#FBFBF8 0) 0 0/14px 10px}
+.rc h3{font-size:16px;font-weight:700;font-stretch:125%;margin:0 0 4px}
+.rc .no{color:var(--mut);font-size:13px;margin-bottom:14px}
+.rc .li{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-top:1px dashed var(--steel2)}
+.rc .li img{aspect-ratio:1;object-fit:contain}
+.rc .li small{display:block;color:var(--mut)}
+.rc .li b{white-space:nowrap}
+.rc dl{display:grid;grid-template-columns:1fr auto;gap:6px 12px;margin:10px 0 0;padding-top:12px;border-top:1px dashed var(--steel2)}
+.rc dt{margin:0}.rc dd{margin:0;text-align:right;white-space:nowrap}
+.rc .tot{font-weight:700;font-size:18px;padding-top:8px;border-top:1px solid var(--ink)}
+.rc .free{color:var(--ok);font-weight:600}
+.rc .cod{margin-top:14px;padding:10px 12px;background:var(--steel);border-radius:4px;display:flex;gap:10px;align-items:center;font-size:13.5px}
+.ty{max-width:700px;padding-block:40px}
+.ty h1{font-size:clamp(28px,3.4vw,42px);font-weight:700;font-stretch:125%;color:var(--dial);margin:14px 0 8px;line-height:1.05}
+.ty .ok{width:56px;height:56px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center}
+.ty .ok .i{width:30px;height:30px;stroke-width:2.2}
+.ty>p{color:var(--mut);margin:0 0 26px}
+.tl{list-style:none;margin:0 0 28px;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border-top:3px solid var(--steel2);font-size:13.5px}
+.tl li{position:relative;padding-top:14px;color:var(--mut)}
+.tl li::before{content:"";position:absolute;top:-8px;left:0;width:13px;height:13px;border-radius:50%;background:var(--steel);border:2px solid var(--steel2);z-index:1}
+.tl li.d{color:var(--ink);font-weight:600}.tl li.d::before{background:var(--ok);border-color:var(--ok)}
+.tl li.d::after{content:"";position:absolute;top:-3px;left:0;right:0;height:3px;background:var(--ok)}
+.tl small{display:block;font-weight:400;color:var(--mut)}
 .tab{display:none}
 .view{display:none}.view.on{display:block}
-@media(max-width:1100px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.cats{grid-template-columns:repeat(3,minmax(0,1fr))}.brands{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media(max-width:1120px){.nav{display:none}.burger{display:grid}.g5{grid-template-columns:repeat(4,minmax(0,1fr))}.g5 .slot:nth-child(n+9){display:none}.g6{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:900px){
- .wa-h{display:none}.hero{grid-template-columns:1fr}.hside{grid-template-columns:1fr 1fr}
- .clay{grid-template-columns:1fr}.side{display:none}.chips .mfilt{display:inline-flex}.clay .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
- .play{grid-template-columns:1fr}.co{grid-template-columns:1fr}.fcols{grid-template-columns:1fr 1fr}.revs{grid-template-columns:1fr}
- .trust{grid-template-columns:1fr 1fr}
+ .hero .w{grid-template-columns:1fr;gap:24px}.dialwrap{max-width:340px}
+ .band{grid-template-columns:1fr 1fr}.band div:nth-child(3){border-left:0;padding-left:0}.band div:nth-child(n+3){border-top:1px solid var(--line)}
+ .grav .w{grid-template-columns:1fr}.revs{grid-template-columns:1fr;gap:20px}
+ .clay{grid-template-columns:1fr}.side{display:none}.act .mfil{display:inline-flex}.g4{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .pl{grid-template-columns:1fr}.co{grid-template-columns:1fr}.fcols{grid-template-columns:1fr 1fr}
 }
 @media(max-width:640px){
- body{font-size:14.5px;padding-bottom:84px}
- .promo .w{gap:4px 16px;font-size:11.5px;padding-block:6px}.promo .x{display:none}
- .hrow{grid-template-columns:auto 1fr auto;gap:10px;padding-block:8px}
- .burger{display:block}.logo{font-size:21px}.brand{grid-column:1/3}
- .acts{grid-column:3;grid-row:1;justify-self:end}.acts .acc{display:none}.ib{width:40px;height:40px}
- .search{grid-column:1/-1;grid-row:2;max-width:none;height:44px}.search button{display:none}
- nav.nv .w{padding-block:0 10px}
- nav.nv a{background:#fff;border:1px solid var(--line);font-size:13px;padding:6px 12px}
- nav.nv a.on{border-color:var(--ink)}
- .hero{margin-top:12px}.hbig{grid-template-columns:1fr 128px;min-height:0;border-radius:22px}.hbig .tx{padding:18px}.pill{font-size:11px;padding:4px 9px}
- .hbig h1{font-size:24px;margin-top:10px}.hbig p{font-size:13px;margin:8px 0 14px}.hbig .ghost{display:none}.hvis{padding:10px 10px 10px 0}.hvis img{width:118px}.tag{display:none}
- .hbig .btn{min-height:42px;padding:0 16px;font-size:13.5px}
- .hside{grid-template-columns:1fr 1fr;gap:10px}.tile{grid-template-columns:1fr;border-radius:18px}.tile img{display:none}.tile .tx{padding:14px}.tile h3{font-size:15px}.tile p{display:none}.tile .ic{width:34px;height:34px;margin-bottom:8px}
- .trust{grid-template-columns:1fr 1fr;gap:8px}.trust div{padding:10px;font-size:11.5px;gap:9px;border-radius:14px}.trust .c{width:34px;height:34px;border-radius:10px}.trust b{font-size:12.5px}
- .sec{margin-top:28px}
- .cats{display:flex;overflow-x:auto;gap:10px;scroll-snap-type:x mandatory;padding-bottom:6px}.cats a{flex:0 0 104px;font-size:12.5px;scroll-snap-align:start;border-radius:16px;padding:6px 6px 8px}.cats a span .i{display:none}
- .grid,.clay .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
- .card{padding:6px 6px 12px;border-radius:16px}.card .bd{padding:8px 4px 0}.card .nm{font-size:13px}.pr{font-size:15.5px}.add{width:36px;height:36px}.fav{width:30px;height:30px;top:12px;right:12px}
- .band{grid-template-columns:1fr;border-radius:22px}.band img{max-height:190px}.steps3{display:none}
- .brands{grid-template-columns:repeat(3,minmax(0,1fr))}
+ body{font-size:15px;padding-bottom:70px}
+ .strip .w{gap:4px 16px;font-size:12px}.strip .r{display:none}
+ .hrow{grid-template-columns:auto 1fr auto;gap:6px;height:58px}
+ .logo{font-size:21px}
+ .search.sd,.acts .hide{display:none}
+ .search.sm{display:flex;width:auto;margin:0 16px 10px}
+ .hero .w{padding-block:18px 24px;grid-template-columns:112px minmax(0,1fr);gap:16px;align-items:start}
+ .dialwrap{max-width:none}
+ .htx{display:contents}
+ .hero h1{font-size:23px;grid-column:2;grid-row:1;align-self:center}
+ .htx .rest{grid-column:1/-1}
+ .left{font-size:16px;margin:2px 0 6px}
+ .sub{font-size:14px;margin-bottom:16px}
+ .ctas .out{display:none}.ctas .btn{width:100%}
+ .pay{gap:6px 14px;font-size:12.5px;margin-top:14px}
+ .band div{padding:12px 10px;font-size:12px;gap:9px}.band div:nth-child(2n){padding-right:0}.band b{font-size:13.5px}
+ .sec{padding-top:30px}.sh{margin-bottom:12px}.sh a{font-size:13.5px}
+ .g5,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g5 .slot:nth-child(n+9){display:flex}
+ .g6{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.g6 .cat{flex:0 0 40%;scroll-snap-align:start}
+ .slot{padding:10px 10px 12px}.slot .nm{font-size:13.5px}.tag span{font-size:14.5px;padding:5px 10px 5px 20px}
+ .slot .add span{display:none}.slot .add{height:38px}
+ .grav .w{padding-block:28px;gap:20px}.back{max-width:210px}
  .fcols{grid-template-columns:1fr}
- .gal{grid-template-columns:1fr;padding:8px;border-radius:20px}.thumbs{display:none}.info{padding:18px;border-radius:20px}
- .buy{display:none}.wa-l{display:none}
- .pbar{display:grid;grid-template-columns:auto minmax(0,1fr) 52px;gap:10px;align-items:center;position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:10px 12px 12px}
- .pbar .pp{font-weight:700;font-size:17px;line-height:1.1}.pbar .pp small{display:block;color:var(--mut);font-weight:500;font-size:11px}
- .pbar .btn{min-height:50px}.pbar .ib{width:52px;height:52px;background:var(--wa);border:0;color:#fff}
- .two{grid-template-columns:1fr}.box{padding:18px;border-radius:20px}
- .stepper hr{width:16px}.stepper{font-size:12px}
- .tab{display:flex;justify-content:space-around;position:fixed;left:10px;right:10px;bottom:10px;z-index:25;background:rgba(18,18,18,.95);backdrop-filter:blur(10px);color:#bdb6a9;border-radius:22px;padding:8px 4px;font-size:10.5px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.25)}
- .tab a{display:grid;justify-items:center;gap:2px;padding:4px 8px;border-radius:14px;position:relative}
- .tab a.on{color:#fff;background:rgba(255,255,255,.1)}
- .tab em{position:absolute;top:0;right:6px;background:var(--gold);color:#fff;font-style:normal;font-size:9.5px;font-weight:700;border-radius:999px;min-width:16px;height:16px;display:grid;place-items:center}
+ .gal{grid-template-columns:1fr}.th{display:none}.big{padding:10px}
+ .buy,.buy2{display:none}
+ .set .tot{margin-left:0}
+ .pbar{display:grid;grid-template-columns:auto minmax(0,1fr) 50px;gap:10px;align-items:center;position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);padding:10px 12px}
+ .pbar .pp{font-weight:700;font-size:19px;line-height:1.05}.pbar .pp small{display:block;font-weight:400;font-size:12px;color:var(--mut)}
+ .pbar .btn{min-height:50px}.pbar .wab{width:50px;height:50px;border-radius:6px;background:#1FA855;color:#fff;display:grid;place-items:center}
+ .engr .body{grid-template-columns:86px minmax(0,1fr)}
+ .two{grid-template-columns:1fr}form.of{padding:18px}.rc{padding:18px 18px 26px}
+ .tl{font-size:12px}
+ .tab{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:25;background:#fff;border-top:1px solid var(--line);padding:7px 0 8px;font-size:11px;text-align:center;color:var(--mut)}
+ .tab a{display:grid;justify-items:center;gap:2px;position:relative}
+ .tab a.on{color:var(--dial);font-weight:600}
+ .tab a.on::before{content:"";position:absolute;top:-8px;left:28%;right:28%;height:2px;background:var(--dial)}
+ .tab b{position:absolute;top:-3px;left:56%;min-width:16px;height:16px;border-radius:8px;background:var(--brass);color:#fff;font-size:10px;display:grid;place-items:center}
  body.prod .tab{display:none}
 }
 </style>
@@ -282,188 +290,247 @@ footer.ft{margin-top:56px;background:var(--ink);color:#cfc8ba;font-size:14px}
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
 <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
-<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
 <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></symbol>
 <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5.5 8h13l-1 12.5h-11z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></symbol>
 <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.5-7.5-10.2A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.4C19.5 15.5 12 20 12 20z"/></symbol>
 <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-12.4 7.6L3.5 20.5l1-4.4A8.5 8.5 0 1 1 20.5 12z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-1.8-1-1 .8a3.6 3.6 0 0 1-2.3-2.3l.8-1-1-1.8z"/></symbol>
 <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h4l3 3.2v3.8h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
-<symbol id="i-cash" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v.01M18 14.5v.01"/></symbol>
+<symbol id="i-cash" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v.01M18 14.5v.01"/></symbol>
 <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h13l-3.5-3.5M20 16H7l3.5 3.5"/></symbol>
 <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7.5 3v5.5c0 4.7-3.2 8-7.5 9.5-4.3-1.5-7.5-4.8-7.5-9.5V6z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
 <symbol id="i-right" viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></symbol>
-<symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9.5 6 6 6-6"/></symbol>
 <symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
 <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
 <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
 <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
 <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
-<symbol id="i-sort" viewBox="0 0 24 24"><path d="M7 4v16M3.5 16.5 7 20l3.5-3.5M17 20V4M13.5 7.5 17 4l3.5 3.5"/></symbol>
-<symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></symbol>
-<symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></symbol>
-<symbol id="i-gift" viewBox="0 0 24 24"><rect x="3.5" y="8" width="17" height="4.5" rx="1"/><path d="M5 12.5V20h14v-7.5M12 8v12"/><path d="M12 8C10.5 4.5 6.5 4.5 7 7c.3 1 2.5 1 5 1zm0 0c1.5-3.5 5.5-3.5 5-1-.3 1-2.5 1-5 1z"/></symbol>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1"/></symbol>
 <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20h4.2L19 9.2 14.8 5 4 15.8z"/><path d="m12.8 7 4.2 4.2"/></symbol>
 <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
 <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
 <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4.5h3.5l1.7 4.2-2.2 1.4a11 11 0 0 0 5.9 5.9l1.4-2.2 4.2 1.7V19a1.5 1.5 0 0 1-1.6 1.5A16 16 0 0 1 3.5 6.1 1.5 1.5 0 0 1 5 4.5z"/></symbol>
 <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6.5L20.5 7"/></symbol>
-<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></symbol>
-<symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><path d="M2.5 10h19M6 15h4"/></symbol>
-<symbol id="i-box" viewBox="0 0 24 24"><path d="M3.5 7.5 12 3.5l8.5 4v9L12 20.5l-8.5-4z"/><path d="M3.5 7.5 12 11.5l8.5-4M12 11.5v9"/></symbol>
-<symbol id="i-store" viewBox="0 0 24 24"><path d="M4 9.5 5.5 4h13L20 9.5"/><path d="M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0"/><path d="M5.5 11.5V20h13v-8.5M10 20v-4.5h4V20"/></symbol>
-<symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3.5 13.8 10l6.7 2-6.7 2L12 20.5 10.2 14l-6.7-2 6.7-2z"/></symbol>
+<symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="2"/><path d="M2.5 10h19M6 15h4"/></symbol>
+<symbol id="i-store" viewBox="0 0 24 24"><path d="M4 9.5 5.5 4h13L20 9.5"/><path d="M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0"/><path d="M5.5 11.5V20h13v-8.5"/></symbol>
 <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></symbol>
 </svg>
 
-<div class="promo"><div class="w">
-<span><svg class="i s"><use href="#i-cash"/></svg><b>Paiement à la livraison</b> partout au Maroc</span>
-<span><svg class="i s"><use href="#i-truck"/></svg><b>Livré en 24–48 h</b></span>
-<span><svg class="i s"><use href="#i-gift"/></svg><b>Livraison gratuite</b> dès 500 Dhs</span>
-<span class="x"><svg class="i s"><use href="#i-chat"/></svg>WhatsApp 7j/7 · 06 63 58 31 62</span>
+<div class="strip"><div class="w">
+<span><svg class="i s"><use href="#i-cash"/></svg>Vous payez à la livraison, partout au Maroc</span>
+<span><svg class="i s"><use href="#i-truck"/></svg>Livraison offerte dès 500 Dhs</span>
+<span class="r"><svg class="i s"><use href="#i-store"/></svg>Magasin : Kissariat Saidi, Derb Omar</span>
 </div></div>
 <header class="hd"><div class="w hrow">
-<div class="brand"><button class="burger" aria-label="Menu"><svg class="i l"><use href="#i-menu"/></svg></button><a href="#accueil" class="logo">ADORIS<small>STORE</small></a></div>
-<form class="search" onsubmit="event.preventDefault();location.hash='categorie'"><svg class="i"><use href="#i-search"/></svg><input id="q" placeholder="Chercher une montre, une marque, un style…" aria-label="Recherche"><button>Chercher</button></form>
-<div class="acts"><a class="wa-h"><span class="ib"><svg class="i"><use href="#i-chat"/></svg></span><span>Commander par WhatsApp<b>06 63 58 31 62</b></span></a>
-<a class="ib acc" aria-label="Favoris"><svg class="i"><use href="#i-heart"/></svg></a><a class="ib acc" aria-label="Compte"><svg class="i"><use href="#i-user"/></svg></a><a class="ib" href="#commande" aria-label="Panier"><svg class="i"><use href="#i-bag"/></svg><em class="cc">0</em></a></div>
+<button class="ib burger" aria-label="Menu"><svg class="i"><use href="#i-menu"/></svg></button>
+<a href="#accueil" class="logo">ADORIS<small>STORE</small></a>
+<nav class="nav" aria-label="Rayons"><a class="on" href="#categorie">Hommes</a><a href="#categorie">Femmes</a><a href="#categorie">Smartwatch</a><a href="#categorie">Lunettes</a><a href="#categorie">Coffrets</a><a href="#produit-g1">Gravure</a><a class="promo" href="#categorie">Promotions</a></nav>
+<div class="right">
+<form class="search sd" onsubmit="event.preventDefault();location.hash='categorie'"><svg class="i s"><use href="#i-search"/></svg><input placeholder="Une marque, un modèle…" aria-label="Rechercher"></form>
+<div class="acts"><a class="ib hide" aria-label="Favoris"><svg class="i"><use href="#i-heart"/></svg></a><a class="ib hide" aria-label="Mon compte"><svg class="i"><use href="#i-user"/></svg></a><a class="ib" href="#commande" aria-label="Panier"><svg class="i"><use href="#i-bag"/></svg><b class="cc">0</b></a></div></div>
 </div>
-<nav class="nv"><div class="w"><a class="on" href="#categorie">Montres hommes</a><a href="#categorie">Montres femmes</a><a href="#categorie">Smartwatch</a><a href="#categorie">Lunettes</a><a href="#categorie">Coffrets</a><a href="#categorie">Gravure</a><a href="#categorie">Marques</a><a class="hot" href="#categorie">Promotions</a></div></nav>
+<form class="search sm" onsubmit="event.preventDefault();location.hash='categorie'"><svg class="i s"><use href="#i-search"/></svg><input placeholder="Une marque, un modèle…" aria-label="Rechercher"></form>
 </header>
 
 <main>
-<section class="view" id="v-accueil"><div class="w">
-<div class="hero">
-<div class="hbig"><div class="tx"><span class="pill"><svg class="i s"><use href="#i-spark"/></svg>Plus de 200 modèles en stock à Casablanca</span><h1>Des montres qui ont du style, <span>dès 150 Dhs</span></h1><p>Commandez en 1 minute, recevez en 24–48 h et payez seulement à la réception.</p><div class="ctas"><a class="btn gold" href="#categorie">Montres hommes<svg class="i s"><use href="#i-right"/></svg></a><a class="btn ghost" href="#categorie">Montres femmes</a></div></div>
-<div class="hvis"><img src="img/m1.jpg" alt="Montre chronographe dorée NIBOSI"><div class="tag">Meilleure vente<b>299 Dhs</b></div></div></div>
-<div class="hside">
-<div class="tile"><div class="tx"><div class="ic"><svg class="i"><use href="#i-pen"/></svg></div><h3>Gravure personnalisée</h3><p>Un prénom, une date : le cadeau devient unique.</p><a href="#produit-g1">+50 Dhs<svg class="i s"><use href="#i-right"/></svg></a></div><img src="img/g1.jpg" alt=""></div>
-<div class="tile"><div class="tx"><div class="ic"><svg class="i"><use href="#i-gift"/></svg></div><h3>Coffrets cadeaux</h3><p>Rangez et offrez vos montres.</p><a href="#categorie">Dès 225 Dhs<svg class="i s"><use href="#i-right"/></svg></a></div><img src="img/b2.jpg" alt=""></div>
+<section class="view" id="v-accueil">
+<div class="hero"><div class="w">
+<div class="dialwrap"><svg id="dial" viewBox="0 0 400 400" role="img" aria-label="Heure de Casablanca et temps restant avant l'expédition de 16 h"></svg></div>
+<div class="htx">
+<h1>Commandez avant 16 h, portez-la demain.</h1>
+<div class="rest"><p class="left" id="left">Encore <em>quelques heures</em> pour une livraison demain à Casablanca.</p>
+<p class="sub">Plus de 200 montres en stock dans notre magasin de Derb Omar, de 150 à 500 Dhs. Vous les voyez, puis vous payez à la porte.</p>
+<div class="ctas"><a class="btn" href="#categorie">Voir les montres hommes</a><a class="btn out" href="#categorie">Voir les montres femmes</a></div>
+<div class="pay"><span><svg class="i s"><use href="#i-cash"/></svg>Paiement en espèces à la réception</span><span><svg class="i s"><use href="#i-swap"/></svg>Échange sous 7 jours</span><span><svg class="i s"><use href="#i-chat"/></svg>Conseil sur WhatsApp</span></div></div>
+</div></div></div>
+<div class="bandw"><div class="w band">
+<div><svg class="i"><use href="#i-truck"/></svg><span><b>Demain à Casablanca</b>48 h dans les autres villes</span></div>
+<div><svg class="i"><use href="#i-cash"/></svg><span><b>20 Dhs à Casa, 50 Dhs ailleurs</b>Offerte dès 500 Dhs d'achat</span></div>
+<div><svg class="i"><use href="#i-swap"/></svg><span><b>Échange 7 jours</b>Si la montre ne vous va pas</span></div>
+<div><svg class="i"><use href="#i-pen"/></svg><span><b>Gravure en 24 h</b>Prénom ou date pour 50 Dhs</span></div>
 </div></div>
-<div class="trust">
-<div><span class="c"><svg class="i"><use href="#i-cash"/></svg></span><span><b>Paiement à la livraison</b>Vous payez en recevant</span></div>
-<div><span class="c"><svg class="i"><use href="#i-truck"/></svg></span><span><b>Livraison rapide</b>24 h Casa, 48 h ailleurs</span></div>
-<div><span class="c"><svg class="i"><use href="#i-swap"/></svg></span><span><b>Échange 7 jours</b>Si la montre ne convient pas</span></div>
-<div><span class="c"><svg class="i"><use href="#i-chat"/></svg></span><span><b>Conseil WhatsApp</b>7 jours sur 7</span></div>
+
+<div class="w">
+<div class="sec"><div class="sh"><h2>Les plus vendues cette semaine</h2><a href="#categorie">Toutes les montres</a></div><div class="case g5" id="best"></div></div>
+<div class="sec"><div class="sh"><h2>Par rayon</h2></div><div class="case g6" id="cats"></div></div>
 </div>
-<div class="sec"><div class="sh"><h2>Acheter par catégorie</h2></div><div class="cats" id="cats"></div></div>
-<div class="sec"><div class="sh"><h2>Meilleures ventes</h2><a href="#categorie">Tout voir<svg class="i s"><use href="#i-right"/></svg></a></div><div class="grid" id="best"></div></div>
-<div class="band"><div class="tx"><span class="pill"><svg class="i s"><use href="#i-pen"/></svg>Gravure laser en 24 h</span><h2>Offrez une montre gravée</h2><p>Prénom, date ou message au dos de la montre, pour 50 Dhs de plus. Le cadeau qu'on garde toute sa vie.</p>
-<div class="steps3"><span><i>1</i>Choisissez la montre</span><span><i>2</i>Écrivez le texte</span><span><i>3</i>Recevez-la gravée</span></div><a class="btn gold" href="#produit-g1">Ajouter une gravure<svg class="i s"><use href="#i-right"/></svg></a></div><img src="img/g1.jpg" alt="Gravure sur montre"></div>
-<div class="sec"><div class="sh"><h2>Pour elle</h2><a href="#categorie">Tout voir<svg class="i s"><use href="#i-right"/></svg></a></div><div class="grid" id="elle"></div></div>
-<div class="sec"><div class="sh"><h2>Smartwatch et accessoires</h2><a href="#categorie">Tout voir<svg class="i s"><use href="#i-right"/></svg></a></div><div class="grid" id="smart"></div></div>
-<div class="sec"><div class="sh"><h2>Ils ont commandé chez Adoris</h2></div><div class="revs" id="revs"></div></div>
-<div class="sec"><div class="sh"><h2>Nos marques</h2><a href="#categorie">Toutes les marques<svg class="i s"><use href="#i-right"/></svg></a></div><div class="brands"><span>NIBOSI</span><span>NAVIFORCE</span><span>LIGE</span><span>BENYAR</span><span>CURREN</span><span>MEGIR</span><span>SKMEI</span><span>REWARD</span><span>BARCUR</span><span>OROPAK</span></div></div>
+
+<section class="grav"><div class="w">
+<div class="back"><svg id="caseback" viewBox="0 0 300 300" role="img" aria-label="Aperçu de la gravure au dos de la montre"></svg></div>
+<div><h2>Votre texte, gravé au dos</h2>
+<p>Tapez un prénom ou une date : voici le rendu sur le fond de la montre. Gravure laser dans notre atelier, prête en 24 h, pour 50 Dhs.</p>
+<form class="gin" onsubmit="event.preventDefault();location.hash='produit-m1'"><label>Texte à graver, 25 caractères au plus<input id="gtext" maxlength="25" value="Karim 12.06.2026"></label><button class="btn">Choisir la montre</button></form>
+<ol><li>Choisissez votre montre</li><li>Écrivez le texte au moment de commander</li><li>Recevez-la gravée, payez à la livraison</li></ol></div>
 </div></section>
 
+<div class="w">
+<div class="sec"><div class="sh"><h2>Pour elle</h2><a href="#categorie">Toutes les montres femmes</a></div><div class="case g5" id="elle"></div></div>
+<div class="sec"><div class="sh"><h2>Smartwatch, lunettes et bracelets</h2><a href="#categorie">Tout le rayon</a></div><div class="case g5" id="smart"></div></div>
+<div class="sec"><div class="sh"><h2>Ce que disent nos clients</h2></div><div class="revs" id="revs"></div></div>
+<div class="sec"><div class="sh"><h2>Les marques en stock</h2></div><div class="brands"><a>NIBOSI</a><a>NAVIFORCE</a><a>LIGE</a><a>BENYAR</a><a>CURREN</a><a>MEGIR</a><a>SKMEI</a><a>REWARD</a><a>BARCUR</a><a>OROPAK</a></div></div>
+</div>
+</section>
+
 <section class="view" id="v-categorie"><div class="w">
-<div class="crumb"><a href="#accueil">Accueil</a><svg class="i s"><use href="#i-right"/></svg>Montres<svg class="i s"><use href="#i-right"/></svg>Hommes</div>
-<div class="ph"><h1>Montres hommes</h1><span>86 modèles</span></div>
+<div class="crumb"><a href="#accueil">Accueil</a><svg class="i s"><use href="#i-right"/></svg>Montres hommes</div>
+<div class="ph"><h1>Montres hommes</h1><span>86 modèles en stock</span></div>
 <div class="clay">
-<aside class="side">
-<h4>Prix</h4><div class="slider"><i></i><b style="left:0"></b><b style="left:70%"></b></div><div class="range"><span>150 Dhs</span><span>500 Dhs</span></div>
-<h4>Marque</h4>
-<label><input type="checkbox" checked> NIBOSI <em>18</em></label><label><input type="checkbox"> NAVIFORCE <em>12</em></label><label><input type="checkbox"> LIGE <em>11</em></label><label><input type="checkbox"> BENYAR <em>16</em></label><label><input type="checkbox"> CURREN <em>7</em></label><label><input type="checkbox"> SKMEI <em>9</em></label>
-<h4>Style</h4><label><input type="checkbox"> Chronographe <em>34</em></label><label><input type="checkbox"> Classique <em>21</em></label><label><input type="checkbox"> Sport / digitale <em>14</em></label><label><input type="checkbox"> Automatique <em>5</em></label>
-<h4>Bracelet</h4><label><input type="checkbox"> Acier <em>48</em></label><label><input type="checkbox"> Cuir <em>23</em></label><label><input type="checkbox"> Silicone <em>15</em></label>
-<h4>Couleur</h4><div class="sw"><i class="on" style="background:#c9a24a"></i><i style="background:#222"></i><i style="background:#c0c0c0"></i><i style="background:#1d3b6b"></i><i style="background:#7b4b2a"></i></div>
-<h4>Disponibilité</h4><label><input type="checkbox" checked> En stock à Casablanca</label>
+<aside class="side" aria-label="Filtres">
+<fieldset><legend>Prix</legend><div class="rng"><input value="150 Dhs" aria-label="Prix minimum"><span>à</span><input value="500 Dhs" aria-label="Prix maximum"></div></fieldset>
+<fieldset><legend>Marque</legend><label><input type="checkbox" checked> NIBOSI <em>18</em></label><label><input type="checkbox"> BENYAR <em>16</em></label><label><input type="checkbox"> NAVIFORCE <em>12</em></label><label><input type="checkbox"> LIGE <em>11</em></label><label><input type="checkbox"> SKMEI <em>9</em></label><label><input type="checkbox"> CURREN <em>7</em></label></fieldset>
+<fieldset><legend>Style</legend><label><input type="checkbox"> Chronographe <em>34</em></label><label><input type="checkbox"> Classique <em>21</em></label><label><input type="checkbox"> Sport et digitale <em>14</em></label><label><input type="checkbox"> Automatique <em>5</em></label></fieldset>
+<fieldset><legend>Bracelet</legend><label><input type="checkbox"> Acier <em>48</em></label><label><input type="checkbox"> Cuir <em>23</em></label><label><input type="checkbox"> Silicone <em>15</em></label></fieldset>
+<fieldset><legend>Couleur du cadran</legend><div class="sw"><button class="on" style="background:#C9A24A" aria-label="Doré"></button><button style="background:#222" aria-label="Noir"></button><button style="background:#C0C0C0" aria-label="Argent"></button><button style="background:#1D3B6B" aria-label="Bleu"></button><button style="background:#7B4B2A" aria-label="Marron"></button></div></fieldset>
+<fieldset><legend>Disponibilité</legend><label><input type="checkbox" checked> En stock au magasin</label></fieldset>
 </aside>
 <div>
-<div class="tbar"><div class="chips"><b class="mfilt"><svg class="i s"><use href="#i-sliders"/></svg>Filtres</b><b class="on">NIBOSI<svg class="i s"><use href="#i-x"/></svg></b><b class="on">En stock<svg class="i s"><use href="#i-x"/></svg></b></div><span class="sel"><svg class="i s"><use href="#i-sort"/></svg>Meilleures ventes<svg class="i s"><use href="#i-down"/></svg></span></div>
-<div class="grid" id="catg"></div>
-<div class="more"><span>12 modèles sur 86</span><div class="bar"><i></i></div><a class="btn line">Voir plus de montres</a></div>
+<div class="tbar"><div class="act"><button class="mfil"><svg class="i s"><use href="#i-sliders"/></svg>Filtrer</button><button>NIBOSI<svg class="i s"><use href="#i-x"/></svg></button><button>En stock<svg class="i s"><use href="#i-x"/></svg></button></div>
+<label class="sort">Trier par<select><option>Les plus vendues</option><option>Prix croissant</option><option>Prix décroissant</option><option>Nouveautés</option></select></label></div>
+<div class="case g4" id="catg"></div>
+<div class="more"><span>12 montres affichées sur 86</span><a class="btn out">Afficher 12 montres de plus</a></div>
 </div></div>
 </div></section>
 
 <section class="view" id="v-produit"><div class="w" id="pw"></div></section>
 
 <section class="view" id="v-commande"><div class="w">
-<div class="stepper"><span class="d"><i><svg class="i s"><use href="#i-check"/></svg></i>Produit</span><hr><span class="a"><i>2</i>Coordonnées</span><hr><span><i>3</i>Confirmation</span></div>
-<div class="ph"><h1>Finaliser ma commande</h1><span>1 minute, paiement à la réception</span></div>
+<ol class="steps"><li class="d"><span><svg class="i s"><use href="#i-check"/></svg></span>Montre choisie</li><li class="a"><span>2</span>Vos coordonnées</li><li><span>3</span>Confirmation</li></ol>
+<div class="ph"><h1>Où livrer votre commande ?</h1><span>Vous payez en espèces à la réception.</span></div>
 <div class="co">
-<form class="box" onsubmit="event.preventDefault();location.hash='merci'">
-<h2><i>1</i>Mes coordonnées</h2>
-<div class="fld">Nom complet<label class="inp"><svg class="i"><use href="#i-user"/></svg><input value="Karim Benali" autocomplete="name"></label></div>
-<div class="two"><div class="fld">Téléphone (WhatsApp)<label class="inp"><svg class="i"><use href="#i-phone"/></svg><input value="06 12 34 56 78" inputmode="tel"></label></div>
-<div class="fld">Ville<label class="inp"><svg class="i"><use href="#i-pin"/></svg><select><option>Casablanca</option><option>Rabat</option><option>Marrakech</option><option>Tanger</option><option>Agadir</option><option>Fès</option></select></label></div></div>
-<div class="fld">Adresse<label class="inp"><svg class="i"><use href="#i-home"/></svg><input placeholder="Quartier, rue, numéro, repère"></label></div>
-<div class="fld">E-mail <small>facultatif, pour recevoir la facture</small><label class="inp"><svg class="i"><use href="#i-mail"/></svg><input placeholder="vous@exemple.ma"></label></div>
-<h2 style="margin-top:6px"><i>2</i>Paiement</h2>
-<div class="pay"><label class="on"><span class="c"><svg class="i"><use href="#i-cash"/></svg></span><span>Paiement à la livraison<small>En espèces, à la réception du colis</small></span><input type="radio" name="p" checked></label>
-<label><span class="c"><svg class="i"><use href="#i-card"/></svg></span><span>Carte bancaire<small>Visa, Mastercard</small></span><input type="radio" name="p"></label></div>
-<button class="btn" style="width:100%;margin-top:18px;min-height:54px">Confirmer la commande · <span class="gt"></span></button>
-<div class="safe"><svg class="i s"><use href="#i-lock"/></svg>Données protégées · confirmation par WhatsApp dans l'heure</div>
+<form class="of" onsubmit="event.preventDefault();location.hash='merci'">
+<h2>Vos coordonnées</h2>
+<div class="fld">Nom et prénom<span class="in"><svg class="i s"><use href="#i-user"/></svg><input value="Karim Benali" autocomplete="name"></span></div>
+<div class="two"><div class="fld">Téléphone<span class="in"><svg class="i s"><use href="#i-phone"/></svg><input value="06 12 34 56 78" inputmode="tel" autocomplete="tel"></span></div>
+<div class="fld">Ville<span class="in"><svg class="i s"><use href="#i-pin"/></svg><select id="city"><option value="20">Casablanca</option><option value="50">Rabat</option><option value="50">Marrakech</option><option value="50">Tanger</option><option value="50">Agadir</option><option value="50">Fès</option></select></span></div></div>
+<div class="fld">Adresse<span class="in"><svg class="i s"><use href="#i-home"/></svg><input placeholder="Quartier, rue, numéro, point de repère"></span></div>
+<div class="fld">E-mail <small>facultatif, pour recevoir la facture</small><span class="in"><svg class="i s"><use href="#i-mail"/></svg><input placeholder="nom@exemple.ma" type="email"></span></div>
+<h2 style="margin-top:22px">Paiement</h2>
+<div class="pm"><label><input type="radio" name="p" checked><span>En espèces à la livraison<small>Vous payez le livreur en recevant le colis</small></span><svg class="i"><use href="#i-cash"/></svg></label>
+<label><input type="radio" name="p"><span>Carte bancaire<small>Visa ou Mastercard, paiement sécurisé</small></span><svg class="i"><use href="#i-card"/></svg></label></div>
+<button class="btn" style="width:100%;margin-top:14px;min-height:54px">Confirmer la commande de <span class="gt"></span></button>
+<p class="note"><svg class="i s"><use href="#i-chat"/></svg>Nous vous écrivons sur WhatsApp dans l'heure pour confirmer.</p>
 </form>
-<div class="box"><h2>Ma commande</h2><div id="lines"></div>
-<div class="sum"><span>Sous-total</span><span id="st"></span><span>Livraison Casablanca</span><span id="sh"></span><span class="g">Total à payer à la réception</span><span class="g gt"></span></div>
-<div class="prom" style="margin-top:16px"><div><span class="c"><svg class="i"><use href="#i-cash"/></svg></span><span>Vous payez seulement en recevant le colis</span></div><div><span class="c"><svg class="i"><use href="#i-swap"/></svg></span><span>Échange sous 7 jours</span></div></div></div>
+<div class="rc"><h3>Votre commande</h3><div class="no">Adoris Store, Derb Omar, Casablanca</div><div id="lines"></div>
+<dl><dt>Sous-total</dt><dd id="st"></dd><dt id="shl">Livraison</dt><dd id="sh"></dd><dt class="tot">À payer à la livraison</dt><dd class="tot gt"></dd></dl>
+<div class="cod"><svg class="i"><use href="#i-swap"/></svg>Échange possible sous 7 jours après réception.</div></div>
 </div></div></section>
 
-<section class="view" id="v-merci"><div class="w"><div class="ok"><div class="c"><svg class="i"><use href="#i-check"/></svg></div><h1>Merci Karim, c'est commandé !</h1><p style="color:var(--mut)">Commande n° A-1024 · un conseiller vous écrit sur WhatsApp dans l'heure pour confirmer.</p>
-<div class="box">
-<div class="tl"><span class="d"><i><svg class="i s"><use href="#i-check"/></svg></i>Commandée</span><span><i></i>Confirmée</span><span><i></i>Expédiée</span><span><i></i>Livrée</span></div>
-<div class="row"><span class="c2"><svg class="i"><use href="#i-cash"/></svg></span><span>Total à payer à la réception<small><b class="gt" style="color:var(--ink)"></b></small></span></div>
-<div class="row"><span class="c2"><svg class="i"><use href="#i-truck"/></svg></span><span>Livraison prévue<small>Demain, Casablanca</small></span></div>
-<div class="row"><span class="c2"><svg class="i"><use href="#i-pin"/></svg></span><span>Adresse<small>Maârif, Casablanca</small></span></div>
-</div>
-<p style="margin-top:22px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><a class="btn wa"><svg class="i"><use href="#i-chat"/></svg>Suivre sur WhatsApp</a><a class="btn line" href="#accueil">Continuer mes achats</a></p></div></div></section>
+<section class="view" id="v-merci"><div class="w ty">
+<div class="ok"><svg class="i"><use href="#i-check"/></svg></div>
+<h1>Merci Karim, votre commande est enregistrée.</h1>
+<p>Commande A-1024. Un conseiller Adoris vous écrit sur WhatsApp dans l'heure pour la confirmer avant l'envoi.</p>
+<ol class="tl"><li class="d">Enregistrée<small>maintenant</small></li><li>Confirmée<small>dans l'heure</small></li><li>Expédiée<small id="dship">aujourd'hui</small></li><li>Livrée<small id="dday">demain</small></li></ol>
+<div class="rc" style="max-width:460px"><h3>Récapitulatif</h3><div class="no">À payer en espèces au livreur</div><dl style="border:0;padding:0;margin:0"><dt>Total</dt><dd class="gt" style="font-weight:700"></dd><dt>Adresse</dt><dd>Maârif, Casablanca</dd><dt>Téléphone</dt><dd>06 12 34 56 78</dd></dl></div>
+<p style="margin-top:34px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn wa"><svg class="i"><use href="#i-chat"/></svg>Ouvrir WhatsApp</a><a class="btn out" href="#accueil">Continuer mes achats</a></p>
+</div></section>
 </main>
 
-<div class="pbar" id="pbar"><div class="pp" id="pp"></div><a class="btn" href="#commande">Commander</a><a class="ib" aria-label="WhatsApp"><svg class="i"><use href="#i-chat"/></svg></a></div>
-<nav class="tab"><a href="#accueil" data-v="accueil"><svg class="i"><use href="#i-home"/></svg>Accueil</a><a href="#categorie" data-v="categorie"><svg class="i"><use href="#i-grid"/></svg>Catégories</a><a href="#commande" data-v="commande"><svg class="i"><use href="#i-bag"/></svg><em class="cc">0</em>Panier</a><a><svg class="i"><use href="#i-heart"/></svg>Favoris</a><a><svg class="i"><use href="#i-chat"/></svg>WhatsApp</a></nav>
+<div class="pbar" id="pbar"><div class="pp" id="pp"></div><a class="btn" href="#commande">Commander</a><a class="wab" aria-label="Commander sur WhatsApp"><svg class="i"><use href="#i-chat"/></svg></a></div>
+<nav class="tab" aria-label="Navigation"><a href="#accueil" data-v="accueil"><svg class="i"><use href="#i-home"/></svg>Accueil</a><a href="#categorie" data-v="categorie"><svg class="i"><use href="#i-grid"/></svg>Rayons</a><a href="#categorie"><svg class="i"><use href="#i-search"/></svg>Chercher</a><a href="#commande" data-v="commande"><svg class="i"><use href="#i-bag"/></svg><b class="cc">0</b>Panier</a><a><svg class="i"><use href="#i-chat"/></svg>WhatsApp</a></nav>
 
-<footer class="ft"><div class="w news"><h3>Nouveautés et promos en avant-première</h3><form onsubmit="event.preventDefault()"><input placeholder="Votre numéro WhatsApp" aria-label="Numéro WhatsApp"><button class="btn gold" style="min-height:40px">S'inscrire</button></form></div>
-<div class="w fcols">
-<div><div class="logo">ADORIS<small style="text-align:left">STORE</small></div><p>Montres, lunettes et smartwatches livrées partout au Maroc.</p><ul><li><svg class="i s"><use href="#i-store"/></svg>Kissariat Saidi, Garage Allal, Derb Omar, Casablanca</li></ul></div>
-<div><h4>Boutique</h4><ul><li>Montres hommes</li><li>Montres femmes</li><li>Smartwatch</li><li>Lunettes</li><li>Coffrets et gravure</li></ul></div>
-<div><h4>Aide</h4><ul><li>Livraison et délais</li><li>Échanges et retours</li><li>Suivi de commande</li><li>Conditions générales de vente</li><li>Mentions légales</li></ul></div>
-<div><h4>Contact</h4><ul><li><svg class="i s"><use href="#i-chat"/></svg>WhatsApp : 06 63 58 31 62</li><li><svg class="i s"><use href="#i-mail"/></svg>contact@adoristore.ma</li><li><svg class="i s"><use href="#i-clock"/></svg>Lun–Dim, 10 h – 20 h</li><li><svg class="i s"><use href="#i-box"/></svg>Revendeur ? adoris.ma</li></ul><div class="payl"><span>Paiement à la livraison</span><span>VISA</span><span>Mastercard</span></div></div>
+<footer class="ft"><div class="w fcols">
+<div><a class="logo" href="#accueil">ADORIS<small>STORE</small></a><p style="max-width:34ch">Montres, lunettes et smartwatches, en stock dans notre magasin de Derb Omar à Casablanca.</p></div>
+<div><h4>Rayons</h4><ul><li>Montres hommes</li><li>Montres femmes</li><li>Smartwatch</li><li>Lunettes</li><li>Coffrets et gravure</li></ul></div>
+<div><h4>Aide</h4><ul><li>Livraison et délais</li><li>Échanges et retours</li><li>Suivre ma commande</li><li>Conditions de vente</li><li>Mentions légales</li></ul></div>
+<div><h4>Nous trouver</h4><ul><li><svg class="i s"><use href="#i-pin"/></svg>Kissariat Saidi, Garage Allal, Derb Omar, Casablanca</li><li><svg class="i s"><use href="#i-clock"/></svg>Tous les jours, de 10 h à 20 h</li><li><svg class="i s"><use href="#i-chat"/></svg>06 63 58 31 62</li><li><svg class="i s"><use href="#i-mail"/></svg>contact@adoristore.ma</li><li><svg class="i s"><use href="#i-store"/></svg>Vous êtes revendeur ? adoris.ma</li></ul></div>
 </div><div class="w fbot"><span>© 2026 Adoris Store</span><span>Maquette : notes, avis, délais, garanties et caractéristiques sont des exemples à remplacer.</span></div></footer>
 
 <script src="produits.js"></script>
 <script>
 {
-const P=PRODUITS,by=id=>P.find(p=>p.id===id);
-const ic=(n,c='i')=>`<svg class="${c}"><use href="#i-${n}"/></svg>`;
+const P=PRODUITS,by=id=>P.find(p=>p.id===id),fmt=v=>v+' Dhs';
+const ic=(n,c='i s')=>`<svg class="${c}"><use href="#i-${n}"/></svg>`;
+const star='<svg><use href="#i-star"/></svg>';
 const rate=id=>{let s=0;for(const c of id)s=(s*31+c.charCodeAt(0))%997;return {r:(4.3+(s%7)/10).toFixed(1).replace('.',','),n:6+s%57}};
-const fmt=v=>v+' Dhs';
-const card=p=>{const r=rate(p.id),off=p.old?Math.round((1-p.price/p.old)*100):0;
- return `<div class="card"><a class="im" href="#produit-${p.id}">${off?`<span class="badge">-${off}%</span>`:(p.id==='s2'||p.id==='m7'?'<span class="badge new">Nouveau</span>':'')}<img src="img/${p.id}.jpg" alt="${p.brand} ${p.name}" loading="lazy"></a><button class="fav" aria-label="Favori">${ic('heart','i s')}</button>
- <div class="bd"><div class="br">${p.brand}</div><a class="nm" href="#produit-${p.id}">${p.name}</a><div class="rt">${ic('star','st')}<b style="color:var(--ink)">${r.r}</b> (${r.n})</div>
- <div class="pf"><div class="pr">${p.old?`<s>${p.old} Dhs</s>`:''}${fmt(p.price)}</div><button class="add" data-id="${p.id}" aria-label="Ajouter au panier">${ic('plus')}</button></div><div class="dl">${ic('truck','i s')}Livré demain à Casa</div></div></div>`};
-const put=(id,ids)=>document.getElementById(id).innerHTML=ids.map(i=>card(by(i))).join('');
+const tag=p=>{const off=p.old?Math.round((1-p.price/p.old)*100):0;return `<span class="tag${p.old?' sale':''}"><span>${p.old?`<s>${p.old} Dhs <em>−${off} %</em></s>`:''}${fmt(p.price)}</span></span>`};
+const slot=p=>{const r=rate(p.id),off=p.old?Math.round((1-p.price/p.old)*100):0;
+ return `<div class="slot"><a class="im" href="#produit-${p.id}"><img src="img/${p.id}.jpg" alt="${p.brand} ${p.name}" loading="lazy">${tag(p)}</a>
+ <span class="br">${p.brand}</span><a class="nm" href="#produit-${p.id}">${p.name}</a><span class="rt">${star}<b>${r.r}</b> sur 5, ${r.n} avis</span>
+ <button class="add" data-id="${p.id}">${ic('bag')}<span>Ajouter</span></button></div>`};
+const put=(id,ids)=>document.getElementById(id).innerHTML=ids.map(i=>slot(by(i))).join('');
 put('best',['m1','m2','f1','m3','s1','m4','f3','l1','m5','b1']);
 put('elle',['f1','f2','f3','f4','f5']);
 put('smart',['s1','s2','s3','s4','l2']);
 put('catg',['m1','m2','m3','m4','m5','m6','m7','m8','m1','m3','m6','m2']);
-document.getElementById('cats').innerHTML=[['m2','Hommes'],['f2','Femmes'],['s1','Smartwatch'],['l1','Lunettes'],['b1','Coffrets'],['g1','Gravure']].map(c=>`<a href="#categorie"><img src="img/${c[0]}.jpg" alt=""><span>${c[1]}${ic('right','i s')}</span></a>`).join('');
-const revs=a=>a.map(r=>`<div class="rev"><div class="rt">${ic('star','st').repeat(r[4])}</div><p>« ${r[2]} »</p><div class="who"><i>${r[0]}</i><span>${r[1]}<small>Exemple d'avis · ${r[3]}</small></span></div></div>`).join('');
-document.getElementById('revs').innerHTML=revs([['K','Karim, Casablanca','Reçue le lendemain, exactement comme sur la photo. Le livreur a attendu que je vérifie avant de payer.','Montre NIBOSI',5],['S','Salma, Rabat',"Gravure parfaite pour l'anniversaire de mon mari, et l'équipe a répondu vite sur WhatsApp.",'Gravure + coffret',5],['Y','Youssef, Agadir','Bon rapport qualité-prix. Livraison en 2 jours, paiement à la réception.','Lunettes BARCUR',4]]);
+document.getElementById('cats').innerHTML=[['m2','Hommes','86'],['f2','Femmes','54'],['s1','Smartwatch','31'],['l1','Lunettes','38'],['b1','Coffrets','9'],['g1','Gravure','50 Dhs']].map(c=>`<a class="cat" href="#categorie"><img src="img/${c[0]}.jpg" alt=""><b>${c[1]}<small>${c[2]}</small></b></a>`).join('');
+const revs=a=>a.map(r=>`<div class="rev"><span class="rt">${star.repeat(r[3])}</span><p>« ${r[1]} »</p><small>${r[0]}, exemple d'avis sur ${r[2]}</small></div>`).join('');
+document.getElementById('revs').innerHTML=revs([['Karim, Casablanca',"Commandée à 14 h, reçue le lendemain matin. Le livreur a attendu que je l'essaie avant de payer.",'une montre NIBOSI',5],['Salma, Rabat',"La gravure est très nette, mon mari ne s'y attendait pas. Réponse rapide sur WhatsApp.",'une gravure et un coffret',5],['Youssef, Agadir','Bon rapport qualité-prix. Arrivée en deux jours, payée à la réception.','des lunettes BARCUR',4]]);
+
+/* live dial */
+const dial=document.getElementById('dial'),pol=(r,a)=>[200+r*Math.sin(a),200-r*Math.cos(a)];
+let ticks='';for(let i=0;i<60;i++){const a=i*Math.PI/30,[x1,y1]=pol(i%5?168:158,a),[x2,y2]=pol(176,a);ticks+=`<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${i%5?'#8EA2BF':'#fff'}" stroke-width="${i%5?1.2:3.2}"/>`}
+let nums='';for(let h=1;h<=12;h++){if(h===3)continue;const[x,y]=pol(136,h*Math.PI/6);nums+=`<text x="${x.toFixed(1)}" y="${(y+7).toFixed(1)}" text-anchor="middle" font-size="21" font-weight="600" fill="#E8EEF6" font-family="Archivo" style="font-stretch:125%">${h}</text>`}
+dial.innerHTML=`<defs><radialGradient id="sun" cx="50%" cy="42%" r="62%"><stop offset="0" stop-color="#2B5490"/><stop offset="1" stop-color="#122A4E"/></radialGradient><linearGradient id="stl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4F5F6"/><stop offset=".5" stop-color="#B3BAC1"/><stop offset="1" stop-color="#E9ECEE"/></linearGradient></defs>
+<circle cx="200" cy="200" r="199" fill="url(#stl)"/><circle cx="200" cy="200" r="188" fill="#0C1C36"/><circle cx="200" cy="200" r="182" fill="url(#sun)"/>
+<path id="arc" fill="none" stroke="#EBD9AE" stroke-width="8" stroke-linecap="round"/>${ticks}${nums}
+<text x="200" y="112" text-anchor="middle" font-family="Jost" font-weight="600" font-size="22" letter-spacing="3" fill="#fff">ADORIS</text>
+<text x="200" y="128" text-anchor="middle" font-family="Archivo" font-size="10" letter-spacing="2.5" fill="#B9C8DC">CASABLANCA</text>
+<rect x="290" y="186" width="40" height="28" rx="2" fill="#fff"/><text id="date" x="310" y="206" text-anchor="middle" font-family="Archivo" font-weight="700" font-size="17" fill="#1C1E22"></text>
+<text id="cut" x="200" y="292" text-anchor="middle" font-family="Archivo" font-size="12.5" fill="#EBD9AE">départ des colis 16:00</text>
+<g id="dh"><path d="M195.5 212 L198 110 L202 110 L204.5 212 Z" fill="#fff"/></g>
+<g id="dm"><path d="M197.5 214 L199 56 L201 56 L202.5 214 Z" fill="#fff"/></g>
+<g id="ds"><line x1="200" y1="238" x2="200" y2="44" stroke="#C8372D" stroke-width="2"/><circle cx="200" cy="228" r="5" fill="#C8372D"/></g>
+<circle cx="200" cy="200" r="7.5" fill="#C8372D"/><circle cx="200" cy="200" r="2.5" fill="#fff"/>`;
+const arcPath=(a0,a1,r)=>{const[x0,y0]=pol(r,a0),[x1,y1]=pol(r,a1);return `M${x0.toFixed(1)} ${y0.toFixed(1)} A${r} ${r} 0 ${(a1-a0)>Math.PI?1:0} 1 ${x1.toFixed(1)} ${y1.toFixed(1)}`};
+const now=()=>{const f=new Intl.DateTimeFormat('en-GB',{timeZone:'Africa/Casablanca',hourCycle:'h23',day:'numeric',hour:'numeric',minute:'numeric',second:'numeric'}).formatToParts(new Date()),g=t=>+f.find(x=>x.type===t).value;return {d:g('day'),h:g('hour'),m:g('minute'),s:g('second')}};
+const leftEl=document.getElementById('left');
+const tick=()=>{const t=now(),hf=(t.h%12)+t.m/60+t.s/3600;
+ document.getElementById('dh').setAttribute('transform',`rotate(${hf*30} 200 200)`);
+ document.getElementById('dm').setAttribute('transform',`rotate(${(t.m+t.s/60)*6} 200 200)`);
+ document.getElementById('ds').setAttribute('transform',`rotate(${t.s*6} 200 200)`);
+ document.getElementById('date').textContent=t.d;
+ const mins=16*60-(t.h*60+t.m),arc=document.getElementById('arc');
+ if(t.h>=6&&mins>0){let a0=hf*Math.PI/6,a1=4*Math.PI/6;if(a0>a1)a1+=2*Math.PI;arc.setAttribute('d',arcPath(a0,a1,183));arc.style.display='';
+  const h=Math.floor(mins/60),m=mins%60;leftEl.innerHTML=`Encore <em>${h?h+' h ':''}${String(m).padStart(h?2:1,'0')} min</em> pour être livré demain à Casablanca.`;
+  document.getElementById('dship').textContent="aujourd'hui";document.getElementById('dday').textContent='demain'}
+ else{arc.style.display='none';leftEl.innerHTML=`Les colis du jour sont partis : commandée maintenant, <em>elle part demain matin</em>.`;
+  document.getElementById('dship').textContent='demain matin';document.getElementById('dday').textContent='après-demain'}};
+tick();setInterval(tick,matchMedia('(prefers-reduced-motion: reduce)').matches?60000:1000);
+
+/* engraving preview */
+const back=(svg,id,size)=>{let rings='';for(let r=20;r<136;r+=3)rings+=`<circle cx="150" cy="150" r="${r}" fill="none" stroke="${(r/3)%2?'#C3CAD0':'#DDE2E6'}" stroke-width="1.5"/>`;
+ svg.innerHTML=`<defs><linearGradient id="cs${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2F4F5"/><stop offset=".55" stop-color="#AEB6BD"/><stop offset="1" stop-color="#E4E8EA"/></linearGradient><path id="ring${id}" d="M150 150 m-112 0 a112 112 0 1 1 224 0 a112 112 0 1 1 -224 0"/></defs>
+ <circle cx="150" cy="150" r="148" fill="url(#cs${id})"/><circle cx="150" cy="150" r="138" fill="#D3D9DD"/>${rings}
+ <text font-family="Archivo" font-size="10.5" letter-spacing="2.4" fill="#7D878F"><textPath href="#ring${id}" startOffset="3%">ACIER INOXYDABLE   3 ATM   ADORIS STORE CASABLANCA</textPath></text>
+ <text class="eng" x="150" y="157" text-anchor="middle" font-family="Archivo" font-size="${size}" font-weight="500" fill="#56606A" stroke="#F3F5F6" stroke-width=".7" paint-order="stroke"></text>`};
+const cb=document.getElementById('caseback');back(cb,'a',20);
+const gi=document.getElementById('gtext'),eng=()=>{cb.querySelector('.eng').textContent=gi.value||'Votre texte'};gi.addEventListener('input',eng);eng();
+
+/* cart */
 let cart=[];
 const setCart=()=>{document.querySelectorAll('.cc').forEach(e=>e.textContent=cart.length);
- const items=cart.length?cart:['m1'];const st=items.reduce((a,i)=>a+by(i).price,0),sh=st>=500?0:20;
- document.getElementById('lines').innerHTML=items.map(i=>{const p=by(i);return `<div class="li"><img src="img/${p.id}.jpg" alt=""><span>${p.brand} – ${p.name}<small>Quantité 1</small></span><b>${fmt(p.price)}</b></div>`}).join('');
- document.getElementById('st').textContent=fmt(st);const se=document.getElementById('sh');se.textContent=sh?fmt(sh):'Offerte';se.className=sh?'':'free';
+ const items=cart.length?cart:['m1'],st=items.reduce((a,i)=>a+by(i).price,0),city=document.getElementById('city'),sh=st>=500?0:+city.value;
+ document.getElementById('lines').innerHTML=items.map(i=>{const p=by(i);return `<div class="li"><img src="img/${p.id}.jpg" alt=""><span>${p.brand}, ${p.name}<small>Quantité 1</small></span><b>${fmt(p.price)}</b></div>`}).join('');
+ document.getElementById('st').textContent=fmt(st);document.getElementById('shl').textContent='Livraison à '+city.options[city.selectedIndex].text;
+ const se=document.getElementById('sh');se.textContent=sh?fmt(sh):'Offerte';se.className=sh?'':'free';
  document.querySelectorAll('.gt').forEach(e=>e.textContent=fmt(st+sh))};
-document.addEventListener('click',e=>{const b=e.target.closest('.add');if(b){cart.push(b.dataset.id);setCart();b.classList.add('done');b.innerHTML=ic('check')}
- const u=e.target.closest('.up');if(u){u.classList.toggle('on')}});
+document.getElementById('city').addEventListener('change',setCart);
+document.addEventListener('click',e=>{const b=e.target.closest('.add');if(!b)return;cart.push(b.dataset.id);setCart();b.classList.add('done');b.innerHTML=ic('check')+'<span>Dans le panier</span>'});
+
+/* product page */
 const prod=id=>{const p=by(id)||by('m1'),r=rate(p.id),off=p.old?Math.round((1-p.price/p.old)*100):0;
  const sim=P.filter(x=>x.cat===p.cat&&x.id!==p.id).slice(0,5);let k=0;while(sim.length<5){if(P[k].id!==p.id&&!sim.includes(P[k]))sim.push(P[k]);k++}
- document.getElementById('pw').innerHTML=`<div class="crumb"><a href="#accueil">Accueil</a>${ic('right','i s')}<a href="#categorie">Montres</a>${ic('right','i s')}${p.brand}</div>
- <div class="play"><div class="gal"><div class="thumbs">${[p.id,'m2','m8','g1'].map((t,i)=>`<img class="${i?'':'on'}" src="img/${t}.jpg" alt="">`).join('')}</div><div class="main">${off?`<span class="badge">-${off}%</span>`:''}<button class="fav" aria-label="Favori">${ic('heart','i s')}</button><img src="img/${p.id}.jpg" alt="${p.brand} ${p.name}"></div></div>
- <div class="info"><div class="br">${p.brand}</div><h1>${p.brand} – ${p.name}</h1><div class="rt">${ic('star','st').repeat(5)}<b style="color:var(--ink)">${r.r}</b> · ${r.n} avis</div>
- <div class="bigp"><b>${fmt(p.price)}</b>${p.old?`<s>${p.old} Dhs</s><em>-${off}%</em>`:''}</div>
- <div class="prom"><div><span class="c">${ic('cash')}</span><span><b>Paiement à la livraison</b><small>Vous payez en recevant le colis</small></span></div><div><span class="c">${ic('truck')}</span><span><b>Livré demain à Casablanca</b><small>48 h ailleurs · 20 / 50 Dhs, gratuit dès 500 Dhs</small></span></div><div><span class="c">${ic('shield')}</span><span><b>Échange 7 jours · garantie 6 mois</b><small>En stock, expédié aujourd'hui avant 16 h</small></span></div></div>
- <div class="opt">Couleur : <b>Doré</b><div class="sw"><i class="on" style="background:#c9a24a"></i><i style="background:#222"></i><i style="background:#c0c0c0"></i></div></div>
- <div class="up"><span class="c">${ic('pen')}</span><span><b>Ajouter une gravure</b><small>Prénom ou date au dos de la montre</small></span><span class="tg">+50 Dhs<i></i></span></div>
- <div class="buy"><div class="qty"><button aria-label="Moins">${ic('minus','i s')}</button>1<button aria-label="Plus">${ic('plus','i s')}</button></div><a class="btn" href="#commande">Commander maintenant</a><button class="ib add" data-id="${p.id}" aria-label="Ajouter au panier">${ic('bag')}</button></div>
- <a class="btn wa wa-l">${ic('chat')}Commander sur WhatsApp</a>
- <table class="specs"><tr><td>Mouvement</td><td>Quartz japonais</td></tr><tr><td>Diamètre du cadran</td><td>46 mm</td></tr><tr><td>Bracelet</td><td>Acier inoxydable, 22 mm</td></tr><tr><td>Étanchéité</td><td>3 ATM : pluie, lavage des mains</td></tr><tr><td>Fonctions</td><td>Chronographe, date, aiguilles lumineuses</td></tr><tr><td>Livré avec</td><td>Boîte Adoris et carte de garantie</td></tr></table></div></div>
- <div class="sec"><div class="sh"><h2>Souvent achetés ensemble</h2></div><div class="fbt"><img src="img/${p.id}.jpg" alt=""><span class="plus">${ic('plus','i s')}</span><img src="img/g1.jpg" alt=""><span class="plus">${ic('plus','i s')}</span><img src="img/b2.jpg" alt=""><div class="tot">Montre + gravure + coffret<br><b style="font-size:22px">${fmt(p.price+50+225)}</b><br><a class="btn" style="margin-top:10px" href="#commande">Ajouter les 3</a></div></div></div>
- <div class="sec"><div class="sh"><h2>Avis clients · ${r.r} sur 5</h2><a>Voir les ${r.n} avis${ic('right','i s')}</a></div><div class="revs">${revs([['A','Amine, Casablanca','Très belle montre, plus lourde que je pensais. Livrée en 24 h.','Casablanca',5],['N','Nadia, Rabat','Conforme à la photo, le livreur a attendu que je vérifie.','Rabat',5],['H','Hamza, Casablanca','Bracelet ajusté gratuitement au magasin, bon rapport qualité-prix.','Derb Omar',4]])}</div></div>
- <div class="sec"><div class="sh"><h2>Vous aimerez aussi</h2></div><div class="grid">${sim.map(card).join('')}</div></div>`;
- document.getElementById('pp').innerHTML=`${fmt(p.price)}<small>${p.old?`au lieu de ${p.old} Dhs`:'Paiement à la livraison'}</small>`};
-const route=()=>{let h=location.hash.slice(1)||'accueil';let v=h;if(h.startsWith('produit')){v='produit';prod(h.split('-')[1]||'m1')}
+ const shots=[p.id,...sim.slice(0,3).map(s=>s.id)];
+ document.getElementById('pw').innerHTML=`<div class="crumb"><a href="#accueil">Accueil</a>${ic('right')}<a href="#categorie">Montres hommes</a>${ic('right')}${p.brand}</div>
+ <div class="pl"><div class="gal"><div class="th">${shots.map((t,i)=>`<button class="${i?'':'on'}" data-img="${t}" aria-label="Photo ${i+1}"><img src="img/${t}.jpg" alt=""></button>`).join('')}</div>
+ <div class="big"><img id="bigimg" src="img/${p.id}.jpg" alt="${p.brand} ${p.name}">${off?`<span class="off">−${off} %</span>`:''}</div></div>
+ <div class="info"><div class="br">${p.brand}</div><h1>${p.name}</h1><span class="rt">${star.repeat(5)}<b>${r.r}</b> sur 5, ${r.n} avis</span>
+ <div class="price"><b>${fmt(p.price)}</b>${p.old?`<s>${p.old} Dhs</s><em>−${off} %</em>`:''}</div>
+ <ul class="prom"><li>${ic('cash','i')}<span><b>Vous payez à la livraison</b>En espèces, après avoir vu la montre</span></li><li>${ic('truck','i')}<span><b>Livrée demain à Casablanca</b>Commandez avant 16 h. 48 h dans les autres villes.</span></li><li>${ic('shield','i')}<span><b>Échange 7 jours, garantie 6 mois</b>En stock au magasin de Derb Omar</span></li></ul>
+ <div class="optl">Couleur du cadran : <b>doré</b></div><div class="sw"><button class="on" style="background:#C9A24A" aria-label="Doré"></button><button style="background:#222" aria-label="Noir"></button><button style="background:#C0C0C0" aria-label="Argent"></button></div>
+ <details class="engr"><summary>${ic('pen','i')}<span>Graver un prénom ou une date<small>Au dos de la montre, prête en 24 h</small></span><span class="p">+50 Dhs</span></summary><div class="body"><svg id="cbp" viewBox="0 0 300 300" aria-hidden="true"></svg><label>Texte à graver<input id="gp" value="Karim 12.06.2026" maxlength="25"></label></div></details>
+ <div class="buy"><div class="qty"><button aria-label="Retirer une">${ic('minus')}</button>1<button aria-label="Ajouter une">${ic('plus')}</button></div><a class="btn" href="#commande">Commander, payer à la livraison</a></div>
+ <div class="buy2"><button class="btn out add" data-id="${p.id}">${ic('bag')}<span>Ajouter au panier</span></button><a class="btn wa">${ic('chat')}Commander sur WhatsApp</a></div>
+ <table class="specs"><tr><th>Mouvement</th><td>Quartz japonais</td></tr><tr><th>Diamètre du boîtier</th><td>46 mm</td></tr><tr><th>Bracelet</th><td>Acier inoxydable, 22 mm, ajusté gratuitement</td></tr><tr><th>Étanchéité</th><td>3 ATM : pluie et lavage des mains</td></tr><tr><th>Fonctions</th><td>Chronographe, date, aiguilles luminescentes</td></tr><tr><th>Livrée avec</th><td>Boîte Adoris et carte de garantie</td></tr></table></div></div>
+ <div class="sec"><div class="sh"><h2>À offrir avec</h2></div><div class="set"><img src="img/${p.id}.jpg" alt=""><span class="pl2">${ic('plus','i')}</span><img src="img/g1.jpg" alt=""><span class="pl2">${ic('plus','i')}</span><img src="img/b2.jpg" alt=""><div class="tot"><span>Montre, gravure et coffret 6 places</span><b>${fmt(p.price+50+225)}</b><a class="btn" href="#commande">Prendre les trois</a></div></div></div>
+ <div class="sec"><div class="sh"><h2>Avis sur cette montre</h2><a>Lire les ${r.n} avis</a></div><div class="revs">${revs([['Amine, Casablanca','Plus lourde que je pensais, elle fait sérieux. Livrée en 24 h.','ce modèle',5],['Nadia, Rabat','Conforme à la photo. Le livreur a attendu que je vérifie.','ce modèle',5],['Hamza, Casablanca','Bracelet raccourci gratuitement au magasin.','ce modèle',4]])}</div></div>
+ <div class="sec"><div class="sh"><h2>Dans le même style</h2></div><div class="case g5">${sim.map(slot).join('')}</div></div>`;
+ const cbp=document.getElementById('cbp');back(cbp,'p',22);const gp=document.getElementById('gp'),e2=()=>{cbp.querySelector('.eng').textContent=gp.value||'Votre texte'};gp.addEventListener('input',e2);e2();
+ document.getElementById('pp').innerHTML=`${fmt(p.price)}<small>${p.old?`au lieu de ${p.old} Dhs`:'payé à la livraison'}</small>`;
+ document.querySelectorAll('.th button').forEach(b=>b.addEventListener('click',()=>{document.getElementById('bigimg').src='img/'+b.dataset.img+'.jpg';document.querySelectorAll('.th button').forEach(x=>x.classList.toggle('on',x===b))}))};
+
+const route=()=>{const h=location.hash.slice(1)||'accueil';let v=h;if(h.startsWith('produit')){v='produit';prod(h.split('-')[1]||'m1')}
  if(!document.getElementById('v-'+v))v='accueil';
  document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on',s.id==='v-'+v));document.body.classList.toggle('prod',v==='produit');
  document.querySelectorAll('.tab a').forEach(a=>a.classList.toggle('on',a.dataset.v===v));

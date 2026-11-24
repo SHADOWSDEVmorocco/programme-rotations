@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Adoris Store – nouvelle maquette</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Archivo:wdth,wght@62..125,300..800&display=swap" rel="stylesheet">
 <style>
 /* VOICE work: a design proposal for the shop owner, calm and convincing
    IDEA an agency presentation book: cover, diagnosis, the chosen direction, screens, benefits, plan
@@ -13,24 +13,24 @@
    COLOUR stone #f4f2ee, ink #121212, Adoris gold #b4893a, green for gains, red for today's problems
    TYPE Plus Jakarta Sans + Jost wordmark; line icons, no emoji
    LAYOUT A4 pages: cover, sections each opening with its finding, screens full width with numbered notes */
-:root{color-scheme:light;--ink:#121212;--mut:#6b6862;--line:#e5e1da;--bg:#f4f2ee;--gold:#b4893a;--gold2:#e9d6ad;--green:#16784a;--red:#d92d20}
+:root{color-scheme:light;--ink:#1C1E22;--mut:#5E646B;--line:#D3D7DA;--bg:#E9EBEC;--gold:#16325C;--gold2:#EBD9AE;--green:#16784a;--red:#d92d20}
 *{box-sizing:border-box;min-width:0}
-body{margin:0;background:#fff;color:var(--ink);font:15px/1.55 "Plus Jakarta Sans",system-ui,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:#fff;color:var(--ink);font:15px/1.55 Archivo,system-ui,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
-h1,h2,h3{letter-spacing:-.02em;line-height:1.1;margin:0}
+h1,h2,h3{letter-spacing:-.015em;line-height:1.1;margin:0;font-stretch:125%}
 h2{font-size:28px;font-weight:700;margin-bottom:8px}
 h3{font-size:18px;font-weight:700}
 p{margin:0 0 10px}
-.pg{padding:44px 48px;break-after:page}
+.pg{padding:38px 44px;break-after:page}
 .pg:last-child{break-after:auto}
 .kick{display:inline-flex;gap:8px;align-items:center;font-size:13px;font-weight:600;color:var(--gold);margin-bottom:10px}
 .lead{font-size:16px;color:#3c3a36;max-width:70ch}
-.cover{background:radial-gradient(120% 120% at 90% 10%,#4a3a22 0,#191612 45%,#0f0f0f 100%);color:#fff;height:296mm;overflow:hidden;display:flex;flex-direction:column;gap:22px}
+.cover{background:#16325C;color:#fff;height:296mm;overflow:hidden;display:flex;flex-direction:column;gap:22px}
 .cover .shot img{display:block;width:100%;height:380px;object-fit:cover;object-position:top}
 .cover .logo{font:600 30px/1 Jost,sans-serif;letter-spacing:.06em}.cover .logo small{display:block;font-size:9px;letter-spacing:.55em;margin-top:4px}
 .cover h1{font-size:42px;font-weight:700;letter-spacing:-.03em;max-width:16ch}
-.cover h1 span{color:var(--gold2)}
-.cover .lead{color:#d8cfbd}
+
+.cover .lead{color:#C9D4E3}
 .cover .shot{border-radius:14px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5);border:1px solid #2c2a27}
 .cover .meta{display:flex;gap:22px;flex-wrap:wrap;color:#bdb5a6;font-size:13px;margin-top:auto}
 .cover .meta span{display:flex;gap:8px;align-items:center}
@@ -38,17 +38,17 @@ p{margin:0 0 10px}
 .fig{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:14px}
 .fig b{display:block;font-size:30px;line-height:1;color:#fff}
 .fig span{font-size:12.5px;color:#cfc6b4}
-.browser{border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 10px 30px rgba(18,18,18,.08);background:#fff}
+.browser{break-inside:avoid;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 10px 30px rgba(18,18,18,.08);background:#fff}
 .browser .bar{display:flex;gap:6px;align-items:center;padding:9px 12px;background:#f1eee8;border-bottom:1px solid var(--line)}
 .browser .bar i{width:10px;height:10px;border-radius:50%;background:#d8d3ca}
 .browser .bar span{margin-left:12px;background:#fff;border-radius:999px;padding:3px 14px;font-size:11.5px;color:var(--mut)}
-.browser img{display:block;width:100%}
+.browser img{display:block;width:100%;max-height:600px;object-fit:cover;object-position:top}
 .cont img{display:block;width:100%}
 .cont{border:1px solid var(--line);border-top:0;border-radius:0 0 14px 14px;overflow:hidden;box-shadow:0 10px 30px rgba(18,18,18,.08)}
-.notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px;margin-top:16px}
-.note{display:flex;gap:12px;font-size:14px}
+.notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 22px;margin-top:14px}
+.note{display:flex;gap:10px;font-size:12.8px;line-height:1.4}
 .note b{display:block}
-.note .n{flex:none;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:12px;font-weight:700;display:grid;place-items:center}
+.note .n{flex:none;width:26px;height:26px;border-radius:50%;background:#16325C;color:#fff;font-size:12px;font-weight:700;display:grid;place-items:center}
 .note .why{color:var(--mut)}
 .prob{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
 .prob div{border:1px solid var(--line);border-radius:14px;padding:11px 12px;font-size:12.5px;color:var(--mut);line-height:1.4}
@@ -56,14 +56,14 @@ p{margin:0 0 10px}
 .prob .c{width:30px;height:30px;border-radius:9px;background:#fdecea;color:var(--red);display:grid;place-items:center;margin-bottom:6px}
 table{width:100%;border-collapse:collapse;font-size:14px}
 th{text-align:left;font-weight:700;padding:7px 9px;border-bottom:2px solid var(--ink);font-size:13px}
-td{padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:middle;font-size:13px}
+td{padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:middle;font-size:12.3px;line-height:1.35}
 td.k{font-weight:600;width:28%}
 .opt th:not(:first-child),.opt td:not(:first-child){text-align:center}
-.opt col.pick{background:#f7f1e3}
+.opt col.pick{background:#EEF2F7}
 .dots{display:inline-flex;gap:3px}.dots i{width:10px;height:10px;border-radius:50%;background:#e1ddd5}.dots i.f{background:var(--ink)}
 .opt .pickh{color:var(--gold)}
 .verdict{display:flex;gap:14px;align-items:flex-start;background:var(--bg);border-radius:16px;padding:16px 18px;margin-top:16px;font-size:14.5px}
-.verdict .c{flex:none;width:40px;height:40px;border-radius:12px;background:var(--ink);color:#fff;display:grid;place-items:center}
+.verdict .c{flex:none;width:40px;height:40px;border-radius:12px;background:#16325C;color:#fff;display:grid;place-items:center}
 .phones{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:16px}
 .phone{border:6px solid #111;border-radius:26px;overflow:hidden;background:#111}
 .phone img{display:block;width:100%;border-radius:20px}
@@ -92,7 +92,7 @@ td.k{font-weight:600;width:28%}
 .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
 .av-ap{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media screen and (max-width:760px){.pg{padding:28px 18px}.figs,.prob,.notes,.phones,.long,.plan,.kpi,.two,.av-ap{grid-template-columns:1fr 1fr}.cmp .r{grid-template-columns:1fr}.cover h1{font-size:32px}.scroll{overflow-x:auto}}
-@media screen{body{background:var(--bg)}.pg{max-width:1000px;margin:0 auto 16px;background:#fff}.pg.cover{background:radial-gradient(120% 120% at 90% 10%,#4a3a22 0,#191612 45%,#0f0f0f 100%)}}
+@media screen{body{background:var(--bg)}.pg{max-width:1000px;margin:0 auto 16px;background:#fff}.pg.cover{background:#16325C}}
 </style>
 </head>
 <body>
@@ -112,20 +112,21 @@ td.k{font-weight:600;width:28%}
 <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2.5 4.5 13.5H12l-1 8 8.5-11H12z"/></symbol>
 <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7.5 3v5.5c0 4.7-3.2 8-7.5 9.5-4.3-1.5-7.5-4.8-7.5-9.5V6z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
 <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3.5" y="8" width="17" height="4.5" rx="1"/><path d="M5 12.5V20h14v-7.5M12 8v12"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
 <symbol id="i-lang" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.5 2.5 14.5 0 17M12 3.5c-2.5 2.5-2.5 14.5 0 17"/></symbol>
 </svg>
 
 <section class="pg cover">
 <div class="logo">ADORIS<small>STORE</small></div>
 <div><div class="kick" style="color:var(--gold2)">Proposition de refonte · novembre 2026</div>
-<h1>Une boutique moderne, pensée pour <span>vendre et rassurer</span></h1>
-<p class="lead" style="margin-top:14px">Maquette complète de la nouvelle boutique adoristore.ma, sur ordinateur et sur téléphone, avec vos vrais produits. Elle garde votre identité noir et or, et reprend les réflexes d'Amazon et de Jumia qui font commander : prix clair, promesse de livraison, avis, commande en une minute.</p></div>
+<h1>Une boutique qui ressemble à Adoris, pensée pour vendre</h1>
+<p class="lead" style="margin-top:14px">Maquette complète de la nouvelle boutique adoristore.ma, sur ordinateur et sur téléphone, avec vos vrais produits. Son identité vient du métier d'Adoris : un cadran qui donne l'heure limite d'expédition, une vitrine de magasin, des étiquettes de prix en laiton. Elle reprend aussi les réflexes d'Amazon et de Jumia qui font commander.</p></div>
 <div class="shot"><img src="img/pc-accueil-1.jpg" alt="Nouvelle page d'accueil sur ordinateur"></div>
 <div class="figs">
 <div class="fig"><b>1</b><span>écran pour commander, au lieu de 4</span></div>
 <div class="fig"><b>4</b><span>champs à remplir, e-mail facultatif</span></div>
 <div class="fig"><b>4</b><span>montres visibles par écran sur téléphone, au lieu d'1</span></div>
-<div class="fig"><b>100 %</b><span>de l'interface en français</span></div>
+<div class="fig"><b>16 h</b><span>l'heure limite, affichée en direct sur un cadran</span></div>
 </div>
 <div class="meta"><span><svg class="i"><use href="#i-monitor"/></svg>5 pages sur ordinateur</span><span><svg class="i"><use href="#i-phone"/></svg>5 écrans sur téléphone</span><span><svg class="i"><use href="#i-grid"/></svg>24 vrais produits Adoris</span></div>
 </section>
@@ -154,33 +155,33 @@ td.k{font-weight:600;width:28%}
 
 <section class="pg">
 <div class="kick"><svg class="i"><use href="#i-monitor"/></svg>Maquette ordinateur · 1/3</div>
-<h2>Accueil : les produits et la promesse dès l'ouverture</h2>
+<h2>Accueil : l'heure limite devient l'argument de vente</h2>
 <div class="browser"><div class="bar"><i></i><i></i><i></i><span>adoristore.ma</span></div><img src="img/pc-accueil-1.jpg" alt="Accueil, haut de page"></div>
 <div class="notes">
-<div class="note"><span class="n">1</span><div><b>Bandeau des 3 promesses</b><span class="why">Paiement à la livraison, 24–48 h, gratuit dès 500 Dhs : lu en une seconde.</span></div></div>
-<div class="note"><span class="n">2</span><div><b>Recherche au centre</b><span class="why">Celui qui sait ce qu'il veut le trouve tout de suite.</span></div></div>
-<div class="note"><span class="n">3</span><div><b>WhatsApp visible avec le numéro</b><span class="why">Le canal préféré des clients marocains, sans bulle qui cache les boutons.</span></div></div>
-<div class="note"><span class="n">4</span><div><b>Bannière avec prix d'appel</b><span class="why">« Dès 150 Dhs » et la meilleure vente : on sait tout de suite ce que coûte une montre.</span></div></div>
-<div class="note"><span class="n">5</span><div><b>Gravure et coffrets en avant</b><span class="why">Vos services qui augmentent le panier moyen.</span></div></div>
-<div class="note"><span class="n">6</span><div><b>4 garanties en icônes</b><span class="why">Paiement à la réception, livraison, échange, conseil.</span></div></div>
+<div class="note"><span class="n">1</span><div><b>Un vrai cadran, à l'heure de Casablanca</b><span class="why">Les aiguilles tournent en direct. L'arc doré montre le temps qui reste avant le départ des colis à 16 h.</span></div></div>
+<div class="note"><span class="n">2</span><div><b>Une promesse chiffrée</b><span class="why">« Encore 2 h 48 min pour être livré demain » : le texte se met à jour tout seul, et change après 16 h.</span></div></div>
+<div class="note"><span class="n">3</span><div><b>Le magasin de Derb Omar visible</b><span class="why">Dès la première ligne : une vraie adresse rassure plus qu'un slogan.</span></div></div>
+<div class="note"><span class="n">4</span><div><b>Les 4 conditions en une bande</b><span class="why">Délai, prix de livraison, échange, gravure : ce que le client demande sur WhatsApp, déjà répondu.</span></div></div>
+<div class="note"><span class="n">5</span><div><b>La vitrine</b><span class="why">Les montres rangées dans des cases, comme au magasin, au lieu de cartes flottantes.</span></div></div>
+<div class="note"><span class="n">6</span><div><b>L'étiquette de prix en laiton</b><span class="why">Le prix, l'ancien prix et la remise sur une étiquette attachée par un fil : un détail propre à Adoris.</span></div></div>
 </div>
 </section>
 
 <section class="pg">
 <div class="kick"><svg class="i"><use href="#i-monitor"/></svg>Maquette ordinateur · suite de l'accueil</div>
-<h2>Des grilles denses, des prix clairs, des preuves de sérieux</h2>
-<div class="cont"><img src="img/pc-accueil-2.jpg" alt="Accueil, meilleures ventes"></div>
+<h2>Les rayons et la gravure en direct</h2>
+<div class="cont"><img src="img/pc-accueil-2.jpg" alt="Accueil, rayons et gravure"></div>
 <div class="notes">
-<div class="note"><span class="n">7</span><div><b>Cartes produit complètes</b><span class="why">Marque, nom en français, note, prix barré, délai et bouton d'ajout rapide.</span></div></div>
-<div class="note"><span class="n">8</span><div><b>Section gravure en 3 étapes</b><span class="why">Explique le service et pousse le cadeau.</span></div></div>
+<div class="note"><span class="n">7</span><div><b>Rayons avec le nombre de modèles</b><span class="why">« Hommes 86 », « Femmes 54 » : on sait ce qu'on va trouver avant de cliquer.</span></div></div>
+<div class="note"><span class="n">8</span><div><b>Aperçu de gravure en direct</b><span class="why">Le client tape son texte et le voit gravé sur le dos de la montre. Personne d'autre ne le propose.</span></div></div>
 </div>
 </section>
 
 <section class="pg">
 <div class="cont" style="border-top:1px solid var(--line);border-radius:14px"><img src="img/pc-accueil-3.jpg" alt="Accueil, bas de page"></div>
 <div class="notes">
-<div class="note"><span class="n">9</span><div><b>Avis clients avec ville</b><span class="why">La preuve sociale, collectée par WhatsApp après livraison.</span></div></div>
-<div class="note"><span class="n">10</span><div><b>Pied de page complet</b><span class="why">Adresse du magasin, CGV, mentions légales, lien revendeurs vers adoris.ma.</span></div></div>
+<div class="note"><span class="n">9</span><div><b>Avis clients sans décor</b><span class="why">De simples citations avec prénom et ville, collectées par WhatsApp après livraison.</span></div></div>
+<div class="note"><span class="n">10</span><div><b>Pied de page complet</b><span class="why">Adresse et horaires du magasin, CGV, mentions légales, lien revendeurs vers adoris.ma.</span></div></div>
 </div>
 </section>
 
@@ -189,10 +190,10 @@ td.k{font-weight:600;width:28%}
 <h2>Catégorie : filtrer et comparer sans effort</h2>
 <div class="browser"><div class="bar"><i></i><i></i><i></i><span>adoristore.ma/montres-hommes</span></div><img src="img/pc-categorie-1.jpg" alt="Page catégorie"></div>
 <div class="notes">
-<div class="note"><span class="n">1</span><div><b>Filtres à gauche</b><span class="why">Prix, marque, style, bracelet, couleur, stock à Casablanca, avec le nombre de modèles.</span></div></div>
-<div class="note"><span class="n">2</span><div><b>Filtres actifs en pastilles</b><span class="why">On voit et on retire ses choix d'un clic.</span></div></div>
-<div class="note"><span class="n">3</span><div><b>4 produits par ligne</b><span class="why">Le texte de présentation passe en bas de page, Google le lit quand même.</span></div></div>
-<div class="note"><span class="n">4</span><div><b>« Voir plus » avec progression</b><span class="why">Plus simple que des numéros de page.</span></div></div>
+<div class="note"><span class="n">1</span><div><b>Filtres à gauche, sans encadré</b><span class="why">Prix, marque, style, bracelet, couleur du cadran, stock au magasin, avec le nombre de modèles.</span></div></div>
+<div class="note"><span class="n">2</span><div><b>Filtres actifs visibles</b><span class="why">On voit et on retire ses choix d'un clic.</span></div></div>
+<div class="note"><span class="n">3</span><div><b>La même vitrine, 4 cases par ligne</b><span class="why">Le texte de présentation passe en bas de page, Google le lit quand même.</span></div></div>
+<div class="note"><span class="n">4</span><div><b>« Afficher 12 montres de plus »</b><span class="why">Plus simple que des numéros de page, et le bouton dit ce qu'il fait.</span></div></div>
 </div>
 </section>
 
@@ -201,33 +202,33 @@ td.k{font-weight:600;width:28%}
 <h2>Fiche produit : tout ce qui rassure, à côté du bouton</h2>
 <div class="browser"><div class="bar"><i></i><i></i><i></i><span>adoristore.ma/nibosi-chronographe-etanche</span></div><img src="img/pc-produit-m1-1.jpg" alt="Fiche produit"></div>
 <div class="notes">
-<div class="note"><span class="n">1</span><div><b>Note et avis sous le titre</b><span class="why">Comme Amazon : la première chose qu'on regarde.</span></div></div>
-<div class="note"><span class="n">2</span><div><b>Encadré livraison, échange, garantie</b><span class="why">Répond à « est-ce sérieux ? » avant que le client ne le demande.</span></div></div>
-<div class="note"><span class="n">3</span><div><b>Gravure en interrupteur</b><span class="why">+50 Dhs en un geste, sur la fiche.</span></div></div>
-<div class="note"><span class="n">4</span><div><b>« Commander maintenant » + WhatsApp</b><span class="why">Deux façons d'acheter, sans passer par le panier.</span></div></div>
+<div class="note"><span class="n">1</span><div><b>Note et avis sous le titre</b><span class="why">Comme sur Amazon : la première chose qu'on regarde.</span></div></div>
+<div class="note"><span class="n">2</span><div><b>Paiement, livraison, garantie</b><span class="why">Trois lignes sous le prix qui répondent à « est-ce sérieux ? ».</span></div></div>
+<div class="note"><span class="n">3</span><div><b>Gravure avec aperçu</b><span class="why">+50 Dhs, le texte s'affiche sur le dos de la montre pendant qu'on l'écrit.</span></div></div>
+<div class="note"><span class="n">4</span><div><b>« Commander, payer à la livraison »</b><span class="why">Le bouton dit exactement ce qui va se passer. WhatsApp juste à côté.</span></div></div>
 <div class="note"><span class="n">5</span><div><b>Caractéristiques en français clair</b><span class="why">Fini « Matériel des boîtes : Papier » et le SKU AliExpress.</span></div></div>
-<div class="note"><span class="n">6</span><div><b>« Souvent achetés ensemble »</b><span class="why">Montre + gravure + coffret : un panier plus grand.</span></div></div>
+<div class="note"><span class="n">6</span><div><b>« À offrir avec »</b><span class="why">Montre, gravure et coffret en un clic : un panier plus grand.</span></div></div>
 </div>
 </section>
 
 <section class="pg">
 <div class="kick"><svg class="i"><use href="#i-monitor"/></svg>Maquette ordinateur · commande</div>
-<h2>Commande en une page, paiement à la livraison par défaut</h2>
+<h2>Commande en une page, ticket de caisse à côté</h2>
 <div class="browser"><div class="bar"><i></i><i></i><i></i><span>adoristore.ma/commande</span></div><img src="img/pc-commande.jpg" alt="Commande"></div>
 <div class="notes">
-<div class="note"><span class="n">1</span><div><b>Étapes visibles</b><span class="why">Le client sait qu'il a presque fini.</span></div></div>
+<div class="note"><span class="n">1</span><div><b>Trois étapes visibles</b><span class="why">Le client sait qu'il a presque fini.</span></div></div>
 <div class="note"><span class="n">2</span><div><b>4 champs, vraie liste de villes</b><span class="why">E-mail facultatif ; plus de provinces incompréhensibles.</span></div></div>
 <div class="note"><span class="n">3</span><div><b>Paiement à la livraison présélectionné</b><span class="why">La carte reste possible, en second choix.</span></div></div>
-<div class="note"><span class="n">4</span><div><b>Total livraison comprise</b><span class="why">Affiché avant de confirmer : pas de mauvaise surprise.</span></div></div>
+<div class="note"><span class="n">4</span><div><b>Un ticket de caisse</b><span class="why">Le récapitulatif ressemble au ticket du magasin. Les frais changent selon la ville choisie.</span></div></div>
 </div>
 <div class="browser" style="margin:16px auto 0;width:72%"><div class="bar"><i></i><i></i><i></i><span>adoristore.ma/merci</span></div><img src="img/pc-merci.jpg" alt="Confirmation"></div>
-<p class="small" style="margin:8px auto 0;width:72%">Page de confirmation : suivi en 4 étapes, total à payer, date de livraison et suivi par WhatsApp, pour réduire les colis refusés.</p>
+<p class="small" style="margin:8px auto 0;width:72%">Page de confirmation : suivi en 4 étapes, total à payer en espèces, date de livraison et suivi par WhatsApp, pour réduire les colis refusés.</p>
 </section>
 
 <section class="pg">
 <div class="kick"><svg class="i"><use href="#i-phone"/></svg>Maquette téléphone</div>
 <h2>Sur téléphone, là où se font la plupart des commandes</h2>
-<p class="lead">Même boutique, pensée pour le pouce : grille de 2 produits, barre de navigation en bas, bouton « Commander » toujours visible sur la fiche produit.</p>
+<p class="lead">Même boutique, pensée pour le pouce : le cadran en petit à côté du titre, vitrine de 2 montres par ligne, barre de navigation en bas, bouton « Commander » toujours visible sur la fiche produit.</p>
 <div class="phones">
 <div><div class="phone"><img src="img/m-accueil.jpg" alt=""></div><div class="cap">Accueil</div></div>
 <div><div class="phone"><img src="img/m-categorie.jpg" alt=""></div><div class="cap">Catégorie</div></div>
@@ -236,8 +237,8 @@ td.k{font-weight:600;width:28%}
 <div><div class="phone"><img src="img/m-merci.jpg" alt=""></div><div class="cap">Confirmation</div></div>
 </div>
 <div class="notes" style="margin-top:22px">
-<div class="note"><span class="n">1</span><div><b>Barre d'onglets en bas</b><span class="why">Accueil, catégories, panier, favoris, WhatsApp : tout sous le pouce.</span></div></div>
-<div class="note"><span class="n">2</span><div><b>Catégories en pastilles défilantes</b><span class="why">On change de rayon sans ouvrir de menu.</span></div></div>
+<div class="note"><span class="n">1</span><div><b>Barre d'onglets en bas</b><span class="why">Accueil, rayons, recherche, panier, WhatsApp : tout sous le pouce.</span></div></div>
+<div class="note"><span class="n">2</span><div><b>Rayons qui défilent au doigt</b><span class="why">On change de rayon sans ouvrir de menu.</span></div></div>
 <div class="note"><span class="n">3</span><div><b>Barre d'achat fixe sur la fiche</b><span class="why">Prix + « Commander » + WhatsApp, visibles pendant tout le défilement.</span></div></div>
 <div class="note"><span class="n">4</span><div><b>Champs avec icônes et clavier adapté</b><span class="why">Le téléphone ouvre le pavé numérique pour le numéro.</span></div></div>
 </div>
@@ -249,6 +250,22 @@ td.k{font-weight:600;width:28%}
 <div class="long"><img src="img/m-accueil-long-1.jpg" alt=""><img src="img/m-accueil-long-2.jpg" alt=""><img src="img/m-accueil-long-3.jpg" alt=""><img src="img/m-accueil-long-4.jpg" alt=""></div>
 </section>
 
+<section class="pg">
+<div class="kick"><svg class="i"><use href="#i-pen"/></svg>L'identité visuelle</div>
+<h2>Pourquoi ce site ne ressemble pas à un site « généré »</h2>
+<p class="lead">La plupart des boutiques récentes se ressemblent : fond beige ou noir, cartes arrondies toutes identiques avec la même ombre, dégradés, pastilles partout. La maquette précédente tombait dans ce piège. Cette version tire chaque choix du métier d'Adoris.</p>
+<table style="margin-top:14px"><thead><tr><th>Élément</th><th>D'où il vient</th><th>Ce qu'il apporte</th></tr></thead><tbody>
+<tr><td class="k">Le cadran en direct</td><td>Le produit lui-même</td><td>Un premier écran que personne d'autre n'a, qui sert aussi d'argument : l'heure limite de 16 h</td></tr>
+<tr><td class="k">Bleu cadran et acier brossé</td><td>Les cadrans « sunray » et les boîtiers en acier</td><td>Une palette reconnaissable, loin du noir et or vu partout</td></tr>
+<tr><td class="k">Rouge trotteuse</td><td>L'aiguille des secondes</td><td>Réservé aux remises : le rouge veut toujours dire « moins cher »</td></tr>
+<tr><td class="k">Étiquettes en laiton sur un fil</td><td>Les étiquettes de prix du magasin</td><td>Le prix devient un objet, pas un simple texte</td></tr>
+<tr><td class="k">La vitrine en cases</td><td>Le présentoir du magasin de Derb Omar</td><td>Plus de montres visibles, rangées comme en vrai</td></tr>
+<tr><td class="k">Archivo élargie pour les titres</td><td>Les inscriptions gravées sur les cadrans</td><td>Une voix forte et lisible, une seule famille de caractères</td></tr>
+<tr><td class="k">Le dos de montre gravé</td><td>Le service de gravure d'Adoris</td><td>Le client voit son cadeau avant de commander</td></tr>
+<tr><td class="k">Le ticket de caisse</td><td>Le paiement en espèces à la livraison</td><td>Le total à payer, clair comme au comptoir</td></tr>
+</tbody></table>
+<div class="verdict"><span class="c"><svg class="i"><use href="#i-check"/></svg></span><div><b>Ce qui a été retiré.</b> Les emojis, les cartes flottantes à ombre douce, les dégradés décoratifs, les pastilles partout, les titres avec un mot de couleur. Une seule chose est spectaculaire, le cadran ; tout le reste reste sobre pour laisser parler les montres.</div></div>
+</section>
 <section class="pg">
 <div class="kick"><svg class="i"><use href="#i-check"/></svg>Les avantages</div>
 <h2>Ce que la nouvelle boutique change, en chiffres</h2>
@@ -291,6 +308,7 @@ const A=[["cash","Paiement à la livraison mis en avant","Achète sans risque, s
 ["star","Notes et avis clients","Se fie à l'expérience des autres","Preuve sociale qui convertit les hésitants"],
 ["grid","Grille dense et filtres","Trouve vite la montre qui lui plaît","Plus de produits vus, plus de chances de vendre"],
 ["bolt","Commande en une page, 4 champs","Commande en une minute","Moins de paniers abandonnés"],
+["clock","Cadran avec l'heure limite de 16 h","Sait s'il sera livré demain","Pousse à commander maintenant plutôt que plus tard"],
 ["phone","Barre d'achat fixe sur téléphone","Le bouton est toujours sous le pouce","Plus de clics sur « Commander »"],
 ["gift","Gravure et coffret proposés","Un cadeau personnalisé en un geste","Panier moyen plus élevé (+50 à +275 Dhs)"],
 ["chat","WhatsApp intégré proprement","Pose sa question tout de suite","Ventes conclues par message, commandes confirmées"],
