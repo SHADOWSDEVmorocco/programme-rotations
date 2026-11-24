@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adoris Store – nouveau site vs ancien</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&family=Jost:wght@600&display=swap" rel="stylesheet">
+<style>
+/* Comparative report for Adoris Store: the new beta against the current adoristore.ma.
+   Same identity as the new site: navy #0F2443, amber #F5B400, grey old-site bars, green for gains. */
+:root{color-scheme:light;--nav:#0F2443;--amber:#F5B400;--ink:#17191C;--mut:#5C6168;--line:#DDE0E5;--bg:#EEF0F3;--old:#A9AEB6;--ok:#1E7B45;--red:#C8372D}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:#fff;color:var(--ink);font:14.5px/1.5 Archivo,system-ui,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+h1,h2,h3{margin:0;letter-spacing:-.01em;line-height:1.15}
+h2{font-size:24px;font-weight:800;margin-bottom:6px}
+h3{font-size:16px;font-weight:700}
+p{margin:0 0 10px}
+.pg{padding:38px 44px;break-after:page}
+.pg:last-child{break-after:auto}
+.lead{color:#3a3e44;font-size:15.5px;max-width:72ch}
+.cover{background:var(--nav);color:#fff;height:296mm;overflow:hidden;display:flex;flex-direction:column;gap:20px}
+.logo{font:600 28px/1 Jost,sans-serif;letter-spacing:.07em}.logo small{display:block;font-size:8.5px;letter-spacing:.6em;margin-top:4px}
+.cover h1{font-size:40px;font-weight:800;max-width:19ch;line-height:1.08}
+.cover .lead{color:#C9D4E3}
+.figs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.fig{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:12px}
+.fig b{display:block;font-size:26px;color:var(--amber);line-height:1.1}
+.fig span{font-size:12.5px;color:#C9D4E3}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.shot{border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.2);background:#fff}
+.shot img{display:block;width:100%}
+.cap{font-size:12.5px;margin-top:6px;color:#C9D4E3}
+.cap.d{color:var(--mut)}
+.meta{margin-top:auto;font-size:12.5px;color:#9FB0C8}
+.bars{display:grid;gap:8px;margin-top:8px}
+.bg{display:grid;grid-template-columns:140px minmax(0,1fr);gap:12px;align-items:center}
+.bg>b{font-size:14px}
+.bl{display:grid;gap:4px}
+.b{display:grid;grid-template-columns:110px minmax(0,1fr) 78px;gap:8px;align-items:center;font-size:12.5px;color:var(--mut)}
+.b .t{height:18px;background:var(--bg);border-radius:4px;position:relative}
+.b .t i{position:absolute;inset:0 auto 0 0;border-radius:4px;background:var(--old)}
+.b.n .t i{background:var(--ok)}
+.b .v{text-align:right;font-weight:700;color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+.leg{display:flex;gap:16px;font-size:12.5px;color:var(--mut);margin:8px 0 0}
+.leg span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}
+th{text-align:left;font-size:12.5px;padding:7px 8px;border-bottom:2px solid var(--ink)}
+td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+td.k{font-weight:700;width:24%}
+td.o{color:#5a5f66}
+td.n{color:var(--ink)}
+.bad{color:var(--red);font-weight:700}.good{color:var(--ok);font-weight:700}
+.phones{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:10px}
+.ph{border:5px solid #111;border-radius:22px;overflow:hidden}
+.ph img{display:block;width:100%}
+.pc{font-size:12px;text-align:center;margin-top:4px;font-weight:600}
+.frame{border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:10px}
+.frame img{display:block;width:100%}
+.box{background:var(--bg);border-radius:8px;padding:14px 16px;font-size:13.5px}
+.box ul{margin:6px 0 0;padding-left:1.1em;display:grid;gap:4px}
+.list{margin:6px 0 0;padding-left:1.1em;display:grid;gap:6px}
+.small{font-size:12px;color:var(--mut)}
+.kick{font-size:13px;font-weight:700;color:#7A5600;margin-bottom:6px}
+@media screen{body{background:var(--bg)}.pg{max-width:900px;margin:0 auto 14px;background:#fff}.pg.cover{background:var(--nav);height:auto;min-height:1000px}}
+@media screen and (max-width:700px){.pg{padding:24px 16px}.figs,.duo,.two,.phones{grid-template-columns:1fr 1fr}.bg{grid-template-columns:1fr}.cover h1{font-size:30px}}
+</style>
+</head>
+<body>
+
+<section class="pg cover">
+<div class="logo">ADORIS<small>STORE</small></div>
+<div><div class="kick" style="color:var(--amber)">Rapport comparatif · 24 novembre 2026</div>
+<h1>Le nouveau site est 10 fois plus rapide et bien plus simple pour commander</h1>
+<p class="lead" style="margin-top:12px">Comparaison entre le site actuel adoristore.ma et la nouvelle version bêta (shadowsdevmorocco.github.io/adoris-store), mesurés le même jour, depuis le même endroit, sur un téléphone simulé.</p></div>
+<div class="figs">
+<div class="fig"><b>0,6 s</b><span>pour charger l'accueil sur téléphone, contre 6,1 s</span></div>
+<div class="fig"><b>0,5 Mo</b><span>poids de l'accueil, contre 6 Mo</span></div>
+<div class="fig"><b>0</b><span>prix cassé, contre 21 sur le site actuel</span></div>
+<div class="fig"><b>1 page</b><span>pour commander, paiement à la livraison</span></div>
+</div>
+<div class="duo">
+<div><div class="shot"><img src="img/old-d-home.jpg" alt="Accueil du site actuel"></div><p class="cap">Site actuel : vidéo plein écran, aucun produit ni prix visible.</p></div>
+<div><div class="shot"><img src="img/new-d-home.jpg" alt="Accueil du nouveau site"></div><p class="cap">Nouveau site : recherche, rayons, promotions et prix dès l'ouverture.</p></div>
+</div>
+<p class="meta">Nouveau site en version bêta de démonstration : les commandes sont enregistrées dans le navigateur, pas encore sur un serveur.</p>
+</section>
+
+<section class="pg">
+<div class="kick">1. Vitesse</div>
+<h2>Chaque page s'affiche en moins d'une seconde</h2>
+<p class="lead">Temps de chargement complet et poids téléchargé, sur un téléphone simulé (Pixel 7). Meilleur de deux passages pour chaque site.</p>
+<div class="leg"><span style="--c:var(--old)">Site actuel</span><span style="--c:var(--ok)">Nouveau site</span></div>
+<h3 style="margin-top:12px">Temps de chargement</h3><div class="bars" id="b-load"></div>
+<h3 style="margin-top:18px">Poids de la page</h3><div class="bars" id="b-kb"></div>
+<table><thead><tr><th>Mesure (accueil, téléphone)</th><th>Site actuel</th><th>Nouveau site</th></tr></thead><tbody id="t-perf"></tbody></table>
+<p class="small" style="margin-top:8px">Pendant la mesure, les scripts publicitaires et statistiques externes du site actuel (Google Tag Manager, TikTok) étaient bloqués : en conditions réelles, le site actuel est encore plus lent. Les polices du nouveau site viennent de Google Fonts.</p>
+<div class="box" style="margin-top:14px"><b>Pourquoi c'est important.</b> Sur téléphone, une bonne partie des visiteurs quitte une page qui met plus de 3 secondes à s'afficher. Google tient aussi compte de la vitesse dans le classement des résultats.</div>
+</section>
+
+<section class="pg">
+<div class="kick">2. Sur téléphone</div>
+<h2>Les produits, le prix et la livraison dès le premier écran</h2>
+<div class="phones">
+<div><div class="ph"><img src="img/old-m-home.jpg" alt=""></div><p class="pc">Accueil actuel</p></div>
+<div><div class="ph"><img src="img/new-m-home.jpg" alt=""></div><p class="pc">Nouvel accueil</p></div>
+<div><div class="ph"><img src="img/old-m-product.jpg" alt=""></div><p class="pc">Fiche produit actuelle</p></div>
+<div><div class="ph"><img src="img/new-m-product.jpg" alt=""></div><p class="pc">Nouvelle fiche produit</p></div>
+</div>
+<div class="kick" style="margin-top:22px">3. Commande</div>
+<h2>Commander : de 4 étapes à une seule page</h2>
+<table><thead><tr><th>Point</th><th>Site actuel</th><th>Nouveau site</th></tr></thead><tbody>
+<tr><td class="k">Étapes</td><td class="o">Fiche, mini-panier, page panier, page « Checkout »</td><td class="n good">Une page : panier et adresse ensemble</td></tr>
+<tr><td class="k">Champs obligatoires</td><td class="o">5, dont l'e-mail</td><td class="n good">4 : nom, téléphone, ville, adresse</td></tr>
+<tr><td class="k">Paiement</td><td class="o bad">Carte cochée par défaut, bouton « Continuer sur PayPal »</td><td class="n good">Paiement à la livraison</td></tr>
+<tr><td class="k">Frais de livraison</td><td class="o">Affichés seulement après la saisie de l'adresse</td><td class="n good">Affichés tout de suite, recalculés selon la ville</td></tr>
+<tr><td class="k">Liste des villes</td><td class="o">Provinces (« Fahs-Beni Makada », « Marrakech-Ménara »)</td><td class="n good">Vraies villes</td></tr>
+<tr><td class="k">Langue</td><td class="o bad">« Checkout », « Name », « Add to wishlist », « Sign in », « Toutube »</td><td class="n good">Tout en français</td></tr>
+<tr><td class="k">Prix</td><td class="o bad">21 prix cassés (ex. « 799.799.335.335 Dhs »)</td><td class="n good">0 prix cassé</td></tr>
+<tr><td class="k">Contrôle du téléphone</td><td class="o">Aucun</td><td class="n good">Numéro marocain vérifié</td></tr>
+<tr><td class="k">Gravure</td><td class="o">Produit séparé à trouver</td><td class="n good">Case à cocher sur chaque fiche</td></tr>
+<tr><td class="k">WhatsApp</td><td class="o">Bulle flottante qui cache des boutons</td><td class="n good">Bouton sur la fiche et confirmation de commande</td></tr>
+</tbody></table>
+</section>
+
+<section class="pg">
+<div class="kick">4. Référencement Google et IA</div>
+<h2>Des pages que Google et les IA comprennent mieux</h2>
+<p class="lead">Analyse de l'accueil, d'une catégorie et d'une fiche produit sur chaque site.</p>
+<table><thead><tr><th>Point</th><th>Site actuel</th><th>Nouveau site</th></tr></thead><tbody>
+<tr><td class="k">Titre principal (H1) de l'accueil</td><td class="o bad">« adoristore.ma »</td><td class="n good">« Montres à Casablanca, livrées partout au Maroc »</td></tr>
+<tr><td class="k">Titre de la fiche produit</td><td class="o">« NIBOSI-Montre étanche - adoristore.ma »</td><td class="n good">Marque, modèle et prix : « … – 299 Dhs | Adoris Store »</td></tr>
+<tr><td class="k">Description Google des fiches</td><td class="o bad">Absente</td><td class="n good">Une par produit, avec prix et livraison</td></tr>
+<tr><td class="k">Images sans description (accueil)</td><td class="o bad">63 sur 125</td><td class="n good">Toutes les photos produits décrites (8 vignettes décoratives volontairement vides)</td></tr>
+<tr><td class="k">Données structurées</td><td class="o">Organisation, produit, prix, fil d'Ariane (Yoast)</td><td class="n good">Magasin avec adresse et paiement à la livraison, produit, prix, stock, frais de livraison, fil d'Ariane, listes de produits, FAQ</td></tr>
+<tr><td class="k">Page FAQ</td><td class="o">Non</td><td class="n good">Oui : paiement, frais, délais, gravure, revendeurs</td></tr>
+<tr><td class="k">Fichier pour les IA (llms.txt)</td><td class="o">Non</td><td class="n good">Oui : résumé de la boutique et de tous les produits pour ChatGPT, Gemini, Perplexity</td></tr>
+<tr><td class="k">Plan du site (sitemap)</td><td class="o">Oui</td><td class="n">Oui</td></tr>
+<tr><td class="k">Scripts chargés par page</td><td class="o">56 à 61</td><td class="n good">4</td></tr>
+</tbody></table>
+<div class="box" style="margin-top:14px"><b>À savoir.</b> Pendant la bêta, l'indexation Google est volontairement bloquée, pour que l'adresse github.io ne concurrence pas adoristore.ma. Elle s'ouvre avec un seul réglage au lancement sur le vrai domaine.</div>
+</section>
+
+<section class="pg">
+<div class="kick">5. Ce qui n'existait pas</div>
+<h2>Une administration claire pour gérer les commandes</h2>
+<p class="lead">Une page séparée, protégée par mot de passe : tableau de bord, commandes des clients et des revendeurs, changement de statut, confirmation par WhatsApp en un clic, export Excel, gestion des produits et du stock, réglages de livraison.</p>
+<div class="frame"><img src="img/admin-dash.jpg" alt="Tableau de bord de l'administration"></div>
+<div class="frame"><img src="img/admin-order.jpg" alt="Détail d'une commande dans l'administration"></div>
+</section>
+
+<section class="pg">
+<div class="kick">5. Ce qui n'existait pas (suite)</div>
+<h2>Un espace revendeurs pour vendre plus sans effort</h2>
+<p class="lead">Les revendeurs demandent un compte, Adoris l'accepte dans l'admin et leur envoie un code. Ils voient ensuite le catalogue à leur prix, font livrer leurs clients ou commandent en gros, et suivent leurs marges.</p>
+<div class="frame"><img src="img/rspace.jpg" alt="Espace revendeur"></div>
+</section>
+
+<section class="pg">
+<div class="kick">6. Sécurité</div>
+<h2>Moins de failles possibles, et des protections testées</h2>
+<table><thead><tr><th>Point</th><th>Site actuel</th><th>Nouveau site</th></tr></thead><tbody>
+<tr><td class="k">Logiciel serveur</td><td class="o bad">PHP 8.1, qui ne reçoit plus de correctifs de sécurité ; versions WordPress affichées</td><td class="n good">Pages statiques : aucun logiciel serveur à mettre à jour</td></tr>
+<tr><td class="k">Politique de sécurité du contenu</td><td class="o">Minimale</td><td class="n good">Stricte : seuls les scripts du site peuvent s'exécuter</td></tr>
+<tr><td class="k">HTTPS forcé (HSTS)</td><td class="o">Non</td><td class="n good">Oui</td></tr>
+<tr><td class="k">Saisies piégées</td><td class="o">Non testé</td><td class="n good">Testé : un nom de client contenant du code ne s'exécute pas dans l'admin</td></tr>
+<tr><td class="k">Formulaires</td><td class="o">Standards</td><td class="n good">Téléphone vérifié, anti-robots, limite d'envois</td></tr>
+<tr><td class="k">Connexion admin</td><td class="o">WordPress</td><td class="n">Mot de passe chiffré, blocage après 5 essais. En bêta, la connexion est vérifiée dans le navigateur : à remplacer par un vrai serveur avant les ventes.</td></tr>
+</tbody></table>
+
+<div class="kick" style="margin-top:24px">7. En résumé</div>
+<div class="two">
+<div><h3>Les points forts du nouveau site</h3><ul class="list">
+<li>10 fois plus rapide, 10 fois plus léger sur téléphone.</li>
+<li>Commande en une page, paiement à la livraison, frais affichés tout de suite.</li>
+<li>Plus aucun prix cassé, plus aucun texte en anglais.</li>
+<li>Style marketplace connu des clients : recherche, promotions, achat par budget.</li>
+<li>Administration simple et espace revendeurs, qui n'existaient pas.</li>
+<li>Référencement préparé pour Google et pour les IA.</li>
+<li>Moins de failles possibles, protections testées.</li>
+</ul></div>
+<div><h3>Ce qui reste à faire avant le lancement</h3><ul class="list">
+<li>Ajouter une vraie base de données (Firebase ou équivalent) : aujourd'hui les commandes restent dans le navigateur.</li>
+<li>Importer tout le catalogue : 24 produits dans la bêta, environ 238 sur le site actuel.</li>
+<li>Compléter mentions légales, CGV, retours et garantie.</li>
+<li>Valider délais, stocks et remises revendeurs.</li>
+<li>Reprendre les 3 articles du blog actuel et rediriger les anciennes adresses vers les nouvelles pour garder le référencement.</li>
+<li>Passer sur adoristore.ma et ouvrir l'indexation Google.</li>
+</ul></div>
+</div>
+<p class="small" style="margin-top:16px">Mesures du 24/11/2026 avec un navigateur Chromium (téléphone Pixel 7 simulé), depuis un serveur hors du Maroc. Site actuel : adoristore.ma. Nouveau site : shadowsdevmorocco.github.io/adoris-store.</p>
+</section>
+
+<script>
+{
+const P={home:['Accueil',6050,6154,596,538],cat:['Catégorie',3135,1892,605,356],product:['Fiche produit',5353,3015,632,320],cart:['Panier / commande',3997,919,597,70]};
+const fr=(v,d)=>(Math.round(v*10**d)/10**d).toFixed(d).replace('.',',');
+const bars=(id,iO,iN,unit,conv,dec)=>{const max=Math.max(...Object.values(P).map(r=>r[iO]));document.getElementById(id).innerHTML=Object.values(P).map(r=>`<div class="bg"><b>${r[0]}</b><div class="bl"><div class="b"><span>Site actuel</span><div class="t"><i style="width:${r[iO]/max*100}%"></i></div><span class="v">${fr(conv(r[iO]),dec)} ${unit}</span></div><div class="b n"><span>Nouveau site</span><div class="t"><i style="width:${Math.max(r[iN]/max*100,1.5)}%"></i></div><span class="v">${fr(conv(r[iN]),dec)} ${unit}</span></div></div></div>`).join('')};
+bars('b-load',1,3,'s',v=>v/1000,1);bars('b-kb',2,4,'Mo',v=>v/1024,1);
+const T=[['Chargement complet','6,1 s','0,6 s'],['Premier affichage','1,2 s','0,3 s'],['Fichiers téléchargés','140','23'],['Poids','6,0 Mo','0,5 Mo'],['Scripts','56','4']];
+document.getElementById('t-perf').innerHTML=T.map(r=>`<tr><td class="k">${r[0]}</td><td class="o">${r[1]}</td><td class="n good">${r[2]}</td></tr>`).join('');
+}
+</script>
+</body>
+</html>
