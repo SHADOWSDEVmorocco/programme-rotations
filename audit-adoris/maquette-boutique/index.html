@@ -5,284 +5,310 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Adoris Store – maquette</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Jost:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Jost:wght@500;600&display=swap" rel="stylesheet">
 <style>
-/* IDEA a Derb Omar watch counter: steel case, white display slots, brass price tags on strings,
-   and one live dial whose arc counts down to the 16:00 shipping cut-off.
-   COLOUR steel #E4E6E7, vitrine #FFFFFF, dial blue #16325C, brass #B8892E, seconds red #C8372D, ink #1C1E22
-   TYPE Archivo only: expanded (wdth 125) for titles like dial lettering, normal for text; Jost for the wordmark
-   LAYOUT left aligned; products in a bordered case of 1px-separated slots; boldness spent on the hero dial only */
-:root{color-scheme:light;--steel:#E4E6E7;--steel2:#CDD1D4;--line:#C3C8CC;--white:#fff;--dial:#16325C;--dial2:#0F2443;--brass:#B8892E;--brassl:#EBD9AE;--red:#C8372D;--ink:#1C1E22;--mut:#5E646B;--ok:#2F6B4A}
+/* Efficient marketplace for Adoris: dense, deal-driven, search first.
+   COLOUR navy header #0F2443, amber action #F5B400, deal red #D7262E, page grey #EEF0F3, white panels, ink #17191C
+   TYPE Archivo throughout, tabular prices; Jost for the wordmark
+   LAYOUT desktop: search bar header, category rail + promo slider + side tiles, flash deals with countdown, 6-up grids;
+   phone: 2-up grids, horizontal deal rails, bottom tab bar, sticky buy bar */
+:root{color-scheme:light;--nav:#0F2443;--nav2:#1A3563;--amber:#F5B400;--amber2:#E0A300;--red:#D7262E;--bg:#EEF0F3;--white:#fff;--ink:#17191C;--mut:#60656C;--line:#DDE0E5;--ok:#1E7B45}
 *{box-sizing:border-box;min-width:0}
-html{scroll-padding-top:110px}
-body{margin:0;background:var(--steel);color:var(--ink);font:400 15.5px/1.55 Archivo,system-ui,sans-serif;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 14.5px/1.45 Archivo,system-ui,sans-serif;overflow-x:clip}
 a{color:inherit;text-decoration:none}
 button,input,select{font:inherit;color:inherit}
 button{cursor:pointer}
 img{max-width:100%;display:block}
-:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
-.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.i.s{width:17px;height:17px}
-.w{max-width:1280px;margin:0 auto;padding:0 max(3vw,16px)}
-.strip{background:var(--dial);color:#DCE3EC;font-size:13px}
-.strip .w{display:flex;gap:26px;padding-block:7px;flex-wrap:wrap}
-.strip span{display:flex;gap:7px;align-items:center}
-.strip .r{margin-left:auto}
-.hd{position:sticky;top:0;z-index:20;background:var(--white);border-bottom:1px solid var(--line)}
-.hrow{display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;gap:28px;align-items:center;height:68px}
-.logo{font:600 25px/1 Jost,sans-serif;letter-spacing:.07em;color:var(--dial);display:inline-block;justify-self:start}
-.logo small{display:block;font-size:8px;letter-spacing:.6em;margin-top:3px;text-align:center}
-.nav{display:flex;gap:22px;font-size:14.5px;font-weight:500}
-.nav a{padding:6px 0;border-bottom:2px solid transparent}
-.nav a.on,.nav a:hover{border-color:var(--dial)}
-.nav a.promo{color:var(--red)}
-.right{display:flex;gap:10px;align-items:center;justify-content:end}
-.search{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:6px;padding:0 12px;height:42px;background:var(--white);width:min(100%,320px);color:var(--mut)}
-.search input{border:0;outline:0;flex:1;font-size:15px;background:transparent;color:var(--ink)}
-.search.sm{display:none}
-.acts{display:flex;gap:2px;align-items:center}
-.ib{position:relative;display:grid;place-items:center;width:42px;height:42px;border-radius:6px;background:none;border:0}
-.ib:hover{background:var(--steel)}
-.ib b{position:absolute;top:4px;right:3px;min-width:18px;height:18px;border-radius:9px;background:var(--brass);color:#fff;font-size:11px;display:grid;place-items:center;padding:0 4px}
-.burger{display:none}
-.hero{background:var(--white)}
-.hero .w{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:48px;align-items:center;padding-block:44px 40px}
-.dialwrap{max-width:460px;width:100%;justify-self:center}
-.dialwrap svg{width:100%;height:auto;display:block}
-.hero h1{font-size:clamp(32px,4.2vw,56px);line-height:1.02;font-weight:700;font-stretch:125%;letter-spacing:-.02em;margin:0;max-width:15ch;color:var(--dial)}
-.left{font-size:19px;margin:18px 0 6px;font-weight:600}
-.left em{font-style:normal;color:var(--brass)}
-.sub{color:var(--mut);margin:0 0 26px;max-width:46ch}
-.ctas{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:0 24px;border-radius:6px;border:1.5px solid var(--dial);background:var(--dial);color:#fff;font-weight:600;font-size:15px;white-space:nowrap}
-.btn:hover{background:var(--dial2)}
-.btn.out{background:var(--white);color:var(--dial)}
-.btn.out:hover{background:var(--steel)}
-.btn.wa{background:#1FA855;border-color:#1FA855;color:#fff}
-.pay{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;font-size:13.5px;color:var(--mut)}
-.pay span{display:flex;gap:7px;align-items:center}
-.bandw{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.band{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
-.band div{display:flex;gap:12px;align-items:flex-start;padding:18px 20px;font-size:13.5px;color:var(--mut)}
-.band div:first-child{padding-left:0}
-.band div+div{border-left:1px solid var(--line)}
-.band b{display:block;color:var(--ink);font-size:15px;font-weight:600}
-.band .i{color:var(--dial);margin-top:2px}
-.sec{padding-top:44px}
-.sh{display:flex;justify-content:space-between;align-items:baseline;gap:6px 16px;margin-bottom:18px;flex-wrap:wrap}
-.sh h2{font-size:clamp(22px,2.3vw,30px);font-weight:700;font-stretch:125%;letter-spacing:-.015em;margin:0;line-height:1.1}
-.sh a{font-weight:600;font-size:14.5px;color:var(--dial);text-decoration:underline;text-underline-offset:4px;white-space:nowrap}
-.case{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
-.g5{grid-template-columns:repeat(5,minmax(0,1fr))}
-.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
-.g6{grid-template-columns:repeat(6,minmax(0,1fr))}
-.slot{background:var(--white);position:relative;display:flex;flex-direction:column;padding:14px 14px 16px}
-.slot .im{position:relative;display:block;aspect-ratio:1;margin-bottom:12px}
-.slot .im img{width:100%;height:100%;object-fit:contain}
-.slot .br{font-size:12.5px;color:var(--mut)}
-.slot .nm{font-weight:500;font-size:14.5px;line-height:1.3;min-height:2.6em}
-.rt{display:flex;gap:5px;align-items:center;font-size:13px;color:var(--mut);margin-top:4px}
-.rt svg{width:14px;height:14px;fill:var(--brass);stroke:none}
-.rt b{color:var(--ink);font-weight:600}
-.add{margin-top:12px;display:flex;align-items:center;justify-content:center;gap:8px;height:40px;border:1px solid var(--line);border-radius:6px;background:var(--white);font-weight:600;font-size:14px;color:var(--dial)}
-.add:hover{border-color:var(--dial)}
-.add.done{background:var(--dial);color:#fff;border-color:var(--dial)}
-.tag{position:absolute;right:4px;bottom:-6px;transform:rotate(-4deg);transform-origin:100% 0;pointer-events:none}
-.tag::before{content:"";position:absolute;left:-26px;bottom:50%;width:32px;height:30px;border-left:1.2px solid #9B8A63;border-top:1.2px solid #9B8A63;border-radius:18px 0 0 0}
-.tag span{position:relative;display:block;background:var(--brassl);color:var(--ink);padding:6px 12px 6px 22px;font-weight:700;font-size:16px;line-height:1.1;white-space:nowrap;clip-path:polygon(12px 0,100% 0,100% 100%,12px 100%,0 50%)}
-.tag span::before{content:"";position:absolute;left:8px;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:var(--white);box-shadow:inset 0 0 0 1px #B79F6B}
-.tag s{display:block;font-weight:400;font-size:11.5px;color:#6F6346}.tag s em{font-style:normal;color:var(--red);font-weight:700;display:inline-block;text-decoration:none}
-.tag.sale span{background:#F2D6D2}
-.off,.new{position:absolute;left:0;top:0;font-weight:700;font-size:13px}
-.off{color:var(--red)}.new{color:var(--dial)}
-.cat{background:var(--white);padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px}
-.cat img{aspect-ratio:1;object-fit:contain}
-.cat b{font-weight:600;font-size:15px;display:flex;justify-content:space-between;align-items:baseline;gap:6px}
-.cat small{color:var(--mut);font-weight:400;font-size:13px;white-space:nowrap}
-.cat:hover b{color:var(--dial)}
-.grav{margin-top:48px;background:var(--dial);color:#fff}
-.grav .w{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:center;padding-block:44px}
-.back{max-width:340px;width:100%;justify-self:center}
-.grav h2{font-size:clamp(26px,3vw,40px);font-weight:700;font-stretch:125%;line-height:1.05;margin:0 0 12px}
-.grav p{color:#C9D4E3;max-width:46ch;margin:0 0 20px}
-.gin{display:flex;gap:10px;flex-wrap:wrap;max-width:540px}
-.gin label{flex:1 1 240px;display:grid;gap:6px;font-size:13.5px;color:#C9D4E3}
-.gin input{height:50px;border-radius:6px;border:1px solid #47628A;background:var(--dial2);color:#fff;padding:0 14px;font-size:16px;outline:0}
-.gin input:focus{border-color:var(--brassl)}
-.gin .btn{align-self:end;background:var(--brassl);color:var(--ink);border-color:var(--brassl)}
-.grav ol{margin:22px 0 0;padding-left:1.2em;color:#C9D4E3;font-size:14px;display:grid;gap:4px}
-.revs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}
-.rev p{font-size:16.5px;line-height:1.5;margin:8px 0 10px}
-.rev small{color:var(--mut);font-size:13.5px}
-.brands{display:flex;flex-wrap:wrap;gap:8px 30px;font-stretch:125%;font-weight:600;font-size:clamp(18px,2vw,26px);color:#8A9198}
-.brands a:hover{color:var(--dial)}
-.ft{margin-top:56px;background:var(--dial2);color:#B9C6D8;font-size:14px}
-.fcols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:32px;padding-block:40px}
-.ft h4{color:#fff;font-size:15px;font-weight:600;margin:0 0 12px}
-.ft ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-.ft li{display:flex;gap:9px;align-items:flex-start}
-.ft li .i{margin-top:2px}
-.ft .logo{color:#fff;display:inline-block}
-.fbot{border-top:1px solid #29426A;padding-block:16px;font-size:12.5px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.crumb{display:flex;gap:6px;align-items:center;font-size:13.5px;color:var(--mut);padding-top:22px}
-.ph{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:6px 0 18px}
-.ph h1{font-size:clamp(28px,3.2vw,42px);font-weight:700;font-stretch:125%;margin:0;line-height:1.05;color:var(--dial)}
-.ph span{color:var(--mut)}
-.clay{display:grid;grid-template-columns:240px minmax(0,1fr);gap:28px;align-items:start}
-.side{font-size:14.5px}
-.side fieldset{border:0;border-top:1px solid var(--line);margin:0;padding:14px 0 16px;min-width:0}
-.side legend{font-weight:700;padding:0 0 8px;font-size:14.5px}
-.side label{display:flex;gap:10px;align-items:center;padding:4px 0}
-.side label em{margin-left:auto;font-style:normal;color:var(--mut);font-size:13px}
-.side input[type=checkbox]{width:17px;height:17px;accent-color:var(--dial)}
-.rng{display:flex;gap:8px;align-items:center}
-.rng input{width:100%;height:38px;border:1px solid var(--line);border-radius:6px;padding:0 10px;background:#fff}
-.sw{display:flex;gap:8px;flex-wrap:wrap}
-.sw button{width:30px;height:30px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px var(--line)}
-.sw button.on{box-shadow:0 0 0 2px var(--dial)}
-.tbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px;font-size:14px}
-.act{display:flex;gap:8px;flex-wrap:wrap}
-.act button{display:inline-flex;gap:6px;align-items:center;height:36px;padding:0 12px;border-radius:6px;border:1px solid var(--dial);background:var(--white);color:var(--dial);font-weight:600;font-size:13.5px}
-.act .mfil{display:none}
-.sort{display:flex;gap:8px;align-items:center;color:var(--mut)}
-.sort select{height:38px;border:1px solid var(--line);border-radius:6px;padding:0 10px;background:#fff;color:var(--ink)}
-.more{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px;font-size:14px;color:var(--mut);flex-wrap:wrap}
-.pl{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;align-items:start;margin-top:10px}
-.gal{display:grid;grid-template-columns:76px minmax(0,1fr);gap:10px}
-.th{display:grid;gap:10px;align-content:start}
-.th button{padding:0;border:1px solid var(--line);background:#fff;border-radius:4px;overflow:hidden}
-.th button.on{border-color:var(--dial);box-shadow:inset 0 0 0 1px var(--dial)}
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.i.s{width:16px;height:16px}
+.w{max-width:1320px;margin:0 auto;padding:0 max(2vw,12px)}
+.top{background:var(--amber);color:var(--ink);font-size:13px;font-weight:600}
+.top .w{display:flex;justify-content:center;gap:28px;padding-block:6px;flex-wrap:wrap}
+.top span{display:flex;gap:6px;align-items:center}
+.hd{background:var(--nav);color:#fff;position:sticky;top:0;z-index:30}
+.hrow{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:24px;align-items:center;padding-block:12px}
+.logo{font:600 24px/1 Jost,sans-serif;letter-spacing:.07em;display:inline-block}
+.logo small{display:block;font-size:7.5px;letter-spacing:.6em;margin-top:3px;text-align:center;color:#B9C6D8}
+.search{display:flex;height:44px;border-radius:6px;overflow:hidden;background:#fff}
+.search select{border:0;background:#F1F2F4;padding:0 10px;font-size:13.5px;color:var(--ink);border-right:1px solid var(--line)}
+.search input{flex:1;border:0;outline:0;padding:0 14px;font-size:16px;color:var(--ink)}
+.search button{border:0;background:var(--amber);width:56px;display:grid;place-items:center;color:var(--ink)}
+.search button:hover{background:var(--amber2)}
+.acts{display:flex;gap:6px;align-items:center}
+.acts a{display:flex;gap:8px;align-items:center;padding:6px 10px;border-radius:6px;font-size:12.5px;line-height:1.2;position:relative}
+.acts a:hover{background:var(--nav2)}
+.acts a b{display:block;font-size:14px}
+.acts .cc{position:absolute;top:-3px;left:20px;background:var(--amber);color:var(--ink);font-size:11px;font-weight:700;min-width:18px;height:18px;border-radius:9px;display:grid;place-items:center;padding:0 4px}
+.sub{background:var(--nav2);font-size:14px}
+.sub .w{display:flex;gap:4px;align-items:center;overflow-x:auto;white-space:nowrap}
+.sub a{flex:none;padding:9px 12px;display:flex;gap:7px;align-items:center}
+.sub a:hover{background:rgba(255,255,255,.08)}
+.sub a.deal{color:var(--amber);font-weight:700}
+.burger{display:none;border:0;background:none;color:#fff;padding:4px}
+.search.ms{display:none}
+.ht{display:grid;grid-template-columns:230px minmax(0,1fr) 250px;gap:12px;margin-top:12px}
+.panel{background:var(--white);border-radius:6px}
+.rail{padding:6px 0}
+.rail a{display:flex;gap:10px;align-items:center;padding:8px 14px;font-size:14px}
+.rail a:hover{background:var(--bg);color:var(--nav)}
+.rail a .i{color:var(--mut)}
+.rail a em{margin-left:auto;font-style:normal;color:var(--mut);font-size:12px}
+.slider{position:relative;border-radius:6px;overflow:hidden;background:var(--nav);color:#fff;min-height:340px;display:grid;grid-template-columns:1.1fr 1fr;align-items:center}
+.slider .tx{padding:28px 32px;position:relative;z-index:1}
+.slider .lbl{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:13px;padding:3px 8px;border-radius:4px}
+.slider h1{font-size:clamp(28px,3vw,40px);line-height:1.05;margin:12px 0 8px;font-weight:800;letter-spacing:-.02em}
+.slider p{color:#C9D4E3;margin:0 0 18px;font-size:15.5px}
+.slider .pics{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:18px 18px 18px 0}
+.slider .pics img{border-radius:6px;background:#fff;aspect-ratio:1;object-fit:contain}
+.slider .dots{position:absolute;left:32px;bottom:16px;display:flex;gap:6px}
+.slider .dots i{width:22px;height:4px;border-radius:2px;background:rgba(255,255,255,.35)}.slider .dots i.on{background:var(--amber)}
+.side{display:grid;gap:12px}
+.mini{border-radius:6px;padding:14px;display:grid;grid-template-columns:1fr 84px;gap:8px;align-items:center;background:var(--white)}
+.mini b{display:block;font-size:16px;line-height:1.2}
+.mini small{color:var(--mut);display:block;margin:3px 0 6px}
+.mini a{color:var(--nav);font-weight:700;font-size:13px;text-decoration:underline}
+.mini img{aspect-ratio:1;object-fit:contain}
+.mini.y{background:#FFF4D1}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border-radius:6px;border:0;background:var(--amber);color:var(--ink);font-weight:700;font-size:15px;white-space:nowrap}
+.btn:hover{background:var(--amber2)}
+.btn.dark{background:var(--nav);color:#fff}
+.btn.line{background:var(--white);border:1px solid var(--line);color:var(--ink)}
+.btn.wa{background:#1FA855;color:#fff}
+.trust{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:12px}
+.trust div{display:flex;gap:10px;align-items:center;padding:12px 16px;font-size:13px;color:var(--mut)}
+.trust div+div{border-left:1px solid var(--line)}
+.trust b{display:block;color:var(--ink);font-size:14px}
+.trust .i{color:var(--nav);width:26px;height:26px}
+.blk{margin-top:14px;padding:14px 16px 16px}
+.bh{display:flex;align-items:center;gap:14px;margin-bottom:12px;flex-wrap:wrap}
+.bh h2{font-size:20px;font-weight:800;margin:0;letter-spacing:-.01em}
+.bh a.more{margin-left:auto;font-weight:700;font-size:13.5px;color:var(--nav);display:flex;gap:4px;align-items:center}
+.flash{border-top:4px solid var(--red)}
+.flash .bh h2{color:var(--red);display:flex;gap:8px;align-items:center}
+.cd{display:flex;gap:4px;align-items:center;font-size:13.5px;color:var(--mut)}
+.cd b{background:var(--ink);color:#fff;border-radius:4px;padding:3px 6px;font-size:14px;min-width:30px;text-align:center;font-variant-numeric:tabular-nums}
+.g6{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.g5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.pc{position:relative;display:flex;flex-direction:column;border-radius:6px;padding:8px;background:var(--white)}
+.pc:hover{box-shadow:0 0 0 1px var(--line),0 6px 18px rgba(15,36,67,.10)}
+.pc .im{position:relative;display:block;aspect-ratio:1;margin-bottom:8px;background:#fff}
+.pc .im img{width:100%;height:100%;object-fit:contain}
+.disc{position:absolute;top:0;left:0;background:#FDE8E9;color:var(--red);font-weight:800;font-size:12.5px;padding:2px 6px;border-radius:4px}
+.nw{position:absolute;top:0;left:0;background:var(--nav);color:#fff;font-weight:700;font-size:12px;padding:2px 6px;border-radius:4px}
+.fav{position:absolute;top:8px;right:8px;width:32px;height:32px;border-radius:50%;border:0;background:rgba(255,255,255,.9);display:grid;place-items:center;color:var(--mut)}
+.pc .nm{font-size:13.5px;line-height:1.3;height:2.6em;overflow:hidden}
+.pc .nm b{font-weight:700}
+.pr{margin-top:4px;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.pr b{font-size:17px;font-weight:800;white-space:nowrap}
+.pr s{color:var(--mut);font-size:12.5px;white-space:nowrap}
+.rt{display:flex;gap:4px;align-items:center;font-size:12.5px;color:var(--mut);margin-top:2px;flex-wrap:wrap}
+.rt .st{display:flex}.rt .st svg{width:13px;height:13px;fill:var(--amber);stroke:none}.rt .st svg.e{fill:#D5D8DD}
+.chip{display:inline-flex;gap:4px;align-items:center;margin-top:5px;font-size:12px;color:var(--ok);font-weight:600}
+.stock{margin-top:6px;font-size:12px;color:var(--mut)}
+.stock i{display:block;height:5px;border-radius:3px;background:#F3D2D3;margin-top:3px;overflow:hidden}
+.stock i::after{content:"";display:block;height:100%;width:var(--p);background:var(--red)}
+.add{margin-top:8px;height:36px;border-radius:6px;border:0;background:var(--amber);font-weight:700;font-size:13.5px;display:flex;gap:6px;align-items:center;justify-content:center;opacity:0;transition:opacity .15s}
+.pc:hover .add,.pc:focus-within .add,.add.done{opacity:1}
+.add.done{background:var(--ok);color:#fff}
+.bud{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.bud a{border:1px solid var(--line);border-radius:6px;padding:14px;display:flex;justify-content:space-between;align-items:center;font-size:13.5px;color:var(--mut)}
+.bud a b{display:block;color:var(--ink);font-size:18px;font-weight:800}
+.bud a:hover{border-color:var(--nav)}
+.cats{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px}
+.cats a{text-align:center;font-size:13px;font-weight:600}
+.cats img{aspect-ratio:1;object-fit:contain;border-radius:50%;background:var(--bg);padding:10px;margin-bottom:6px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.ban{border-radius:6px;display:grid;grid-template-columns:1fr 150px;align-items:center;overflow:hidden;min-height:170px}
+.ban .tx{padding:20px 22px}
+.ban b{display:block;font-size:22px;font-weight:800;line-height:1.1;margin-bottom:6px}
+.ban p{margin:0 0 12px;font-size:14px}
+.ban img{height:100%;object-fit:cover}
+.ban.g{background:#1F2A37;color:#fff}.ban.g p{color:#C7CED8}
+.ban.c{background:#FFE7A3}
+.brands{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:8px}
+.brands a{border:1px solid var(--line);border-radius:6px;padding:14px 4px;text-align:center;font:600 13px Jost,sans-serif;letter-spacing:.08em}
+.brands a:hover{border-color:var(--nav);color:var(--nav)}
+.why{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.why p{margin:6px 0 0;font-size:14px}
+.why small{color:var(--mut)}
+.ft{margin-top:18px;background:var(--nav);color:#B9C6D8;font-size:13.5px}
+.fcols{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:28px;padding-block:32px}
+.ft h4{color:#fff;font-size:15px;margin:0 0 10px}
+.ft ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.ft li{display:flex;gap:8px;align-items:flex-start}.ft li .i{margin-top:1px}
+.fbot{border-top:1px solid #29426A;padding-block:12px;font-size:12px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.payl{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}.payl span{background:#fff;color:var(--nav);border-radius:4px;padding:3px 8px;font-size:11.5px;font-weight:700}
+.crumb{display:flex;gap:6px;align-items:center;font-size:13px;color:var(--mut);padding:12px 0 8px}
+.cl{display:grid;grid-template-columns:240px minmax(0,1fr);gap:12px;align-items:start}
+.filt{padding:4px 14px 14px;font-size:14px}
+.filt h3{font-size:14px;margin:12px 0 8px;font-weight:800}
+.filt section{border-bottom:1px solid var(--line);padding-bottom:10px}
+.filt label{display:flex;gap:8px;align-items:center;padding:3px 0}
+.filt label em{margin-left:auto;font-style:normal;color:var(--mut);font-size:12.5px}
+.filt input[type=checkbox],.filt input[type=radio]{width:16px;height:16px;accent-color:var(--nav)}
+.filt .rng{display:grid;grid-template-columns:1fr 1fr auto;gap:6px}
+.filt .rng input{height:34px;border:1px solid var(--line);border-radius:4px;padding:0 8px;width:100%}
+.filt .rng button{border:0;border-radius:4px;background:var(--nav);color:#fff;padding:0 10px;font-weight:700}
+.res{padding:12px 14px 14px}
+.rbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:12px}
+.rbar h1{font-size:20px;margin:0;font-weight:800}
+.rbar span{color:var(--mut);font-size:13.5px}
+.rbar .sort{margin-left:auto;display:flex;gap:6px;align-items:center;font-size:13.5px;color:var(--mut)}
+.rbar select{height:36px;border:1px solid var(--line);border-radius:4px;padding:0 8px;background:#fff;color:var(--ink)}
+.act{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.act button{display:inline-flex;gap:6px;align-items:center;height:32px;border-radius:16px;border:1px solid var(--nav);background:#EEF2F8;color:var(--nav);font-size:13px;font-weight:600;padding:0 10px}
+.act .mf{display:none}
+.res .pc{border:1px solid var(--line)}
+.pag{display:flex;gap:6px;justify-content:center;margin-top:16px}
+.pag a{min-width:38px;height:38px;border:1px solid var(--line);border-radius:6px;display:grid;place-items:center;font-weight:600;background:#fff}
+.pag a.on{background:var(--nav);color:#fff;border-color:var(--nav)}
+.pp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr) 300px;gap:14px;align-items:start}
+.gal{padding:14px;display:grid;grid-template-columns:64px minmax(0,1fr);gap:10px}
+.th{display:grid;gap:8px;align-content:start}
+.th button{padding:0;border:1px solid var(--line);border-radius:4px;background:#fff;overflow:hidden}
+.th button.on{border-color:var(--nav);box-shadow:0 0 0 1px var(--nav)}
 .th img{aspect-ratio:1;object-fit:contain}
-.big{background:#fff;border:1px solid var(--line);border-radius:4px;position:relative;padding:20px}
-.big img{aspect-ratio:1;object-fit:contain;width:100%}
-.big .off{left:20px;top:18px;font-size:15px}
-.info .br{color:var(--mut);font-size:14px}
-.info h1{font-size:clamp(24px,2.5vw,32px);font-weight:700;font-stretch:125%;line-height:1.1;margin:4px 0 10px;color:var(--dial)}
-.price{display:flex;align-items:baseline;gap:12px;margin:16px 0 18px}
-.price b{font-size:34px;font-weight:700;letter-spacing:-.02em}
-.price s{color:var(--mut);font-size:17px}
-.price em{font-style:normal;color:var(--red);font-weight:700}
-.prom{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.prom li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--mut)}
-.prom b{display:block;color:var(--ink);font-weight:600;font-size:15px}
-.prom .i{color:var(--dial);margin-top:2px}
-.optl{margin:18px 0 8px;font-size:14.5px}
-.engr{margin-top:18px;border:1px solid var(--line);border-radius:6px;background:#fff}
-.engr summary{list-style:none;display:flex;gap:12px;align-items:center;padding:12px 14px;cursor:pointer;font-weight:600}
-.engr summary::-webkit-details-marker{display:none}
-.engr summary small{display:block;color:var(--mut);font-weight:400;font-size:13px}
-.engr summary .p{margin-left:auto;color:var(--brass);white-space:nowrap}
-.engr .body{display:grid;grid-template-columns:110px minmax(0,1fr);gap:14px;align-items:center;padding:0 14px 14px}
-.engr .body input{height:44px;width:100%;border:1px solid var(--line);border-radius:6px;padding:0 12px;font-size:16px}
-.engr .body label{display:grid;gap:6px;font-size:14px;font-weight:600}
-.buy{display:grid;grid-template-columns:118px minmax(0,1fr);gap:10px;margin-top:18px}
-.qty{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:6px;background:#fff;padding:0 4px;font-weight:600}
-.qty button{width:36px;height:40px;border:0;background:none;display:grid;place-items:center}
-.buy2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
-.buy2 .add{margin:0;height:auto;min-height:50px;font-size:15px}
-.specs{width:100%;border-collapse:collapse;margin-top:22px;font-size:14px}
-.specs th{text-align:left;font-weight:400;color:var(--mut);padding:9px 0;border-bottom:1px solid var(--line);width:42%}
-.specs td{padding:9px 0;border-bottom:1px solid var(--line)}
-.set{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:4px;padding:16px 20px}
-.set img{width:96px;aspect-ratio:1;object-fit:contain}
-.set .pl2{color:var(--mut)}
-.set .tot{margin-left:auto;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-.set .tot b{font-size:22px}
+.big{position:relative}.big img{aspect-ratio:1;object-fit:contain;width:100%}
+.det{padding:16px 18px}
+.det .bl{font-size:13.5px;color:var(--nav);font-weight:700}
+.det h1{font-size:22px;line-height:1.25;margin:4px 0 8px;font-weight:700}
+.det .rt{font-size:13.5px}
+.det .rt button{border:0;background:none;padding:0;color:var(--nav);text-decoration:underline}
+.bp{display:flex;align-items:baseline;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.bp b{font-size:30px;font-weight:800;letter-spacing:-.02em}
+.bp s{color:var(--mut);font-size:15px}
+.bp em{font-style:normal;background:#FDE8E9;color:var(--red);font-weight:800;padding:2px 8px;border-radius:4px}
+.save{color:var(--ok);font-weight:600;font-size:13.5px}
+.opts{margin-top:14px;font-size:14px}
+.opts .sw{display:flex;gap:8px;margin-top:6px}
+.opts .sw button{width:56px;padding:3px;border:1px solid var(--line);border-radius:4px;background:#fff}
+.opts .sw button.on{border-color:var(--nav);box-shadow:0 0 0 1px var(--nav)}
+.opts .sw img{aspect-ratio:1;object-fit:contain}
+.keys{margin:14px 0 0;padding-left:1.1em;font-size:14px;display:grid;gap:4px}
+.specs{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:14px}
+.specs th{text-align:left;font-weight:400;color:var(--mut);background:#F6F7F9;padding:7px 10px;width:40%;border:1px solid var(--line)}
+.specs td{padding:7px 10px;border:1px solid var(--line)}
+.box{padding:16px;position:sticky;top:130px}
+.box .bp b{font-size:26px}
+.dlv{margin:12px 0;border:1px solid var(--line);border-radius:6px;font-size:13.5px}
+.dlv>div{display:flex;gap:10px;padding:10px 12px;align-items:flex-start}
+.dlv>div+div{border-top:1px solid var(--line)}
+.dlv .i{color:var(--nav);margin-top:1px}
+.dlv b{display:block;font-size:14px}
+.dlv select{margin-top:4px;height:32px;border:1px solid var(--line);border-radius:4px;background:#fff;padding:0 6px;width:100%}
+.dlv .ok{color:var(--ok);font-weight:700}
+.instock{color:var(--ok);font-weight:700;font-size:15px;margin:0 0 8px}
+.eng{border:1px dashed var(--amber2);background:#FFF9E8;border-radius:6px;padding:10px 12px;font-size:13.5px;display:flex;gap:10px;align-items:center;margin-bottom:10px;cursor:pointer}
+.eng input{width:18px;height:18px;accent-color:var(--nav)}
+.eng b{margin-left:auto;white-space:nowrap}
+.qty{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-size:14px}
+.qty select{height:36px;border:1px solid var(--line);border-radius:6px;padding:0 8px;background:#fff}
+.box .btn{width:100%;margin-bottom:8px}
+.box .add{opacity:1;height:46px;margin-top:0;font-size:15px}
+.sec2{display:flex;gap:16px;justify-content:center;font-size:12.5px;color:var(--mut);margin-top:6px}
+.sec2 span{display:flex;gap:5px;align-items:center}
+.fbt{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.fbt img{width:110px;aspect-ratio:1;object-fit:contain;border:1px solid var(--line);border-radius:6px;padding:4px;background:#fff}
+.fbt .pl{color:var(--mut)}
+.fbt .t{margin-left:auto;display:grid;gap:6px;justify-items:start}
+.fbt .t b{font-size:20px}
+.revw{display:grid;grid-template-columns:260px minmax(0,1fr);gap:24px}
+.bars{display:grid;gap:5px;font-size:13px}
+.bars div{display:grid;grid-template-columns:58px minmax(0,1fr) 34px;gap:8px;align-items:center}
+.bars i{height:10px;border-radius:5px;background:var(--bg);overflow:hidden}
+.bars i::after{content:"";display:block;height:100%;width:var(--p);background:var(--amber)}
+.rv{border-bottom:1px solid var(--line);padding:10px 0;font-size:14px}
+.rv p{margin:4px 0}.rv small{color:var(--mut)}
 .pbar{display:none}
-.co{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.9fr);gap:36px;align-items:start;padding-bottom:14px}
-.steps{list-style:none;display:flex;gap:26px;margin:22px 0 6px;padding:0;font-size:14px;color:var(--mut);flex-wrap:wrap}
-.steps li{display:flex;gap:8px;align-items:center}
-.steps li span{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-weight:600;font-size:13px;background:#fff}
-.steps .d{color:var(--ink)}.steps .d span{background:var(--ok);border-color:var(--ok);color:#fff}
-.steps .a{color:var(--ink);font-weight:600}.steps .a span{border-color:var(--dial);color:var(--dial)}
-form.of{background:#fff;border:1px solid var(--line);border-radius:4px;padding:26px}
-form.of h2{font-size:19px;font-weight:700;font-stretch:125%;margin:0 0 16px}
-.fld{display:grid;gap:6px;margin-bottom:14px;font-size:14px;font-weight:600}
+.co{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);gap:14px;align-items:start;margin-top:4px}
+.co .panel{padding:18px 20px}
+.co h1{font-size:22px;margin:0 0 4px;font-weight:800}
+.co h2{font-size:16px;margin:18px 0 10px;font-weight:800;display:flex;gap:8px;align-items:center}
+.co h2 span{width:24px;height:24px;border-radius:50%;background:var(--nav);color:#fff;font-size:12.5px;display:grid;place-items:center}
+.fld{display:grid;gap:5px;margin-bottom:12px;font-size:13.5px;font-weight:600}
 .fld small{font-weight:400;color:var(--mut)}
-.fld .in{display:flex;align-items:center;gap:10px;height:50px;border:1px solid var(--line);border-radius:6px;padding:0 14px;color:var(--mut);background:#fff}
-.fld .in:focus-within{border-color:var(--dial);box-shadow:0 0 0 1px var(--dial)}
-.fld input,.fld select{flex:1;border:0;outline:0;height:100%;font-size:16px;font-weight:400;color:var(--ink);background:transparent}
+.fld input,.fld select{height:46px;border:1px solid #C9CDD3;border-radius:6px;padding:0 12px;font-size:16px;font-weight:400;background:#fff;color:var(--ink)}
+.fld input:focus,.fld select:focus{outline:0;border-color:var(--nav);box-shadow:0 0 0 2px #C9D6EA}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.pm{display:grid;gap:8px;margin-bottom:6px}
-.pm label{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:6px;padding:13px 14px;font-weight:600;cursor:pointer}
-.pm label:has(input:checked){border-color:var(--dial);box-shadow:0 0 0 1px var(--dial)}
-.pm small{display:block;color:var(--mut);font-weight:400;font-size:13px}
-.pm input{accent-color:var(--dial);width:18px;height:18px}
-.pm .i{margin-left:auto;color:var(--mut)}
-.note{display:flex;gap:8px;align-items:center;justify-content:center;font-size:13px;color:var(--mut);margin:12px 0 0}
-.rc{position:relative;background:#FBFBF8;padding:24px 24px 30px;font-size:14px;margin-bottom:10px}
-.rc::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:10px;background:linear-gradient(-45deg,transparent 7px,#FBFBF8 0) 0 0/14px 10px,linear-gradient(45deg,transparent 7px,#FBFBF8 0) 0 0/14px 10px}
-.rc h3{font-size:16px;font-weight:700;font-stretch:125%;margin:0 0 4px}
-.rc .no{color:var(--mut);font-size:13px;margin-bottom:14px}
-.rc .li{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-top:1px dashed var(--steel2)}
-.rc .li img{aspect-ratio:1;object-fit:contain}
-.rc .li small{display:block;color:var(--mut)}
-.rc .li b{white-space:nowrap}
-.rc dl{display:grid;grid-template-columns:1fr auto;gap:6px 12px;margin:10px 0 0;padding-top:12px;border-top:1px dashed var(--steel2)}
-.rc dt{margin:0}.rc dd{margin:0;text-align:right;white-space:nowrap}
-.rc .tot{font-weight:700;font-size:18px;padding-top:8px;border-top:1px solid var(--ink)}
-.rc .free{color:var(--ok);font-weight:600}
-.rc .cod{margin-top:14px;padding:10px 12px;background:var(--steel);border-radius:4px;display:flex;gap:10px;align-items:center;font-size:13.5px}
-.ty{max-width:700px;padding-block:40px}
-.ty h1{font-size:clamp(28px,3.4vw,42px);font-weight:700;font-stretch:125%;color:var(--dial);margin:14px 0 8px;line-height:1.05}
-.ty .ok{width:56px;height:56px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center}
-.ty .ok .i{width:30px;height:30px;stroke-width:2.2}
-.ty>p{color:var(--mut);margin:0 0 26px}
-.tl{list-style:none;margin:0 0 28px;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border-top:3px solid var(--steel2);font-size:13.5px}
-.tl li{position:relative;padding-top:14px;color:var(--mut)}
-.tl li::before{content:"";position:absolute;top:-8px;left:0;width:13px;height:13px;border-radius:50%;background:var(--steel);border:2px solid var(--steel2);z-index:1}
-.tl li.d{color:var(--ink);font-weight:600}.tl li.d::before{background:var(--ok);border-color:var(--ok)}
-.tl li.d::after{content:"";position:absolute;top:-3px;left:0;right:0;height:3px;background:var(--ok)}
-.tl small{display:block;font-weight:400;color:var(--mut)}
+.pm{display:grid;gap:8px}
+.pm label{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:6px;padding:12px;font-weight:600;cursor:pointer}
+.pm label:has(input:checked){border-color:var(--nav);background:#F3F6FB}
+.pm small{display:block;color:var(--mut);font-weight:400;font-size:12.5px}
+.pm input{width:18px;height:18px;accent-color:var(--nav)}
+.pm .tagr{margin-left:auto;background:#E6F3EC;color:var(--ok);font-size:12px;font-weight:700;padding:2px 8px;border-radius:10px;font-style:normal}
+.sum h2{margin-top:0}
+.sum .li{display:grid;grid-template-columns:60px minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.sum .li img{aspect-ratio:1;object-fit:contain;border:1px solid var(--line);border-radius:4px}
+.sum .li small{display:block;color:var(--mut)}
+.sum dl{display:grid;grid-template-columns:1fr auto;gap:6px;margin:12px 0 0;font-size:14px}
+.sum dt{margin:0}.sum dd{margin:0;text-align:right}
+.sum .tot{font-size:18px;font-weight:800;border-top:1px solid var(--line);padding-top:8px}
+.sum .free{color:var(--ok);font-weight:700}
+.promo{display:flex;gap:8px;margin-top:12px}.promo input{flex:1;height:40px;border:1px solid var(--line);border-radius:6px;padding:0 10px}
+.note{display:flex;gap:6px;align-items:center;font-size:12.5px;color:var(--mut);margin:8px 0 0}
+.ty{max-width:760px;margin:16px auto 0;padding:26px}
+.ty .ok{display:flex;gap:12px;align-items:center}
+.ty .ok span{width:44px;height:44px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;flex:none}
+.ty h1{font-size:24px;margin:0;font-weight:800;line-height:1.2}
+.ty p{color:var(--mut);margin:12px 0 18px}
+.tl{list-style:none;margin:0 0 20px;padding:0;display:grid;grid-template-columns:repeat(4,1fr);font-size:13px;text-align:center}
+.tl li{position:relative;padding-top:34px;color:var(--mut)}
+.tl li::before{content:"";position:absolute;top:6px;left:50%;width:22px;height:22px;margin-left:-11px;border-radius:50%;background:#fff;border:2px solid var(--line);z-index:1}
+.tl li::after{content:"";position:absolute;top:16px;left:-50%;right:50%;height:2px;background:var(--line)}
+.tl li:first-child::after{display:none}
+.tl li.d{color:var(--ink);font-weight:700}.tl li.d::before{background:var(--ok);border-color:var(--ok)}
+.tl small{display:block;font-weight:400}
+.rec{display:grid;grid-template-columns:1fr auto;gap:6px 16px;background:var(--bg);border-radius:6px;padding:14px;font-size:14px;margin:0}
+.rec dd{margin:0;text-align:right;font-weight:600}
 .tab{display:none}
 .view{display:none}.view.on{display:block}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
-@media(max-width:1120px){.nav{display:none}.burger{display:grid}.g5{grid-template-columns:repeat(4,minmax(0,1fr))}.g5 .slot:nth-child(n+9){display:none}.g6{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:1180px){.ht{grid-template-columns:200px minmax(0,1fr)}.ht .side{display:none}.g6{grid-template-columns:repeat(5,minmax(0,1fr))}.g6 .pc:nth-child(6){display:none}.pp{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.box{grid-column:1/-1;position:static}.cats{grid-template-columns:repeat(4,minmax(0,1fr))}.brands{grid-template-columns:repeat(5,minmax(0,1fr))}}
 @media(max-width:900px){
- .hero .w{grid-template-columns:1fr;gap:24px}.dialwrap{max-width:340px}
- .band{grid-template-columns:1fr 1fr}.band div:nth-child(3){border-left:0;padding-left:0}.band div:nth-child(n+3){border-top:1px solid var(--line)}
- .grav .w{grid-template-columns:1fr}.revs{grid-template-columns:1fr;gap:20px}
- .clay{grid-template-columns:1fr}.side{display:none}.act .mfil{display:inline-flex}.g4{grid-template-columns:repeat(3,minmax(0,1fr))}
- .pl{grid-template-columns:1fr}.co{grid-template-columns:1fr}.fcols{grid-template-columns:1fr 1fr}
+ .acts .lb{display:none}.ht{grid-template-columns:1fr}.rail{display:none}
+ .trust{grid-template-columns:1fr 1fr}.trust div:nth-child(3){border-left:0}
+ .g6,.g5{grid-template-columns:repeat(3,minmax(0,1fr))}.g6 .pc:nth-child(6){display:flex}
+ .bud{grid-template-columns:1fr 1fr}.duo{grid-template-columns:1fr}.why{grid-template-columns:1fr}
+ .cl{grid-template-columns:1fr}.filt{display:none}.act .mf{display:inline-flex}
+ .pp{grid-template-columns:1fr}.co{grid-template-columns:1fr}.fcols{grid-template-columns:1fr 1fr}.revw{grid-template-columns:1fr}
 }
 @media(max-width:640px){
- body{font-size:15px;padding-bottom:70px}
- .strip .w{gap:4px 16px;font-size:12px}.strip .r{display:none}
- .hrow{grid-template-columns:auto 1fr auto;gap:6px;height:58px}
- .logo{font-size:21px}
- .search.sd,.acts .hide{display:none}
- .search.sm{display:flex;width:auto;margin:0 16px 10px}
- .hero .w{padding-block:18px 24px;grid-template-columns:112px minmax(0,1fr);gap:16px;align-items:start}
- .dialwrap{max-width:none}
- .htx{display:contents}
- .hero h1{font-size:23px;grid-column:2;grid-row:1;align-self:center}
- .htx .rest{grid-column:1/-1}
- .left{font-size:16px;margin:2px 0 6px}
- .sub{font-size:14px;margin-bottom:16px}
- .ctas .out{display:none}.ctas .btn{width:100%}
- .pay{gap:6px 14px;font-size:12.5px;margin-top:14px}
- .band div{padding:12px 10px;font-size:12px;gap:9px}.band div:nth-child(2n){padding-right:0}.band b{font-size:13.5px}
- .sec{padding-top:30px}.sh{margin-bottom:12px}.sh a{font-size:13.5px}
- .g5,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g5 .slot:nth-child(n+9){display:flex}
- .g6{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.g6 .cat{flex:0 0 40%;scroll-snap-align:start}
- .slot{padding:10px 10px 12px}.slot .nm{font-size:13.5px}.tag span{font-size:14.5px;padding:5px 10px 5px 20px}
- .slot .add span{display:none}.slot .add{height:38px}
- .grav .w{padding-block:28px;gap:20px}.back{max-width:210px}
+ body{padding-bottom:64px}
+ .top .w{gap:2px 14px;font-size:12px}.top .x{display:none}
+ .hrow{grid-template-columns:1fr auto;gap:10px;padding-block:8px}
+ .burger{display:block}.logo{font-size:20px}
+ .hrow .search{display:none}.search.ms{display:flex;margin:0 12px 10px}
+ .acts .hide{display:none}
+ .sub{display:none}
+ .slider{grid-template-columns:1fr 120px;min-height:0}.slider .tx{padding:16px 16px 30px}.slider h1{font-size:21px;margin:8px 0 4px}.slider p{font-size:13px;margin-bottom:12px}.slider .pics{grid-template-columns:1fr;padding:10px 10px 10px 0}.slider .pics img:nth-child(2){display:none}.slider .dots{left:16px;bottom:12px}.slider .btn{min-height:40px;font-size:14px;padding:0 14px}
+ .trust div{padding:10px;font-size:11.5px}.trust b{font-size:12.5px}.trust .i{width:22px;height:22px}
+ .blk{padding:12px 10px;margin-top:10px}
+ .bh{gap:8px}.bh h2{font-size:17px}.cd{font-size:12px}.cd b{font-size:13px;min-width:26px;padding:2px 4px}
+ .rowscroll{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px}
+ .rowscroll .pc{flex:0 0 42%;scroll-snap-align:start;border:1px solid var(--line)}
+ .g6:not(.rowscroll),.g5{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .g5 .pc,.g6 .pc{border:1px solid var(--line)}
+ .add{opacity:1;height:34px}
+ .cats{display:flex;overflow-x:auto;gap:12px}.cats a{flex:0 0 68px;font-size:12px}
+ .bud a{padding:10px;font-size:12px}.bud a b{font-size:15px}
+ .ban{grid-template-columns:1fr 110px;min-height:130px}.ban b{font-size:18px}
+ .brands{grid-template-columns:repeat(3,minmax(0,1fr))}
  .fcols{grid-template-columns:1fr}
- .gal{grid-template-columns:1fr}.th{display:none}.big{padding:10px}
- .buy,.buy2{display:none}
- .set .tot{margin-left:0}
- .pbar{display:grid;grid-template-columns:auto minmax(0,1fr) 50px;gap:10px;align-items:center;position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);padding:10px 12px}
- .pbar .pp{font-weight:700;font-size:19px;line-height:1.05}.pbar .pp small{display:block;font-weight:400;font-size:12px;color:var(--mut)}
- .pbar .btn{min-height:50px}.pbar .wab{width:50px;height:50px;border-radius:6px;background:#1FA855;color:#fff;display:grid;place-items:center}
- .engr .body{grid-template-columns:86px minmax(0,1fr)}
- .two{grid-template-columns:1fr}form.of{padding:18px}.rc{padding:18px 18px 26px}
- .tl{font-size:12px}
- .tab{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:25;background:#fff;border-top:1px solid var(--line);padding:7px 0 8px;font-size:11px;text-align:center;color:var(--mut)}
- .tab a{display:grid;justify-items:center;gap:2px;position:relative}
- .tab a.on{color:var(--dial);font-weight:600}
- .tab a.on::before{content:"";position:absolute;top:-8px;left:28%;right:28%;height:2px;background:var(--dial)}
- .tab b{position:absolute;top:-3px;left:56%;min-width:16px;height:16px;border-radius:8px;background:var(--brass);color:#fff;font-size:10px;display:grid;place-items:center}
+ .gal{grid-template-columns:1fr;padding:8px}.th{display:none}
+ .det{padding:12px}
+ .box .buyb{display:none}
+ .pbar{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 48px;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;border-top:1px solid var(--line);padding:8px 10px}
+ .pbar .btn{min-height:48px;padding:0 10px;font-size:14px}
+ .pbar .add{opacity:1;margin:0;height:48px}
+ .pbar .wab{width:48px;height:48px;border-radius:6px;background:#1FA855;color:#fff;display:grid;place-items:center}
+ .two{grid-template-columns:1fr}.co .panel{padding:14px}
+ .fbt img{width:84px}.fbt .t{margin-left:0}
+ .tl{font-size:11.5px}
+ .tab{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:35;background:#fff;border-top:1px solid var(--line);padding:6px 0 7px;font-size:10.5px;text-align:center;color:var(--mut)}
+ .tab a{display:grid;justify-items:center;gap:1px;position:relative}
+ .tab a.on{color:var(--nav);font-weight:700}
+ .tab b{position:absolute;top:-4px;left:56%;background:var(--amber);color:var(--ink);font-size:10px;min-width:16px;height:16px;border-radius:8px;display:grid;place-items:center}
  body.prod .tab{display:none}
 }
 </style>
@@ -303,231 +329,194 @@ form.of h2{font-size:19px;font-weight:700;font-stretch:125%;margin:0 0 16px}
 <symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
 <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
 <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
-<symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
 <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
 <symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/></symbol>
 <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1"/></symbol>
 <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20h4.2L19 9.2 14.8 5 4 15.8z"/><path d="m12.8 7 4.2 4.2"/></symbol>
 <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
 <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
-<symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4.5h3.5l1.7 4.2-2.2 1.4a11 11 0 0 0 5.9 5.9l1.4-2.2 4.2 1.7V19a1.5 1.5 0 0 1-1.6 1.5A16 16 0 0 1 3.5 6.1 1.5 1.5 0 0 1 5 4.5z"/></symbol>
 <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6.5L20.5 7"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></symbol>
 <symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="2"/><path d="M2.5 10h19M6 15h4"/></symbol>
 <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 9.5 5.5 4h13L20 9.5"/><path d="M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0"/><path d="M5.5 11.5V20h13v-8.5"/></symbol>
 <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2.5 4.5 13.5H12l-1 8 8.5-11H12z"/></symbol>
+<symbol id="i-watch" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5.5"/><path d="M12 9.5V12l1.5 1.2M9 7l.8-3.5h4.4L15 7M9 17l.8 3.5h4.4L15 17"/></symbol>
+<symbol id="i-glasses" viewBox="0 0 24 24"><circle cx="6.5" cy="14" r="3.5"/><circle cx="17.5" cy="14" r="3.5"/><path d="M10 14c1.3-1 2.7-1 4 0M3 14l1.5-6h2M21 14l-1.5-6h-2"/></symbol>
+<symbol id="i-box" viewBox="0 0 24 24"><path d="M3.5 7.5 12 3.5l8.5 4v9L12 20.5l-8.5-4z"/><path d="M3.5 7.5 12 11.5l8.5-4M12 11.5v9"/></symbol>
+<symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12.5V4h8.5l8.5 8.5-8 8z"/><circle cx="8" cy="8.5" r="1.4"/></symbol>
 </svg>
 
-<div class="strip"><div class="w">
-<span><svg class="i s"><use href="#i-cash"/></svg>Vous payez à la livraison, partout au Maroc</span>
-<span><svg class="i s"><use href="#i-truck"/></svg>Livraison offerte dès 500 Dhs</span>
-<span class="r"><svg class="i s"><use href="#i-store"/></svg>Magasin : Kissariat Saidi, Derb Omar</span>
-</div></div>
-<header class="hd"><div class="w hrow">
-<button class="ib burger" aria-label="Menu"><svg class="i"><use href="#i-menu"/></svg></button>
-<a href="#accueil" class="logo">ADORIS<small>STORE</small></a>
-<nav class="nav" aria-label="Rayons"><a class="on" href="#categorie">Hommes</a><a href="#categorie">Femmes</a><a href="#categorie">Smartwatch</a><a href="#categorie">Lunettes</a><a href="#categorie">Coffrets</a><a href="#produit-g1">Gravure</a><a class="promo" href="#categorie">Promotions</a></nav>
-<div class="right">
-<form class="search sd" onsubmit="event.preventDefault();location.hash='categorie'"><svg class="i s"><use href="#i-search"/></svg><input placeholder="Une marque, un modèle…" aria-label="Rechercher"></form>
-<div class="acts"><a class="ib hide" aria-label="Favoris"><svg class="i"><use href="#i-heart"/></svg></a><a class="ib hide" aria-label="Mon compte"><svg class="i"><use href="#i-user"/></svg></a><a class="ib" href="#commande" aria-label="Panier"><svg class="i"><use href="#i-bag"/></svg><b class="cc">0</b></a></div></div>
+<div class="top"><div class="w"><span><svg class="i s"><use href="#i-cash"/></svg>Paiement à la livraison partout au Maroc</span><span><svg class="i s"><use href="#i-truck"/></svg>Livraison gratuite dès 500 Dhs</span><span class="x"><svg class="i s"><use href="#i-chat"/></svg>Commandes WhatsApp : 06 63 58 31 62</span></div></div>
+<header class="hd">
+<div class="w hrow">
+<div style="display:flex;gap:8px;align-items:center"><button class="burger" aria-label="Menu"><svg class="i"><use href="#i-menu"/></svg></button><a href="#accueil" class="logo">ADORIS<small>STORE</small></a></div>
+<form class="search" onsubmit="event.preventDefault();location.hash='categorie'"><select aria-label="Rayon"><option>Tout</option><option>Montres hommes</option><option>Montres femmes</option><option>Smartwatch</option><option>Lunettes</option></select><input placeholder="Rechercher une montre, une marque…" aria-label="Rechercher"><button aria-label="Rechercher"><svg class="i"><use href="#i-search"/></svg></button></form>
+<div class="acts"><a class="hide"><svg class="i"><use href="#i-user"/></svg><span class="lb">Bonjour<b>Mon compte</b></span></a><a class="hide"><svg class="i"><use href="#i-heart"/></svg><span class="lb">Mes<b>Favoris</b></span></a><a href="#commande"><svg class="i"><use href="#i-bag"/></svg><span class="cc">0</span><span class="lb">Mon<b>Panier</b></span></a></div>
 </div>
-<form class="search sm" onsubmit="event.preventDefault();location.hash='categorie'"><svg class="i s"><use href="#i-search"/></svg><input placeholder="Une marque, un modèle…" aria-label="Rechercher"></form>
+<form class="search ms" onsubmit="event.preventDefault();location.hash='categorie'"><input placeholder="Rechercher une montre, une marque…" aria-label="Rechercher"><button aria-label="Rechercher"><svg class="i"><use href="#i-search"/></svg></button></form>
+<nav class="sub"><div class="w"><a href="#categorie"><svg class="i s"><use href="#i-menu"/></svg>Tous les rayons</a><a class="deal" href="#categorie"><svg class="i s"><use href="#i-bolt"/></svg>Ventes flash</a><a href="#categorie">Montres hommes</a><a href="#categorie">Montres femmes</a><a href="#categorie">Smartwatch</a><a href="#categorie">Lunettes</a><a href="#categorie">Coffrets</a><a href="#produit-g1">Gravure</a><a href="#categorie">Moins de 200 Dhs</a><a href="#categorie">Nouveautés</a></div></nav>
 </header>
 
 <main>
-<section class="view" id="v-accueil">
-<div class="hero"><div class="w">
-<div class="dialwrap"><svg id="dial" viewBox="0 0 400 400" role="img" aria-label="Heure de Casablanca et temps restant avant l'expédition de 16 h"></svg></div>
-<div class="htx">
-<h1>Commandez avant 16 h, portez-la demain.</h1>
-<div class="rest"><p class="left" id="left">Encore <em>quelques heures</em> pour une livraison demain à Casablanca.</p>
-<p class="sub">Plus de 200 montres en stock dans notre magasin de Derb Omar, de 150 à 500 Dhs. Vous les voyez, puis vous payez à la porte.</p>
-<div class="ctas"><a class="btn" href="#categorie">Voir les montres hommes</a><a class="btn out" href="#categorie">Voir les montres femmes</a></div>
-<div class="pay"><span><svg class="i s"><use href="#i-cash"/></svg>Paiement en espèces à la réception</span><span><svg class="i s"><use href="#i-swap"/></svg>Échange sous 7 jours</span><span><svg class="i s"><use href="#i-chat"/></svg>Conseil sur WhatsApp</span></div></div>
-</div></div></div>
-<div class="bandw"><div class="w band">
-<div><svg class="i"><use href="#i-truck"/></svg><span><b>Demain à Casablanca</b>48 h dans les autres villes</span></div>
-<div><svg class="i"><use href="#i-cash"/></svg><span><b>20 Dhs à Casa, 50 Dhs ailleurs</b>Offerte dès 500 Dhs d'achat</span></div>
-<div><svg class="i"><use href="#i-swap"/></svg><span><b>Échange 7 jours</b>Si la montre ne vous va pas</span></div>
-<div><svg class="i"><use href="#i-pen"/></svg><span><b>Gravure en 24 h</b>Prénom ou date pour 50 Dhs</span></div>
-</div></div>
-
-<div class="w">
-<div class="sec"><div class="sh"><h2>Les plus vendues cette semaine</h2><a href="#categorie">Toutes les montres</a></div><div class="case g5" id="best"></div></div>
-<div class="sec"><div class="sh"><h2>Par rayon</h2></div><div class="case g6" id="cats"></div></div>
+<section class="view" id="v-accueil"><div class="w">
+<div class="ht">
+<nav class="panel rail" aria-label="Rayons"><a href="#categorie"><svg class="i"><use href="#i-watch"/></svg>Montres hommes<em>86</em></a><a href="#categorie"><svg class="i"><use href="#i-watch"/></svg>Montres femmes<em>54</em></a><a href="#categorie"><svg class="i"><use href="#i-watch"/></svg>Montres enfants<em>12</em></a><a href="#categorie"><svg class="i"><use href="#i-bolt"/></svg>Smartwatch<em>31</em></a><a href="#categorie"><svg class="i"><use href="#i-grid"/></svg>Bracelets de montre<em>24</em></a><a href="#categorie"><svg class="i"><use href="#i-glasses"/></svg>Lunettes de soleil<em>38</em></a><a href="#categorie"><svg class="i"><use href="#i-box"/></svg>Coffrets et boîtes<em>9</em></a><a href="#produit-g1"><svg class="i"><use href="#i-pen"/></svg>Gravure personnalisée</a><a href="#categorie"><svg class="i"><use href="#i-tag"/></svg>Promotions<em>27</em></a></nav>
+<div class="slider"><div class="tx"><span class="lbl">Jusqu'à −25 %</span><h1>Les chronographes NIBOSI et NAVIFORCE en promo</h1><p>Dès 240 Dhs, livrés demain à Casablanca. Vous payez à la réception.</p><a class="btn" href="#categorie">Voir les promos</a></div><div class="pics"><img src="img/m1.jpg" alt="NIBOSI chronographe doré"><img src="img/m3.jpg" alt="NAVIFORCE sport"></div><div class="dots"><i class="on"></i><i></i><i></i></div></div>
+<div class="side"><div class="mini y"><span><b>Gravure à 50 Dhs</b><small>Prénom ou date, prête en 24 h</small><a href="#produit-g1">Graver ma montre</a></span><img src="img/g1.jpg" alt=""></div><div class="mini"><span><b>Coffrets cadeaux</b><small>6 et 12 places, dès 225 Dhs</small><a href="#categorie">Voir les coffrets</a></span><img src="img/b2.jpg" alt=""></div></div>
 </div>
-
-<section class="grav"><div class="w">
-<div class="back"><svg id="caseback" viewBox="0 0 300 300" role="img" aria-label="Aperçu de la gravure au dos de la montre"></svg></div>
-<div><h2>Votre texte, gravé au dos</h2>
-<p>Tapez un prénom ou une date : voici le rendu sur le fond de la montre. Gravure laser dans notre atelier, prête en 24 h, pour 50 Dhs.</p>
-<form class="gin" onsubmit="event.preventDefault();location.hash='produit-m1'"><label>Texte à graver, 25 caractères au plus<input id="gtext" maxlength="25" value="Karim 12.06.2026"></label><button class="btn">Choisir la montre</button></form>
-<ol><li>Choisissez votre montre</li><li>Écrivez le texte au moment de commander</li><li>Recevez-la gravée, payez à la livraison</li></ol></div>
+<div class="panel trust">
+<div><svg class="i"><use href="#i-cash"/></svg><span><b>Paiement à la livraison</b>En espèces, à la réception</span></div>
+<div><svg class="i"><use href="#i-truck"/></svg><span><b>Livré demain à Casablanca</b>48 h dans les autres villes</span></div>
+<div><svg class="i"><use href="#i-swap"/></svg><span><b>Échange sous 7 jours</b>Gratuit au magasin</span></div>
+<div><svg class="i"><use href="#i-store"/></svg><span><b>Magasin à Derb Omar</b>Venez voir avant d'acheter</span></div>
+</div>
+<div class="panel blk flash"><div class="bh"><h2><svg class="i"><use href="#i-bolt"/></svg>Ventes flash</h2><span class="cd">Se termine dans <b id="ch">00</b>:<b id="cm">00</b>:<b id="cs">00</b></span><a class="more" href="#categorie">Toutes les offres<svg class="i s"><use href="#i-right"/></svg></a></div><div class="g6 rowscroll" id="flash"></div></div>
+<div class="panel blk"><div class="bh"><h2>Achetez par prix</h2></div><div class="bud"><a href="#categorie"><span>Moins de<b>150 Dhs</b></span><svg class="i"><use href="#i-right"/></svg></a><a href="#categorie"><span>Moins de<b>200 Dhs</b></span><svg class="i"><use href="#i-right"/></svg></a><a href="#categorie"><span>Moins de<b>300 Dhs</b></span><svg class="i"><use href="#i-right"/></svg></a><a href="#categorie"><span>Moins de<b>500 Dhs</b></span><svg class="i"><use href="#i-right"/></svg></a></div></div>
+<div class="panel blk"><div class="bh"><h2>Meilleures ventes</h2><a class="more" href="#categorie">Voir plus<svg class="i s"><use href="#i-right"/></svg></a></div><div class="g6" id="best"></div></div>
+<div class="duo"><div class="ban g"><div class="tx"><b>Smartwatch dès 399 Dhs</b><p>Écran AMOLED, appels, sport. Compatibles Android et iPhone.</p><a class="btn" href="#categorie">Voir les smartwatch</a></div><img src="img/s3.jpg" alt=""></div><div class="ban c"><div class="tx"><b>Lunettes polarisées BARCUR</b><p>299 Dhs, étui et chiffon offerts.</p><a class="btn dark" href="#categorie">Voir les lunettes</a></div><img src="img/l1.jpg" alt=""></div></div>
+<div class="panel blk"><div class="bh"><h2>Rayons populaires</h2></div><div class="cats" id="cats"></div></div>
+<div class="panel blk"><div class="bh"><h2>Pour elle</h2><a class="more" href="#categorie">Voir plus<svg class="i s"><use href="#i-right"/></svg></a></div><div class="g6" id="elle"></div></div>
+<div class="panel blk"><div class="bh"><h2>Marques en stock</h2></div><div class="brands"><a>NIBOSI</a><a>NAVIFORCE</a><a>LIGE</a><a>BENYAR</a><a>CURREN</a><a>MEGIR</a><a>SKMEI</a><a>REWARD</a><a>BARCUR</a><a>OROPAK</a></div></div>
+<div class="panel blk"><div class="bh"><h2>Pourquoi commander chez Adoris</h2></div><div class="why">
+<div><b>Vous voyez avant de payer</b><p>Le livreur attend que vous ouvriez le colis. Si la montre ne correspond pas, vous ne payez rien.</p><small>Exemple de politique, à confirmer</small></div>
+<div><b>Un vrai magasin à Casablanca</b><p>Kissariat Saidi, Garage Allal, Derb Omar. Ajustement du bracelet offert sur place.</p></div>
+<div><b>Une réponse sur WhatsApp</b><p>Une question sur une montre ? Photos réelles et conseil en quelques minutes, 7 jours sur 7.</p></div>
+</div></div>
 </div></section>
 
-<div class="w">
-<div class="sec"><div class="sh"><h2>Pour elle</h2><a href="#categorie">Toutes les montres femmes</a></div><div class="case g5" id="elle"></div></div>
-<div class="sec"><div class="sh"><h2>Smartwatch, lunettes et bracelets</h2><a href="#categorie">Tout le rayon</a></div><div class="case g5" id="smart"></div></div>
-<div class="sec"><div class="sh"><h2>Ce que disent nos clients</h2></div><div class="revs" id="revs"></div></div>
-<div class="sec"><div class="sh"><h2>Les marques en stock</h2></div><div class="brands"><a>NIBOSI</a><a>NAVIFORCE</a><a>LIGE</a><a>BENYAR</a><a>CURREN</a><a>MEGIR</a><a>SKMEI</a><a>REWARD</a><a>BARCUR</a><a>OROPAK</a></div></div>
-</div>
-</section>
-
 <section class="view" id="v-categorie"><div class="w">
-<div class="crumb"><a href="#accueil">Accueil</a><svg class="i s"><use href="#i-right"/></svg>Montres hommes</div>
-<div class="ph"><h1>Montres hommes</h1><span>86 modèles en stock</span></div>
-<div class="clay">
-<aside class="side" aria-label="Filtres">
-<fieldset><legend>Prix</legend><div class="rng"><input value="150 Dhs" aria-label="Prix minimum"><span>à</span><input value="500 Dhs" aria-label="Prix maximum"></div></fieldset>
-<fieldset><legend>Marque</legend><label><input type="checkbox" checked> NIBOSI <em>18</em></label><label><input type="checkbox"> BENYAR <em>16</em></label><label><input type="checkbox"> NAVIFORCE <em>12</em></label><label><input type="checkbox"> LIGE <em>11</em></label><label><input type="checkbox"> SKMEI <em>9</em></label><label><input type="checkbox"> CURREN <em>7</em></label></fieldset>
-<fieldset><legend>Style</legend><label><input type="checkbox"> Chronographe <em>34</em></label><label><input type="checkbox"> Classique <em>21</em></label><label><input type="checkbox"> Sport et digitale <em>14</em></label><label><input type="checkbox"> Automatique <em>5</em></label></fieldset>
-<fieldset><legend>Bracelet</legend><label><input type="checkbox"> Acier <em>48</em></label><label><input type="checkbox"> Cuir <em>23</em></label><label><input type="checkbox"> Silicone <em>15</em></label></fieldset>
-<fieldset><legend>Couleur du cadran</legend><div class="sw"><button class="on" style="background:#C9A24A" aria-label="Doré"></button><button style="background:#222" aria-label="Noir"></button><button style="background:#C0C0C0" aria-label="Argent"></button><button style="background:#1D3B6B" aria-label="Bleu"></button><button style="background:#7B4B2A" aria-label="Marron"></button></div></fieldset>
-<fieldset><legend>Disponibilité</legend><label><input type="checkbox" checked> En stock au magasin</label></fieldset>
+<div class="crumb"><a href="#accueil">Accueil</a><svg class="i s"><use href="#i-right"/></svg>Montres<svg class="i s"><use href="#i-right"/></svg>Montres hommes</div>
+<div class="cl">
+<aside class="panel filt" aria-label="Filtres">
+<section><h3>Livraison</h3><label><input type="checkbox" checked> Livré demain à Casablanca <em>64</em></label><label><input type="checkbox"> Livraison gratuite <em>19</em></label></section>
+<section><h3>Prix (Dhs)</h3><div class="rng"><input value="150" aria-label="Prix minimum"><input value="500" aria-label="Prix maximum"><button>OK</button></div><label style="margin-top:6px"><input type="radio" name="pr"> Moins de 200 Dhs</label><label><input type="radio" name="pr"> 200 à 300 Dhs</label><label><input type="radio" name="pr"> 300 à 500 Dhs</label></section>
+<section><h3>Marque</h3><label><input type="checkbox" checked> NIBOSI <em>18</em></label><label><input type="checkbox"> BENYAR <em>16</em></label><label><input type="checkbox"> NAVIFORCE <em>12</em></label><label><input type="checkbox"> LIGE <em>11</em></label><label><input type="checkbox"> SKMEI <em>9</em></label><label><input type="checkbox"> CURREN <em>7</em></label></section>
+<section><h3>Style</h3><label><input type="checkbox"> Chronographe <em>34</em></label><label><input type="checkbox"> Classique <em>21</em></label><label><input type="checkbox"> Sport et digitale <em>14</em></label><label><input type="checkbox"> Automatique <em>5</em></label></section>
+<section><h3>Bracelet</h3><label><input type="checkbox"> Acier <em>48</em></label><label><input type="checkbox"> Cuir <em>23</em></label><label><input type="checkbox"> Silicone <em>15</em></label></section>
+<section style="border:0"><h3>Note des clients</h3><label><input type="radio" name="nt"> 4 étoiles et plus</label><label><input type="radio" name="nt"> 3 étoiles et plus</label></section>
 </aside>
-<div>
-<div class="tbar"><div class="act"><button class="mfil"><svg class="i s"><use href="#i-sliders"/></svg>Filtrer</button><button>NIBOSI<svg class="i s"><use href="#i-x"/></svg></button><button>En stock<svg class="i s"><use href="#i-x"/></svg></button></div>
-<label class="sort">Trier par<select><option>Les plus vendues</option><option>Prix croissant</option><option>Prix décroissant</option><option>Nouveautés</option></select></label></div>
-<div class="case g4" id="catg"></div>
-<div class="more"><span>12 montres affichées sur 86</span><a class="btn out">Afficher 12 montres de plus</a></div>
+<div class="panel res">
+<div class="rbar"><h1>Montres hommes</h1><span>86 résultats</span><label class="sort">Trier par<select><option>Les plus vendues</option><option>Prix croissant</option><option>Prix décroissant</option><option>Meilleures notes</option><option>Nouveautés</option></select></label></div>
+<div class="act"><button class="mf"><svg class="i s"><use href="#i-sliders"/></svg>Filtres</button><button>NIBOSI<svg class="i s"><use href="#i-x"/></svg></button><button>Livré demain<svg class="i s"><use href="#i-x"/></svg></button></div>
+<div class="g5" id="catg"></div>
+<div class="pag"><a class="on">1</a><a>2</a><a>3</a><a>…</a><a>8</a><a aria-label="Page suivante"><svg class="i s"><use href="#i-right"/></svg></a></div>
 </div></div>
 </div></section>
 
 <section class="view" id="v-produit"><div class="w" id="pw"></div></section>
 
 <section class="view" id="v-commande"><div class="w">
-<ol class="steps"><li class="d"><span><svg class="i s"><use href="#i-check"/></svg></span>Montre choisie</li><li class="a"><span>2</span>Vos coordonnées</li><li><span>3</span>Confirmation</li></ol>
-<div class="ph"><h1>Où livrer votre commande ?</h1><span>Vous payez en espèces à la réception.</span></div>
+<div class="crumb"><a href="#accueil">Accueil</a><svg class="i s"><use href="#i-right"/></svg>Commande</div>
 <div class="co">
-<form class="of" onsubmit="event.preventDefault();location.hash='merci'">
-<h2>Vos coordonnées</h2>
-<div class="fld">Nom et prénom<span class="in"><svg class="i s"><use href="#i-user"/></svg><input value="Karim Benali" autocomplete="name"></span></div>
-<div class="two"><div class="fld">Téléphone<span class="in"><svg class="i s"><use href="#i-phone"/></svg><input value="06 12 34 56 78" inputmode="tel" autocomplete="tel"></span></div>
-<div class="fld">Ville<span class="in"><svg class="i s"><use href="#i-pin"/></svg><select id="city"><option value="20">Casablanca</option><option value="50">Rabat</option><option value="50">Marrakech</option><option value="50">Tanger</option><option value="50">Agadir</option><option value="50">Fès</option></select></span></div></div>
-<div class="fld">Adresse<span class="in"><svg class="i s"><use href="#i-home"/></svg><input placeholder="Quartier, rue, numéro, point de repère"></span></div>
-<div class="fld">E-mail <small>facultatif, pour recevoir la facture</small><span class="in"><svg class="i s"><use href="#i-mail"/></svg><input placeholder="nom@exemple.ma" type="email"></span></div>
-<h2 style="margin-top:22px">Paiement</h2>
-<div class="pm"><label><input type="radio" name="p" checked><span>En espèces à la livraison<small>Vous payez le livreur en recevant le colis</small></span><svg class="i"><use href="#i-cash"/></svg></label>
-<label><input type="radio" name="p"><span>Carte bancaire<small>Visa ou Mastercard, paiement sécurisé</small></span><svg class="i"><use href="#i-card"/></svg></label></div>
-<button class="btn" style="width:100%;margin-top:14px;min-height:54px">Confirmer la commande de <span class="gt"></span></button>
-<p class="note"><svg class="i s"><use href="#i-chat"/></svg>Nous vous écrivons sur WhatsApp dans l'heure pour confirmer.</p>
+<form class="panel" onsubmit="event.preventDefault();location.hash='merci'">
+<h1>Finaliser ma commande</h1><span style="color:var(--mut)">Vous payez en espèces à la livraison. Aucun compte à créer.</span>
+<h2><span>1</span>Adresse de livraison</h2>
+<div class="two"><div class="fld">Nom et prénom<input value="Karim Benali" autocomplete="name"></div><div class="fld">Téléphone<input value="06 12 34 56 78" inputmode="tel" autocomplete="tel"></div></div>
+<div class="two"><div class="fld">Ville<select id="city"><option value="20">Casablanca</option><option value="50">Rabat</option><option value="50">Marrakech</option><option value="50">Tanger</option><option value="50">Agadir</option><option value="50">Fès</option></select></div><div class="fld">Quartier<input placeholder="Ex. Maârif"></div></div>
+<div class="fld">Adresse<input placeholder="Rue, numéro, point de repère"></div>
+<div class="fld">E-mail <small>facultatif</small><input type="email" placeholder="nom@exemple.ma"></div>
+<h2><span>2</span>Paiement</h2>
+<div class="pm"><label><input type="radio" name="p" checked><span>Paiement à la livraison<small>En espèces, au livreur</small></span><em class="tagr">Le plus choisi</em></label>
+<label><input type="radio" name="p"><span>Carte bancaire<small>Visa, Mastercard</small></span><svg class="i" style="margin-left:auto;color:var(--mut)"><use href="#i-card"/></svg></label></div>
+<button class="btn" style="width:100%;margin-top:16px;min-height:52px;font-size:16px">Confirmer la commande, <span class="gt"></span></button>
+<p class="note"><svg class="i s"><use href="#i-chat"/></svg>Nous confirmons votre commande sur WhatsApp dans l'heure.</p>
 </form>
-<div class="rc"><h3>Votre commande</h3><div class="no">Adoris Store, Derb Omar, Casablanca</div><div id="lines"></div>
-<dl><dt>Sous-total</dt><dd id="st"></dd><dt id="shl">Livraison</dt><dd id="sh"></dd><dt class="tot">À payer à la livraison</dt><dd class="tot gt"></dd></dl>
-<div class="cod"><svg class="i"><use href="#i-swap"/></svg>Échange possible sous 7 jours après réception.</div></div>
+<div class="panel sum"><h2>Récapitulatif</h2><div id="lines"></div>
+<dl><dt>Sous-total</dt><dd id="st"></dd><dt id="shl">Livraison</dt><dd id="sh"></dd><dt class="tot">Total à payer</dt><dd class="tot gt"></dd></dl>
+<div class="promo"><input placeholder="Code promo" aria-label="Code promo"><button class="btn line" type="button" style="min-height:40px">Appliquer</button></div>
+<p class="note"><svg class="i s"><use href="#i-swap"/></svg>Échange sous 7 jours au magasin ou par coursier.</p></div>
 </div></div></section>
 
-<section class="view" id="v-merci"><div class="w ty">
-<div class="ok"><svg class="i"><use href="#i-check"/></svg></div>
-<h1>Merci Karim, votre commande est enregistrée.</h1>
-<p>Commande A-1024. Un conseiller Adoris vous écrit sur WhatsApp dans l'heure pour la confirmer avant l'envoi.</p>
-<ol class="tl"><li class="d">Enregistrée<small>maintenant</small></li><li>Confirmée<small>dans l'heure</small></li><li>Expédiée<small id="dship">aujourd'hui</small></li><li>Livrée<small id="dday">demain</small></li></ol>
-<div class="rc" style="max-width:460px"><h3>Récapitulatif</h3><div class="no">À payer en espèces au livreur</div><dl style="border:0;padding:0;margin:0"><dt>Total</dt><dd class="gt" style="font-weight:700"></dd><dt>Adresse</dt><dd>Maârif, Casablanca</dd><dt>Téléphone</dt><dd>06 12 34 56 78</dd></dl></div>
-<p style="margin-top:34px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn wa"><svg class="i"><use href="#i-chat"/></svg>Ouvrir WhatsApp</a><a class="btn out" href="#accueil">Continuer mes achats</a></p>
+<section class="view" id="v-merci"><div class="w"><div class="panel ty">
+<div class="ok"><span><svg class="i"><use href="#i-check"/></svg></span><h1>Merci Karim, votre commande A-1024 est enregistrée</h1></div>
+<p>Un conseiller vous écrit sur WhatsApp dans l'heure pour confirmer l'adresse. Préparez le montant exact pour le livreur.</p>
+<ol class="tl"><li class="d">Enregistrée<small>maintenant</small></li><li>Confirmée<small>dans l'heure</small></li><li>Expédiée<small>aujourd'hui</small></li><li>Livrée<small>demain</small></li></ol>
+<dl class="rec"><dt>Total à payer au livreur</dt><dd class="gt"></dd><dt>Livraison</dt><dd>Demain, Maârif, Casablanca</dd><dt>Téléphone</dt><dd>06 12 34 56 78</dd></dl>
+<p style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px"><a class="btn wa"><svg class="i"><use href="#i-chat"/></svg>Suivre sur WhatsApp</a><a class="btn line" href="#accueil">Continuer mes achats</a></p>
+</div>
+<div class="panel blk"><div class="bh"><h2>Souvent ajoutés après une montre</h2></div><div class="g6" id="after"></div></div>
 </div></section>
 </main>
 
-<div class="pbar" id="pbar"><div class="pp" id="pp"></div><a class="btn" href="#commande">Commander</a><a class="wab" aria-label="Commander sur WhatsApp"><svg class="i"><use href="#i-chat"/></svg></a></div>
-<nav class="tab" aria-label="Navigation"><a href="#accueil" data-v="accueil"><svg class="i"><use href="#i-home"/></svg>Accueil</a><a href="#categorie" data-v="categorie"><svg class="i"><use href="#i-grid"/></svg>Rayons</a><a href="#categorie"><svg class="i"><use href="#i-search"/></svg>Chercher</a><a href="#commande" data-v="commande"><svg class="i"><use href="#i-bag"/></svg><b class="cc">0</b>Panier</a><a><svg class="i"><use href="#i-chat"/></svg>WhatsApp</a></nav>
+<div class="pbar" id="pbar"><button class="btn line add" id="pbadd" data-id="m1">Ajouter au panier</button><a class="btn" href="#commande">Commander</a><a class="wab" aria-label="Commander sur WhatsApp"><svg class="i"><use href="#i-chat"/></svg></a></div>
+<nav class="tab" aria-label="Navigation"><a href="#accueil" data-v="accueil"><svg class="i"><use href="#i-home"/></svg>Accueil</a><a href="#categorie" data-v="categorie"><svg class="i"><use href="#i-grid"/></svg>Rayons</a><a href="#categorie"><svg class="i"><use href="#i-bolt"/></svg>Promos</a><a href="#commande" data-v="commande"><svg class="i"><use href="#i-bag"/></svg><b class="cc">0</b>Panier</a><a><svg class="i"><use href="#i-user"/></svg>Compte</a></nav>
 
 <footer class="ft"><div class="w fcols">
-<div><a class="logo" href="#accueil">ADORIS<small>STORE</small></a><p style="max-width:34ch">Montres, lunettes et smartwatches, en stock dans notre magasin de Derb Omar à Casablanca.</p></div>
-<div><h4>Rayons</h4><ul><li>Montres hommes</li><li>Montres femmes</li><li>Smartwatch</li><li>Lunettes</li><li>Coffrets et gravure</li></ul></div>
-<div><h4>Aide</h4><ul><li>Livraison et délais</li><li>Échanges et retours</li><li>Suivre ma commande</li><li>Conditions de vente</li><li>Mentions légales</li></ul></div>
-<div><h4>Nous trouver</h4><ul><li><svg class="i s"><use href="#i-pin"/></svg>Kissariat Saidi, Garage Allal, Derb Omar, Casablanca</li><li><svg class="i s"><use href="#i-clock"/></svg>Tous les jours, de 10 h à 20 h</li><li><svg class="i s"><use href="#i-chat"/></svg>06 63 58 31 62</li><li><svg class="i s"><use href="#i-mail"/></svg>contact@adoristore.ma</li><li><svg class="i s"><use href="#i-store"/></svg>Vous êtes revendeur ? adoris.ma</li></ul></div>
-</div><div class="w fbot"><span>© 2026 Adoris Store</span><span>Maquette : notes, avis, délais, garanties et caractéristiques sont des exemples à remplacer.</span></div></footer>
+<div><a class="logo" href="#accueil">ADORIS<small>STORE</small></a><p style="max-width:34ch">Montres, smartwatches et lunettes livrées partout au Maroc, depuis notre magasin de Derb Omar.</p><div class="payl"><span>Paiement à la livraison</span><span>VISA</span><span>Mastercard</span></div></div>
+<div><h4>Acheter</h4><ul><li>Montres hommes</li><li>Montres femmes</li><li>Smartwatch</li><li>Lunettes</li><li>Ventes flash</li></ul></div>
+<div><h4>Aide</h4><ul><li>Suivre ma commande</li><li>Livraison et frais</li><li>Échanges et retours</li><li>Conditions de vente</li><li>Mentions légales</li></ul></div>
+<div><h4>Contact</h4><ul><li><svg class="i s"><use href="#i-chat"/></svg>WhatsApp 06 63 58 31 62</li><li><svg class="i s"><use href="#i-mail"/></svg>contact@adoristore.ma</li><li><svg class="i s"><use href="#i-pin"/></svg>Kissariat Saidi, Garage Allal, Derb Omar, Casablanca</li><li><svg class="i s"><use href="#i-clock"/></svg>Tous les jours, de 10 h à 20 h</li><li><svg class="i s"><use href="#i-store"/></svg>Revendeurs : adoris.ma</li></ul></div>
+</div><div class="w fbot"><span>© 2026 Adoris Store</span><span>Maquette : notes, avis, stocks, ventes, délais et caractéristiques sont des exemples à remplacer.</span></div></footer>
 
 <script src="produits.js"></script>
 <script>
 {
 const P=PRODUITS,by=id=>P.find(p=>p.id===id),fmt=v=>v+' Dhs';
 const ic=(n,c='i s')=>`<svg class="${c}"><use href="#i-${n}"/></svg>`;
-const star='<svg><use href="#i-star"/></svg>';
-const rate=id=>{let s=0;for(const c of id)s=(s*31+c.charCodeAt(0))%997;return {r:(4.3+(s%7)/10).toFixed(1).replace('.',','),n:6+s%57}};
-const tag=p=>{const off=p.old?Math.round((1-p.price/p.old)*100):0;return `<span class="tag${p.old?' sale':''}"><span>${p.old?`<s>${p.old} Dhs <em>−${off} %</em></s>`:''}${fmt(p.price)}</span></span>`};
-const slot=p=>{const r=rate(p.id),off=p.old?Math.round((1-p.price/p.old)*100):0;
- return `<div class="slot"><a class="im" href="#produit-${p.id}"><img src="img/${p.id}.jpg" alt="${p.brand} ${p.name}" loading="lazy">${tag(p)}</a>
- <span class="br">${p.brand}</span><a class="nm" href="#produit-${p.id}">${p.name}</a><span class="rt">${star}<b>${r.r}</b> sur 5, ${r.n} avis</span>
- <button class="add" data-id="${p.id}">${ic('bag')}<span>Ajouter</span></button></div>`};
-const put=(id,ids)=>document.getElementById(id).innerHTML=ids.map(i=>slot(by(i))).join('');
-put('best',['m1','m2','f1','m3','s1','m4','f3','l1','m5','b1']);
-put('elle',['f1','f2','f3','f4','f5']);
-put('smart',['s1','s2','s3','s4','l2']);
-put('catg',['m1','m2','m3','m4','m5','m6','m7','m8','m1','m3','m6','m2']);
-document.getElementById('cats').innerHTML=[['m2','Hommes','86'],['f2','Femmes','54'],['s1','Smartwatch','31'],['l1','Lunettes','38'],['b1','Coffrets','9'],['g1','Gravure','50 Dhs']].map(c=>`<a class="cat" href="#categorie"><img src="img/${c[0]}.jpg" alt=""><b>${c[1]}<small>${c[2]}</small></b></a>`).join('');
-const revs=a=>a.map(r=>`<div class="rev"><span class="rt">${star.repeat(r[3])}</span><p>« ${r[1]} »</p><small>${r[0]}, exemple d'avis sur ${r[2]}</small></div>`).join('');
-document.getElementById('revs').innerHTML=revs([['Karim, Casablanca',"Commandée à 14 h, reçue le lendemain matin. Le livreur a attendu que je l'essaie avant de payer.",'une montre NIBOSI',5],['Salma, Rabat',"La gravure est très nette, mon mari ne s'y attendait pas. Réponse rapide sur WhatsApp.",'une gravure et un coffret',5],['Youssef, Agadir','Bon rapport qualité-prix. Arrivée en deux jours, payée à la réception.','des lunettes BARCUR',4]]);
+const seed=id=>{let s=0;for(const c of id)s=(s*31+c.charCodeAt(0))%997;return s};
+const rate=id=>{const s=seed(id);return {v:4.3+(s%7)/10,n:6+s%57}};
+const stars=v=>`<span class="st">${[1,2,3,4,5].map(i=>`<svg class="${i<=Math.round(v)?'':'e'}"><use href="#i-star"/></svg>`).join('')}</span>`;
+const fr=v=>v.toFixed(1).replace('.',',');
+const FLASH=['m1','m3','f3','m8','s2','f2'];
+const deal=p=>p.old?p:{...p,old:Math.round(p.price*1.18/10)*10-1};
+const card=(p0,o={})=>{const p=o.flash?deal(p0):p0,r=rate(p.id),off=p.old?Math.round((1-p.price/p.old)*100):0,left=3+seed(p.id)%9;
+ return `<div class="pc"><a class="im" href="#produit-${p.id}"><img src="img/${p.id}.jpg" alt="${p.brand} ${p.name}" loading="lazy">${off?`<span class="disc">−${off} %</span>`:(p.id==='s2'||p.id==='m7'?'<span class="nw">Nouveau</span>':'')}</a>
+ <button class="fav" aria-label="Ajouter aux favoris">${ic('heart')}</button>
+ <a class="nm" href="#produit-${p.id}"><b>${p.brand}</b> ${p.name}</a>
+ <div class="pr"><b>${fmt(p.price)}</b>${p.old?`<s>${fmt(p.old)}</s>`:''}</div>
+ <div class="rt">${stars(r.v)}<span>(${r.n})</span></div>
+ ${o.flash?`<div class="stock">Plus que ${left} en stock<i style="--p:${100-left*8}%"></i></div>`:`<span class="chip">${ic('truck')}Livré demain</span>`}
+ <button class="add" data-id="${p.id}">${ic('bag')}Ajouter au panier</button></div>`};
+const put=(id,ids,o)=>document.getElementById(id).innerHTML=ids.map(i=>card(by(i),o)).join('');
+put('flash',FLASH,{flash:true});
+put('best',['m2','f1','s1','m5','l1','b1']);
+put('elle',['f1','f2','f3','f4','f5','f6']);
+put('catg',['m1','m2','m3','m4','m5','m6','m7','m8','m2','m1']);
+put('after',['g1','b2','b1','s4','l3','l2']);
+document.getElementById('cats').innerHTML=[['m2','Hommes'],['f2','Femmes'],['s1','Smartwatch'],['s4','Bracelets'],['l1','Lunettes'],['b1','Coffrets'],['g1','Gravure'],['m6','Sport']].map(c=>`<a href="#categorie"><img src="img/${c[0]}.jpg" alt="">${c[1]}</a>`).join('');
 
-/* live dial */
-const dial=document.getElementById('dial'),pol=(r,a)=>[200+r*Math.sin(a),200-r*Math.cos(a)];
-let ticks='';for(let i=0;i<60;i++){const a=i*Math.PI/30,[x1,y1]=pol(i%5?168:158,a),[x2,y2]=pol(176,a);ticks+=`<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${i%5?'#8EA2BF':'#fff'}" stroke-width="${i%5?1.2:3.2}"/>`}
-let nums='';for(let h=1;h<=12;h++){if(h===3)continue;const[x,y]=pol(136,h*Math.PI/6);nums+=`<text x="${x.toFixed(1)}" y="${(y+7).toFixed(1)}" text-anchor="middle" font-size="21" font-weight="600" fill="#E8EEF6" font-family="Archivo" style="font-stretch:125%">${h}</text>`}
-dial.innerHTML=`<defs><radialGradient id="sun" cx="50%" cy="42%" r="62%"><stop offset="0" stop-color="#2B5490"/><stop offset="1" stop-color="#122A4E"/></radialGradient><linearGradient id="stl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4F5F6"/><stop offset=".5" stop-color="#B3BAC1"/><stop offset="1" stop-color="#E9ECEE"/></linearGradient></defs>
-<circle cx="200" cy="200" r="199" fill="url(#stl)"/><circle cx="200" cy="200" r="188" fill="#0C1C36"/><circle cx="200" cy="200" r="182" fill="url(#sun)"/>
-<path id="arc" fill="none" stroke="#EBD9AE" stroke-width="8" stroke-linecap="round"/>${ticks}${nums}
-<text x="200" y="112" text-anchor="middle" font-family="Jost" font-weight="600" font-size="22" letter-spacing="3" fill="#fff">ADORIS</text>
-<text x="200" y="128" text-anchor="middle" font-family="Archivo" font-size="10" letter-spacing="2.5" fill="#B9C8DC">CASABLANCA</text>
-<rect x="290" y="186" width="40" height="28" rx="2" fill="#fff"/><text id="date" x="310" y="206" text-anchor="middle" font-family="Archivo" font-weight="700" font-size="17" fill="#1C1E22"></text>
-<text id="cut" x="200" y="292" text-anchor="middle" font-family="Archivo" font-size="12.5" fill="#EBD9AE">départ des colis 16:00</text>
-<g id="dh"><path d="M195.5 212 L198 110 L202 110 L204.5 212 Z" fill="#fff"/></g>
-<g id="dm"><path d="M197.5 214 L199 56 L201 56 L202.5 214 Z" fill="#fff"/></g>
-<g id="ds"><line x1="200" y1="238" x2="200" y2="44" stroke="#C8372D" stroke-width="2"/><circle cx="200" cy="228" r="5" fill="#C8372D"/></g>
-<circle cx="200" cy="200" r="7.5" fill="#C8372D"/><circle cx="200" cy="200" r="2.5" fill="#fff"/>`;
-const arcPath=(a0,a1,r)=>{const[x0,y0]=pol(r,a0),[x1,y1]=pol(r,a1);return `M${x0.toFixed(1)} ${y0.toFixed(1)} A${r} ${r} 0 ${(a1-a0)>Math.PI?1:0} 1 ${x1.toFixed(1)} ${y1.toFixed(1)}`};
-const now=()=>{const f=new Intl.DateTimeFormat('en-GB',{timeZone:'Africa/Casablanca',hourCycle:'h23',day:'numeric',hour:'numeric',minute:'numeric',second:'numeric'}).formatToParts(new Date()),g=t=>+f.find(x=>x.type===t).value;return {d:g('day'),h:g('hour'),m:g('minute'),s:g('second')}};
-const leftEl=document.getElementById('left');
-const tick=()=>{const t=now(),hf=(t.h%12)+t.m/60+t.s/3600;
- document.getElementById('dh').setAttribute('transform',`rotate(${hf*30} 200 200)`);
- document.getElementById('dm').setAttribute('transform',`rotate(${(t.m+t.s/60)*6} 200 200)`);
- document.getElementById('ds').setAttribute('transform',`rotate(${t.s*6} 200 200)`);
- document.getElementById('date').textContent=t.d;
- const mins=16*60-(t.h*60+t.m),arc=document.getElementById('arc');
- if(t.h>=6&&mins>0){let a0=hf*Math.PI/6,a1=4*Math.PI/6;if(a0>a1)a1+=2*Math.PI;arc.setAttribute('d',arcPath(a0,a1,183));arc.style.display='';
-  const h=Math.floor(mins/60),m=mins%60;leftEl.innerHTML=`Encore <em>${h?h+' h ':''}${String(m).padStart(h?2:1,'0')} min</em> pour être livré demain à Casablanca.`;
-  document.getElementById('dship').textContent="aujourd'hui";document.getElementById('dday').textContent='demain'}
- else{arc.style.display='none';leftEl.innerHTML=`Les colis du jour sont partis : commandée maintenant, <em>elle part demain matin</em>.`;
-  document.getElementById('dship').textContent='demain matin';document.getElementById('dday').textContent='après-demain'}};
-tick();setInterval(tick,matchMedia('(prefers-reduced-motion: reduce)').matches?60000:1000);
+const parts=()=>{const f=new Intl.DateTimeFormat('en-GB',{timeZone:'Africa/Casablanca',hourCycle:'h23',hour:'numeric',minute:'numeric',second:'numeric'}).formatToParts(new Date()),g=t=>+f.find(x=>x.type===t).value;return [g('hour'),g('minute'),g('second')]};
+const pad=n=>String(n).padStart(2,'0');
+const cd=()=>{const [h,m,s]=parts(),left=86400-(h*3600+m*60+s);document.getElementById('ch').textContent=pad(Math.floor(left/3600));document.getElementById('cm').textContent=pad(Math.floor(left%3600/60));document.getElementById('cs').textContent=pad(left%60)};
+cd();setInterval(cd,1000);
 
-/* engraving preview */
-const back=(svg,id,size)=>{let rings='';for(let r=20;r<136;r+=3)rings+=`<circle cx="150" cy="150" r="${r}" fill="none" stroke="${(r/3)%2?'#C3CAD0':'#DDE2E6'}" stroke-width="1.5"/>`;
- svg.innerHTML=`<defs><linearGradient id="cs${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2F4F5"/><stop offset=".55" stop-color="#AEB6BD"/><stop offset="1" stop-color="#E4E8EA"/></linearGradient><path id="ring${id}" d="M150 150 m-112 0 a112 112 0 1 1 224 0 a112 112 0 1 1 -224 0"/></defs>
- <circle cx="150" cy="150" r="148" fill="url(#cs${id})"/><circle cx="150" cy="150" r="138" fill="#D3D9DD"/>${rings}
- <text font-family="Archivo" font-size="10.5" letter-spacing="2.4" fill="#7D878F"><textPath href="#ring${id}" startOffset="3%">ACIER INOXYDABLE   3 ATM   ADORIS STORE CASABLANCA</textPath></text>
- <text class="eng" x="150" y="157" text-anchor="middle" font-family="Archivo" font-size="${size}" font-weight="500" fill="#56606A" stroke="#F3F5F6" stroke-width=".7" paint-order="stroke"></text>`};
-const cb=document.getElementById('caseback');back(cb,'a',20);
-const gi=document.getElementById('gtext'),eng=()=>{cb.querySelector('.eng').textContent=gi.value||'Votre texte'};gi.addEventListener('input',eng);eng();
-
-/* cart */
 let cart=[];
 const setCart=()=>{document.querySelectorAll('.cc').forEach(e=>e.textContent=cart.length);
  const items=cart.length?cart:['m1'],st=items.reduce((a,i)=>a+by(i).price,0),city=document.getElementById('city'),sh=st>=500?0:+city.value;
- document.getElementById('lines').innerHTML=items.map(i=>{const p=by(i);return `<div class="li"><img src="img/${p.id}.jpg" alt=""><span>${p.brand}, ${p.name}<small>Quantité 1</small></span><b>${fmt(p.price)}</b></div>`}).join('');
- document.getElementById('st').textContent=fmt(st);document.getElementById('shl').textContent='Livraison à '+city.options[city.selectedIndex].text;
- const se=document.getElementById('sh');se.textContent=sh?fmt(sh):'Offerte';se.className=sh?'':'free';
+ document.getElementById('lines').innerHTML=items.map(i=>{const p=by(i);return `<div class="li"><img src="img/${p.id}.jpg" alt=""><span><b>${p.brand}</b> ${p.name}<small>Quantité 1, livré demain</small></span><b>${fmt(p.price)}</b></div>`}).join('');
+ document.getElementById('st').textContent=fmt(st);document.getElementById('shl').textContent='Livraison '+city.options[city.selectedIndex].text;
+ const se=document.getElementById('sh');se.textContent=sh?fmt(sh):'Gratuite';se.className=sh?'':'free';
  document.querySelectorAll('.gt').forEach(e=>e.textContent=fmt(st+sh))};
 document.getElementById('city').addEventListener('change',setCart);
-document.addEventListener('click',e=>{const b=e.target.closest('.add');if(!b)return;cart.push(b.dataset.id);setCart();b.classList.add('done');b.innerHTML=ic('check')+'<span>Dans le panier</span>'});
+document.addEventListener('click',e=>{const b=e.target.closest('.add');if(!b)return;e.preventDefault();cart.push(b.dataset.id);setCart();b.classList.add('done');b.innerHTML=ic('check')+'Ajouté'});
 
-/* product page */
 const prod=id=>{const p=by(id)||by('m1'),r=rate(p.id),off=p.old?Math.round((1-p.price/p.old)*100):0;
- const sim=P.filter(x=>x.cat===p.cat&&x.id!==p.id).slice(0,5);let k=0;while(sim.length<5){if(P[k].id!==p.id&&!sim.includes(P[k]))sim.push(P[k]);k++}
- const shots=[p.id,...sim.slice(0,3).map(s=>s.id)];
+ const sim=P.filter(x=>x.cat===p.cat&&x.id!==p.id).slice(0,6);let k=0;while(sim.length<6){if(P[k].id!==p.id&&!sim.includes(P[k]))sim.push(P[k]);k++}
+ const shots=[p.id,...sim.slice(0,3).map(s=>s.id)],dist=[72,18,6,3,1];
  document.getElementById('pw').innerHTML=`<div class="crumb"><a href="#accueil">Accueil</a>${ic('right')}<a href="#categorie">Montres hommes</a>${ic('right')}${p.brand}</div>
- <div class="pl"><div class="gal"><div class="th">${shots.map((t,i)=>`<button class="${i?'':'on'}" data-img="${t}" aria-label="Photo ${i+1}"><img src="img/${t}.jpg" alt=""></button>`).join('')}</div>
- <div class="big"><img id="bigimg" src="img/${p.id}.jpg" alt="${p.brand} ${p.name}">${off?`<span class="off">−${off} %</span>`:''}</div></div>
- <div class="info"><div class="br">${p.brand}</div><h1>${p.name}</h1><span class="rt">${star.repeat(5)}<b>${r.r}</b> sur 5, ${r.n} avis</span>
- <div class="price"><b>${fmt(p.price)}</b>${p.old?`<s>${p.old} Dhs</s><em>−${off} %</em>`:''}</div>
- <ul class="prom"><li>${ic('cash','i')}<span><b>Vous payez à la livraison</b>En espèces, après avoir vu la montre</span></li><li>${ic('truck','i')}<span><b>Livrée demain à Casablanca</b>Commandez avant 16 h. 48 h dans les autres villes.</span></li><li>${ic('shield','i')}<span><b>Échange 7 jours, garantie 6 mois</b>En stock au magasin de Derb Omar</span></li></ul>
- <div class="optl">Couleur du cadran : <b>doré</b></div><div class="sw"><button class="on" style="background:#C9A24A" aria-label="Doré"></button><button style="background:#222" aria-label="Noir"></button><button style="background:#C0C0C0" aria-label="Argent"></button></div>
- <details class="engr"><summary>${ic('pen','i')}<span>Graver un prénom ou une date<small>Au dos de la montre, prête en 24 h</small></span><span class="p">+50 Dhs</span></summary><div class="body"><svg id="cbp" viewBox="0 0 300 300" aria-hidden="true"></svg><label>Texte à graver<input id="gp" value="Karim 12.06.2026" maxlength="25"></label></div></details>
- <div class="buy"><div class="qty"><button aria-label="Retirer une">${ic('minus')}</button>1<button aria-label="Ajouter une">${ic('plus')}</button></div><a class="btn" href="#commande">Commander, payer à la livraison</a></div>
- <div class="buy2"><button class="btn out add" data-id="${p.id}">${ic('bag')}<span>Ajouter au panier</span></button><a class="btn wa">${ic('chat')}Commander sur WhatsApp</a></div>
- <table class="specs"><tr><th>Mouvement</th><td>Quartz japonais</td></tr><tr><th>Diamètre du boîtier</th><td>46 mm</td></tr><tr><th>Bracelet</th><td>Acier inoxydable, 22 mm, ajusté gratuitement</td></tr><tr><th>Étanchéité</th><td>3 ATM : pluie et lavage des mains</td></tr><tr><th>Fonctions</th><td>Chronographe, date, aiguilles luminescentes</td></tr><tr><th>Livrée avec</th><td>Boîte Adoris et carte de garantie</td></tr></table></div></div>
- <div class="sec"><div class="sh"><h2>À offrir avec</h2></div><div class="set"><img src="img/${p.id}.jpg" alt=""><span class="pl2">${ic('plus','i')}</span><img src="img/g1.jpg" alt=""><span class="pl2">${ic('plus','i')}</span><img src="img/b2.jpg" alt=""><div class="tot"><span>Montre, gravure et coffret 6 places</span><b>${fmt(p.price+50+225)}</b><a class="btn" href="#commande">Prendre les trois</a></div></div></div>
- <div class="sec"><div class="sh"><h2>Avis sur cette montre</h2><a>Lire les ${r.n} avis</a></div><div class="revs">${revs([['Amine, Casablanca','Plus lourde que je pensais, elle fait sérieux. Livrée en 24 h.','ce modèle',5],['Nadia, Rabat','Conforme à la photo. Le livreur a attendu que je vérifie.','ce modèle',5],['Hamza, Casablanca','Bracelet raccourci gratuitement au magasin.','ce modèle',4]])}</div></div>
- <div class="sec"><div class="sh"><h2>Dans le même style</h2></div><div class="case g5">${sim.map(slot).join('')}</div></div>`;
- const cbp=document.getElementById('cbp');back(cbp,'p',22);const gp=document.getElementById('gp'),e2=()=>{cbp.querySelector('.eng').textContent=gp.value||'Votre texte'};gp.addEventListener('input',e2);e2();
- document.getElementById('pp').innerHTML=`${fmt(p.price)}<small>${p.old?`au lieu de ${p.old} Dhs`:'payé à la livraison'}</small>`;
+ <div class="pp">
+ <div class="panel gal"><div class="th">${shots.map((t,i)=>`<button class="${i?'':'on'}" data-img="${t}" aria-label="Photo ${i+1}"><img src="img/${t}.jpg" alt=""></button>`).join('')}</div><div class="big"><img id="bigimg" src="img/${p.id}.jpg" alt="${p.brand} ${p.name}">${off?`<span class="disc">−${off} %</span>`:''}</div></div>
+ <div class="panel det"><a class="bl" href="#categorie">Voir toutes les montres ${p.brand}</a><h1>${p.brand} ${p.name}</h1>
+ <div class="rt">${stars(r.v)}<b style="color:var(--ink)">${fr(r.v)}</b><button type="button" id="toav">${r.n} avis</button><span>·</span><span>${40+seed(p.id)%160} vendues ce mois</span></div>
+ <div class="bp"><b>${fmt(p.price)}</b>${p.old?`<s>${fmt(p.old)}</s><em>−${off} %</em>`:''}</div>${p.old?`<div class="save">Vous économisez ${p.old-p.price} Dhs</div>`:''}
+ <div class="opts">Couleur : <b>doré</b><div class="sw">${[p.id,sim[0].id,sim[1].id].map((t,i)=>`<button class="${i?'':'on'}" aria-label="Couleur ${i+1}"><img src="img/${t}.jpg" alt=""></button>`).join('')}</div></div>
+ <ul class="keys"><li>Chronographe et date, aiguilles luminescentes</li><li>Boîtier 46 mm, bracelet acier ajusté gratuitement</li><li>Étanche 3 ATM : pluie et lavage des mains</li><li>Livrée dans une boîte Adoris avec carte de garantie</li></ul>
+ <table class="specs"><tr><th>Marque</th><td>${p.brand}</td></tr><tr><th>Mouvement</th><td>Quartz japonais</td></tr><tr><th>Diamètre</th><td>46 mm</td></tr><tr><th>Bracelet</th><td>Acier inoxydable, 22 mm</td></tr><tr><th>Garantie</th><td>6 mois</td></tr></table></div>
+ <aside class="panel box"><div class="bp"><b>${fmt(p.price)}</b>${p.old?`<s>${fmt(p.old)}</s>`:''}</div>
+ <p class="instock">En stock au magasin</p>
+ <div class="dlv"><div>${ic('truck','i')}<span><b>Livraison <span class="ok">demain</span></b>pour toute commande avant 16 h<select aria-label="Ville de livraison"><option>Casablanca, 20 Dhs</option><option>Rabat, 50 Dhs</option><option>Marrakech, 50 Dhs</option><option>Tanger, 50 Dhs</option></select></span></div><div>${ic('cash','i')}<span><b>Paiement à la livraison</b>En espèces, après avoir vu la montre</span></div><div>${ic('swap','i')}<span><b>Échange sous 7 jours</b>Gratuit au magasin de Derb Omar</span></div></div>
+ <label class="eng"><input type="checkbox">${ic('pen','i')}<span>Graver un prénom au dos</span><b>+50 Dhs</b></label>
+ <div class="qty buyb">Quantité<select aria-label="Quantité"><option>1</option><option>2</option><option>3</option></select></div>
+ <a class="btn buyb" href="#commande">Acheter maintenant</a><button class="btn line add buyb" data-id="${p.id}">${ic('bag')}Ajouter au panier</button><a class="btn wa buyb">${ic('chat')}Commander sur WhatsApp</a>
+ <div class="sec2"><span>${ic('lock')}Données protégées</span><span>${ic('shield')}Garantie 6 mois</span></div></aside>
+ </div>
+ <div class="panel blk"><div class="bh"><h2>Souvent achetés ensemble</h2></div><div class="fbt"><img src="img/${p.id}.jpg" alt=""><span class="pl">${ic('plus','i')}</span><img src="img/g1.jpg" alt=""><span class="pl">${ic('plus','i')}</span><img src="img/b2.jpg" alt=""><div class="t"><span>Montre, gravure et coffret</span><b>${fmt(p.price+50+225)}</b><a class="btn" href="#commande">Ajouter les trois au panier</a></div></div></div>
+ <div class="panel blk"><div class="bh"><h2>Les clients ont aussi regardé</h2></div><div class="g6">${sim.map(s=>card(s)).join('')}</div></div>
+ <div class="panel blk" id="avis"><div class="bh"><h2>Avis clients</h2></div><div class="revw"><div><div class="rt" style="font-size:15px">${stars(r.v)}<b style="color:var(--ink)">${fr(r.v)} sur 5</b></div><p style="color:var(--mut);margin:4px 0 10px">${r.n} avis</p><div class="bars">${dist.map((d,i)=>`<div><span>${5-i} étoiles</span><i style="--p:${d}%"></i><span>${d} %</span></div>`).join('')}</div></div>
+ <div>${[['Amine, Casablanca','Très belle montre','Plus lourde que je pensais, elle fait sérieux. Livrée en 24 h.',5],['Nadia, Rabat','Conforme à la photo','Le livreur a attendu que je vérifie avant de payer.',5],['Hamza, Casablanca','Bon rapport qualité-prix','Bracelet raccourci gratuitement au magasin.',4]].map(v=>`<div class="rv"><div class="rt">${stars(v[3])}<b style="color:var(--ink)">${v[1]}</b></div><p>${v[2]}</p><small>${v[0]}, exemple d'avis</small></div>`).join('')}</div></div></div>`;
+ document.getElementById('toav').addEventListener('click',()=>document.getElementById('avis').scrollIntoView({behavior:'smooth'}));
+ const pb=document.getElementById('pbadd');pb.dataset.id=p.id;pb.classList.remove('done');pb.textContent='Ajouter au panier';
  document.querySelectorAll('.th button').forEach(b=>b.addEventListener('click',()=>{document.getElementById('bigimg').src='img/'+b.dataset.img+'.jpg';document.querySelectorAll('.th button').forEach(x=>x.classList.toggle('on',x===b))}))};
 
 const route=()=>{const h=location.hash.slice(1)||'accueil';let v=h;if(h.startsWith('produit')){v='produit';prod(h.split('-')[1]||'m1')}
